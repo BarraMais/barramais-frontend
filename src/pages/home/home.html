@@ -1,0 +1,25 @@
+<ion-content padding="">
+    <div class="logo-home">
+        <img alt="Barra Mais" src="assets/images/logoBarraMais.png"/>
+    </div>
+    <div class="subtitle">
+        <p class="subtitle-1">
+            O mundo náutico em suas mãos.
+        </p>
+        <p class="subtitle-2">
+            Encontre amigos, marque eventos e compartilhe os melhores momentos.
+        </p>
+    </div>
+    <br/>
+    <button (click)="openPage(login)" block="" ion-button="">
+        Entrar com o Email
+    </button>
+    <br/>
+    <button (click)="facebookLogin()" block="" ion-button="">
+        Entrar com o Facebook
+    </button>
+    <br/>
+    <button (click)="openPage(registration)" clear="" ion-button="">
+        Criar uma conta
+    </button>
+</ion-content>

@@ -1,0 +1,55 @@
+page-advertisers {
+  .actionButton {
+    font-size: 1.0rem;
+    color: #123f5f !important;
+    float: right;
+  }
+
+  .form-advertiser{
+    background-color: #123f5f !important;
+  }
+
+  .line-break{
+    overflow: inherit;
+    text-overflow: inherit;
+    white-space: normal;
+  }
+
+  .item-ios, .item-md, .item-wp{
+    border-bottom: solid 1px #f5f5f5;
+  }
+
+  .fab{
+    border-radius: 25%;
+  }
+
+  .fab-md-danger {
+    color: #fff;
+    background-color: #faa35f;
+  }
+
+  .fab-ios-danger {
+    color: #fff;
+    background-color: #faa35f;
+  }
+
+  .fab-wp-danger {
+    color: #fff;
+    background-color: #faa35f;
+  }
+
+  .fab-md-danger.activated {
+    color: #fff;
+    background-color: #faa35f;
+  }
+
+  .fab-ios-danger.activated {
+    color: #fff;
+    background-color: #faa35f;
+  }
+
+  .fab-wp-danger.activated {
+    color: #fff;
+    background-color: #faa35f;
+  }
+}

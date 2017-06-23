@@ -1,0 +1,51 @@
+page-users {
+    .button-md-primary,
+    .button-ios-primary,
+    .button-wp-primary {
+        color: #fff;
+        background-color: #123f5f;
+    }
+    .item-md .item-button,
+    .item-ios .item-button,
+    .item-wp .item-button {
+        height: 2.4rem;
+    }
+    // .item-inner {
+    //   border-bottom: 1px solid #dedede !important;
+    // }
+    .label-md,
+    .label-ios,
+    .label-wp {
+        margin: 0px 1px 17px 0;
+    }
+    .searchbar-md .searchbar-search-icon {
+        left: 1vh;
+        top: 1vh;
+    }
+    .searchbar-md .searchbar-input {
+        padding-top: 0;
+        color: #fff;
+        padding-bottom: 0;
+    }
+    .item-md ion-thumbnail {
+        min-height: 50px;
+    }
+    .item-friends {
+        margin-top: 30px !important;
+        border: none !important;
+        box-shadow: 0px 3px 7px #d9d9d9 !important;
+    }
+    .item-md ion-thumbnail[item-left] {
+        margin-right: 0;
+        min-width: 60px;
+    }
+    .label.label-md {
+        padding-bottom: 1.7em;
+    }
+    .bar-buttons button {
+        color: #fff;
+    }
+    .searchbar-input {
+        background: #fff !important;
+    }
+}

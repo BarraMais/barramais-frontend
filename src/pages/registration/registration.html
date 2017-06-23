@@ -1,0 +1,32 @@
+<ion-header>
+    <bm-header [title]= "'Criar Conta'"></bm-header>
+</ion-header>
+
+<ion-content padding>
+    <form (ngSubmit)="save(user)">
+      <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input type="text" [(ngModel)]="user.first_name" name="first_name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" [(ngModel)]="user.email" name="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Senha</ion-label>
+        <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+      </ion-item>
+      <br/>
+      <button ion-button type="submit" block color="barramais-primary">CONTINUAR</button>
+    </form>
+    <p>
+      Ao inscrever-se, você concorda com nossos<br>
+      <b><a (click)="openTermsAndPrivacy(termsPage)">Termos de Serviço</a></b> e <b><a (click)="openTermsAndPrivacy(privacyPage)">Política de Privacidade</a></b>
+    </p>
+    <div class="or">
+    <div> 
+        <span>OU</span>
+    </div>  
+  </div>
+    <button ion-button type="submit" outline block color="barramais-primary" (click)=openPage(loginPage)>Já tenho uma conta</button>
+</ion-content>

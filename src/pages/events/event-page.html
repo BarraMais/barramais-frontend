@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar>
+    <bm-header></bm-header>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="background-image">
+    <img src="{{event.cover_photo_url}}" alt="Perfil Header"/>
+  </div>
+  <div class="main-content">
+    <button icon-left class="perfil-actions" color="danger" style="right: 84px !important;" ion-button [hidden]="!showAdminActions" (click)="presentConfirmDelete(event)">
+      <ion-icon name="close"></ion-icon>
+      Excluir
+    </button>
+    <button icon-left class="perfil-actions" color="primary" ion-button (click)="openEditPage(eventModalPage, event, event.address)" [hidden]="!showAdminActions">
+      <ion-icon name="create"></ion-icon>
+      Editar
+    </button>
+    <ion-item no-lines>
+      <ion-avatar item-left class="ion-avatar-event">
+        <h2 class="h2-events-avatar">{{ event.event_date | date:'dd'}}</h2>
+        <h3 class="h3-events-avatar">{{ event.event_date | date:'MMM'}}</h3>
+      </ion-avatar>
+      <h2>{{event.name}}</h2>
+      <p>{{event.created_at | date:'MMMM d, y'}}</p>
+    </ion-item>
+    <ion-item text-wrap>
+      <p>
+        {{event.about}}
+      </p>
+    </ion-item>
+    <p>
+      {{event.address.street}} {{event.address.complement}} {{event.address.neighborhood}} {{event.city.name + " - " + event.state.name}}
+    </p>
+    <ion-card *ngIf="showConfirmedGuestActions">
+      <a ion-item (click)="openPostModal()">
+        <ion-avatar item-left>
+          <img src="{{user.avatar_url}}" id='user_avatar'>
+        </ion-avatar>
+        <p>
+          Digite alguma coisa...
+        </p>
+      </a>
+    </ion-card>
+    <ion-row [hidden]="!showAdminActions">
+      <ion-col width-33>
+        <button ion-button outline block color="light" (click)="openModal(eventGuests, friends)" icon-left>
+          Convidar
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row [hidden]="!showGuestActions">
+      <ion-col width-50>
+        <button ng-disabled="buttonStatus" block ion-button outline color="light" (click)="refuse_event()" icon-left>
+          Não vou
+        </button>
+      </ion-col>
+      <ion-col width-50>
+        <button ion-button outline block color="light" *ngIf="!decided" (click)="accept_event()" icon-left>
+          Vou
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-33>
+        <a (click)="openModal(eventGuests, confirmedGuests)">
+          <h2>{{l_confirmedGuests}}</h2>
+        </a>
+        <p>
+          Confirmaram
+        </p>
+      </ion-col>
+      <ion-col width-33>
+        <a (click)="openModal(eventGuests, allGuests)">
+          <h2>{{l_allGuests}}</h2>
+        </a>
+        <p>
+          Convidados
+        </p>
+      </ion-col>
+      <ion-col width-33>
+        <a (click)="openModal(eventGuests, pendingGuests)">
+          <h2>{{l_pendingGuests}}</h2>
+        </a>
+        <p>
+          Pendentes
+        </p>
+      </ion-col>
+    </ion-row>
+    <bm-post [posts]="posts"></bm-post>
+  </div>
+</ion-content>

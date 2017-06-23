@@ -1,0 +1,50 @@
+page-messages {
+    .chat-messages-list ion-row {
+        justify-content: start;
+        margin-top: 10px;
+    }
+    .chat-messages-list ion-row ion-col {
+        background-color: #3D6A89;
+        border-radius: 4px;
+        color: #f5f5f5;
+    }
+    .chat-messages-list ion-row.ownMessage {
+        justify-content: end;
+    }
+    .chat-messages-list ion-row.ownMessage ion-col {
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        color: #333;
+    }
+    div.message-body {
+        padding: 10px 0 0px;
+    }
+    ion-title {
+        color: #fff;
+    }
+    .toolbar-title-md,
+    .toolbar-title-ios,
+    .toolbar-title-wp {
+        color: #fff;
+    }
+    .content-md,
+    .content-ios,
+    .content-wp {
+        background-color: #b9d9f0;
+    }
+    .formgrid {
+        background: #f5f5f5;
+        border-top: solid 1px #ccc;
+    }
+    .send-button {
+        background: #27809d;
+        border: none !important;
+        border-radius: 3px !important;
+        color: rgb(255, 255, 255) !important;
+    }
+    .scroll-content {
+        background: url(assets/images/bg_chat.png) !important;
+        background-size: 100% !important;
+        background-position: center !important;
+    }
+}

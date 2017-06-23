@@ -1,0 +1,38 @@
+<!--
+  Generated template for the ClassifiedVesselManufacturer page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <bm-header></bm-header>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Fabricante</ion-label>
+    <ion-select [(ngModel)]="vessel.brand_id" (ionChange)="getMolds()" name="vessel_brand">
+      <ion-option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Modelo</ion-label>
+    <ion-select [(ngModel)]="vessel.mold_id" name="vessel_mold">
+      <ion-option *ngFor="let mold of molds" [value]="mold.id">{{mold.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Número do Chassi</ion-label>
+    <ion-input type="text" [(ngModel)]="vessel.chassis_number" name="vessel_chassis_number"></ion-input>
+  </ion-item>
+
+  <button class="form-buttons" ion-button type="button" (click)="openNextPage(classifiedVesselAccessoriesPage, vessel)" block>Próximo</button>
+
+  <button class="form-buttons" ion-button type="button" (click)="goBack()" block>Voltar</button>
+</ion-content>

@@ -1,0 +1,58 @@
+page-interest-selection {
+    .image-list {
+        border: 0;
+        width: 80%;
+        height: 80%;
+    }
+    .image-notSelected {
+        opacity: 0.3;
+    }
+    .image-notSelected,
+    .image-selected {
+        display: flex;
+        justify-content: center;
+    }
+    .image-selected .checkmark {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left: 67%;
+    }
+    .interest-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        align-content: stretch;
+    }
+    .interest-list-items {
+        display: flex;
+        width: 33.3333%;
+    }
+    .textToBeAligned {
+        text-align: center;
+        font-size: 74%;
+        text-transform: uppercase;
+        padding-top: 10px;
+    }
+    // .areaText{
+    //   text-align: center;
+    // }
+    //  .areaText p {
+    //    font-size: .8em;
+    //    color: #333;
+    //    text-align: justify;
+    //  }
+    .title {
+        text-align: center;
+        font-size: 1.2em;
+        color: #616161;
+    }
+    .btn-2 {
+        position: absolute;
+        bottom: 20px;
+        width: 80%;
+        left: 10%;
+    }
+}

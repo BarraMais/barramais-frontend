@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button icon-only  start>
+            <img alt="logo" height="26" src="assets/images/logoBarraMais.png">
+        </button>
+
+        <ion-title> Adicionar amigos </ion-title>
+
+    <!-- <ion-buttons end>
+        <button ion-button icon-only (click) = "openUserPage(usersPage)">
+          <ion-icon name="search"></ion-icon>
+        </button>
+    </ion-buttons> -->
+</ion-navbar>
+
+</ion-header>
+
+<!-- <ion-header>
+  
+</ion-header> -->
+
+<ion-content>
+    <div class="searchbar-content">
+        <ion-searchbar
+          [showCancelButton]="shouldShowCancel"
+          [debounce]='1000'
+          placeholder="Buscar por nome ou local de trabalho"
+          (ionInput)="getResults($event)">
+        </ion-searchbar>
+
+        <div class="or">
+            <div> 
+                <span>OU</span>
+            </div>  
+        </div>
+        <button class="btn-2"  ion-button full>AMIGOS DO FACEBOOK</button>
+        <button class="btn-1"  ion-button full>AMIGOS DA SUA AGENDA DE CONTATOS</button>
+    </div>
+
+    <ion-list>
+        <ion-item class="item-friends" *ngFor="let result of results">
+          <ion-thumbnail item-left (click)='openSearchItem(result)'>
+            <img [src]="getAvatarSrc(result)">
+          </ion-thumbnail>
+          <div class="friend-information-container">
+            <div class="friend-information-text">
+              <h2 (click)='openSearchItem(result)'>{{getSearchItemName(result)}}</h2>
+              <button icon-left class="perfil-actions" ion-button color="secondary">
+                    <ion-icon name="md-person-add"></ion-icon>
+                 </button>
+            </div>
+          </div>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,48 @@
+<!--
+  Generated template for the AlbumList page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+ <ion-header>
+    <bm-header [title]= "'Galeria'"></bm-header>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-divider [hidden]="isAlbumEmpty" color="light">Fotos do álbum</ion-item-divider>
+  <ion-item-divider [hidden]="!isAlbumEmpty" color="light">Não há fotos no álbum</ion-item-divider>
+
+  <div class="photos" >
+      <div class="photo" *ngFor="let photo of album">
+          <img src="{{photo.url}}" (click)="openPhoto(photo)" />
+          <button ion-button icon-only (click)="presentConfirmDestroy(photo)" *ngIf="isMyAlbum">
+            <ion-icon name="close" ></ion-icon>
+          </button>
+      </div>
+  </div>
+
+  <!-- <ion-list>
+    <ion-item *ngFor="let photo of album">
+      <ion-thumbnail item-left>
+        <img src="../../assets/images/4.jpg" alt="Sem foto">
+      </ion-thumbnail>
+      <ion-label class="line-break">
+        <h2><strong>{{photo.id}}</strong></h2>
+
+        <button class="form-buttons actionButton" ion-button icon-only (click)="openEditPage(albumPhotoCreatePage, photo)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+
+        <button class="form-buttons actionButton" ion-button icon-only (click)="destroy(photo)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-label>
+    </ion-item>
+  </ion-list> -->
+
+  <ion-fab right bottom *ngIf="isMyAlbum">
+    <button ion-fab mini color="danger" (click)="presentActionSheet()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+  <!-- <button class="form-buttonsBack" ion-button type="button" (click)="goBack()" block>Voltar</button> -->
+</ion-content>

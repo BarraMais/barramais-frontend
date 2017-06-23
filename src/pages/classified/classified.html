@@ -1,0 +1,72 @@
+<!--
+  Generated template for the Classified page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <bm-header></bm-header>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-item-divider color="light">Dados do anunciante</ion-item-divider>
+
+  <ion-item>
+    <ion-label>Vincular perfil</ion-label>
+    <ion-checkbox item-right [(ngModel)]="classified.bonded" name="classified_bonded"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Tipo de documento</ion-label>
+    <ion-select [(ngModel)]="classified.document_type" name="classified_document_type">
+      <ion-option value=0>CPF</ion-option>
+      <ion-option value=1>CNPJ</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item *ngIf="classified.document_type==1">
+    <ion-label floating>Razão social</ion-label>
+    <ion-input type="text" [(ngModel)]="classified.seller_name" name="classified_seller_name"></ion-input>
+  </ion-item>
+
+  <span *ngIf="!classified.bonded">
+    <ion-item *ngIf="classified.document_type==0">
+      <ion-label floating>Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="classified.seller_name" name="classified_seller_name"></ion-input>
+    </ion-item>
+  </span>
+
+  <ion-item>
+    <ion-label floating>Número do documento</ion-label>
+    <ion-input type="text" [(ngModel)]="classified.document_number" name="classified_document_number"></ion-input>
+  </ion-item>
+
+  <span *ngIf="!classified.bonded">
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="classified.email" name="classified_email"></ion-input>
+    </ion-item>
+  </span>
+
+  <ion-item>
+    <ion-label floating>Telefone</ion-label>
+    <ion-input type="text" [(ngModel)]="classified.landline" name="classified_landline"></ion-input>
+  </ion-item>
+
+  <span *ngIf="!classified.bonded">
+    <ion-item>
+      <ion-label floating>Celular</ion-label>
+      <ion-input type="text" [(ngModel)]="classified.cell_phone" name="classified_cell_phone"></ion-input>
+    </ion-item>
+  </span>
+
+  <button class="form-buttons" ion-button type="button" *ngIf="classifiedConditional == 3" (click)="openNextPage(classifiedVesselTypePage, classified)" block>Próximo</button>
+  <button class="form-buttons" ion-button type="button" *ngIf="classifiedConditional == 1" (click)="openNextPage(classifiedFishingPage, classified)" block>Próximo</button>
+  <button class="form-buttons" ion-button type="button" *ngIf="classifiedConditional == 2" (click)="openNextPage(classifiedProductCategoryPage, classified)" block>Próximo</button>
+
+  <button class="form-buttons" ion-button type="button" (click)="goBack()" block>Voltar</button>
+</ion-content>

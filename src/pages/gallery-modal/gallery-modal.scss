@@ -1,0 +1,126 @@
+page-gallery-modal {
+
+  img {
+    width: 100%;
+  }
+
+  .toolbar-title-md {
+    color: #f5f5f5;
+  }
+  .toolbar-title-ios {
+    color: #f5f5f5;
+  }
+
+  .toolbar-title-wp {
+    color: #f5f5f5;
+  }
+  .content-md, .content-ios, .content-wp {
+      color: #000;
+      // background-image: url(../assets/images/bg_cadastro.jpg);
+      // background-position: center;
+      // background-size: cover;
+      // background: #f7a14b;
+      background: #000;
+  }
+
+  .item-md, .item-ios, .item-wp {
+     background-color: transparent;
+     padding-left: 0;
+     color: #f5f5f5;
+  }
+
+  .item-inner {
+      font-size: 1.5rem;
+      color: #f5f5f5 !important;
+      border-bottom: 0.55px solid #c8c7cc !important;
+  }
+
+  .form-buttons {
+      background-color: rgba(255, 255, 255, 0.3) !important;
+      border: solid 1px;
+      margin-top: 20px;
+  }
+
+  .header-md::after {
+      background-image: none;
+      background-color: transparent;
+  }
+
+  .toolbar-background-md, .toolbar-background-ios, .toolbar-background-wp {
+      background: transparent;
+      color: #f5f5f5;
+  }
+
+  .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+      border: none;
+  }
+
+  .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+      color: #f5f5f5;
+  }
+
+  p {
+    color: #f5f5f5;
+    font-size: 2em;
+    text-align: center;
+  }
+
+  h2 {
+      color: #f5f5f5;
+      font-size: 0.875em;
+      text-align: center;
+  }
+
+  .container {
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+  }
+
+  .input-has-focus .label-md[floating],
+  .input-has-focus .label-ios[floating],
+  .input-has-focus .label-wp[floating]{
+    color: #f5f5f5;
+  }
+
+  .logo {
+    width: 32px;
+    margin: 15px 50%;
+    left: -16px;
+    position: relative;
+  }
+
+
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 100%;
+    background: #f5f5f5;
+    opacity: 0.9;
+    pointer-events: auto;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: url(../assets/images/ANCORA.png);
+    background-position: center;
+    background-size: cover;
+    width: 14px;
+    height: 18px;
+    position: relative;
+    top: 6px;
+    margin: 0 1px !important;
+  }
+
+  .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+  }
+
+  .back-button {
+    display: inline !important;
+    color: #f5f5f5 !important;
+  }
+}

@@ -1,0 +1,129 @@
+<!--
+  Generated template for the Ads page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <bm-header></bm-header>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <ion-slides pager>
+    <ion-slide>
+      <button class="form-buttons" ion-button type="button" (click)="showMidiaKit()" block>Modelos</button>
+
+      <br/>
+
+      <ion-list radio-group [(ngModel)]="ad.area" name="ad_area">
+        <ion-item-divider color="light">Escolha o modelo do anúncio</ion-item-divider>
+        <ion-item>
+          <ion-label>Banner no blog M</ion-label>
+          <ion-radio value="blog_medium"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Banner no blog G</ion-label>
+          <ion-radio value="blog_large"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Banner na home</ion-label>
+          <ion-radio value="home"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Banner na lateral</ion-label>
+          <ion-radio value="lateral"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Banner menor na lateral</ion-label>
+          <ion-radio value="lateral_small"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Anúncio em post</ion-label>
+          <ion-radio value="timeline_post"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-list>
+        <ion-item-divider color="light">Áreas de interesse</ion-item-divider>
+        <!-- <template ngFor let-interestArea [ngForOf]="interestList"> -->
+          <!-- <template ngFor let-chosen [ngForOf]="chosenAreas"> -->
+            <ion-item *ngFor="let interest_area of interestList" (click)="toggleUserSelectedArea(interest_area)">
+              <!-- <ion-label>
+                <h2>{{interest_area.name}}</h2>
+              </ion-label> -->
+              <img class="image-list" src="{{interest_area.photo_url}}" alt="Sem foto" item-left>
+              {{interest_area.name}}
+              <ion-icon item-right name="boat" *ngIf="checkSelectedAreas(interest_area)"></ion-icon>
+              <ion-icon item-right name="boat-outline" *ngIf="!checkSelectedAreas(interest_area)"></ion-icon>
+
+              <!-- <ion-checkbox item-right [(ngModel)]="interestArea.selected" (ionChange)="getSelect(interestArea.selected, interestArea)"></ion-checkbox> -->
+            </ion-item>
+          <!-- </template> -->
+        <!-- </template> -->
+      </ion-list>
+    </ion-slide>
+
+    <!-- <ion-slide>
+      <ion-select [(ngModel)]="ad.interest_areas" multiple="true">
+        <ion-option *ngFor="let interest of interestList">{{interest.name}}</ion-option>
+      </ion-select>
+    </ion-slide> -->
+
+    <ion-slide>
+      <ion-item-divider color="light">Foto e descrição do anúncio</ion-item-divider>
+      <ion-item>
+        <a (click)="presentActionSheet()" [hidden]="ad.photo_url == ''">
+          <ion-thumbnail item-left>
+            <img src="{{ad.photo_url}}" id='ad_photo'>
+          </ion-thumbnail>
+        </a>
+        <a (click)="presentActionSheet()" [hidden]="ad.photo_url != ''">
+          <ion-thumbnail item-left>
+            <img src="assets/images/bg_app.png" id='ad_photo'>
+          </ion-thumbnail>
+        </a>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Descrição</ion-label>
+        <ion-input type="text" [(ngModel)]="ad.description" name="ad_description"></ion-input>
+      </ion-item>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-item-divider color="light">Prévia do anúncio</ion-item-divider>
+
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="{{ad.photo_url}}" id='ad_photo'>
+        </ion-thumbnail>
+      </ion-item>
+
+      <ion-item *ngIf="ad.area=='blog_medium'">Banner no blog M</ion-item>
+      <ion-item *ngIf="ad.area=='blog_large'">Banner no blog G</ion-item>
+      <ion-item *ngIf="ad.area=='home'">Banner na home</ion-item>
+      <ion-item *ngIf="ad.area=='lateral'">Banner na lateral</ion-item>
+      <ion-item *ngIf="ad.area=='lateral_small'">Banner menor na lateral</ion-item>
+      <ion-item *ngIf="ad.area=='timeline_post'">Anúncio em post</ion-item>
+
+      <ion-list>
+        <ion-item *ngFor="let interest_area of selectedAreas">
+          <img class="image-list" src="{{interest_area.photo_url}}" alt="Sem foto" item-left>
+          {{interest_area.name}}
+        </ion-item>
+      </ion-list>
+
+      <ion-item>
+        <h2>{{ad.description}}</h2>
+      </ion-item>
+
+      <button class="form-buttons" ion-button type="button" (click)="save(ad)" [hidden]="isEditing" block>Cadastrar anúncio</button>
+      <button class="form-buttons" ion-button type="button" (click)="update(ad)" [hidden]="!isEditing" block>Modificar anúncio</button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

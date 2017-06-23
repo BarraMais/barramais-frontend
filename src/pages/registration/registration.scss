@@ -1,0 +1,41 @@
+page-registration {
+
+  .item-inner {
+      font-size: 1.4rem;
+  }
+
+  p {
+     color: rgb(121, 121, 121);
+     font-size: 1.2rem;
+     text-align: center;
+  }
+
+  a {
+    color: color($colors, barramais-primary);
+  }
+
+}
+
+.toast-container{
+  background: #fff;
+}
+
+.toast-message{
+  padding: 1.5rem;
+  font-size: 1.4rem;
+  color: black !important;
+}
+
+.or {
+    text-align: center;
+    margin-top: 8vh;
+    font-size: 1.1rem;
+    color: color($colors, barramais-primary);
+    font-weight: bold;
+    height: 8vh;
+    text-transform: uppercase;
+}
+
+.or > div > span {
+    background: #f1f1f1 !important;
+}

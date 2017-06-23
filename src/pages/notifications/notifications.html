@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Notificações
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="goBack()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   <ion-list>
+    <ion-item class="item-friends" *ngFor="let notification of notifications" (click)="openPage(notificationViewPage, notification.notifiable.id, notification.notifiable_user)">
+      <ion-thumbnail item-left >
+        <img src="{{notification.notifiable_user.avatar_url}}" alt="Sem foto">
+      </ion-thumbnail>
+      <div class="friend-information-container">
+        <div class="friend-information-text">
+          <h2>{{notification.notifiable_user.first_name}}</h2>
+          <p>Comentou em sua publicação <br>{{notification.sent_date_format}}</p>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

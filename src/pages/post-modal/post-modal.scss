@@ -1,0 +1,108 @@
+page-post-modal {
+
+  .toolbar-background-md,
+  .toolbar-background-ios,
+  .toolbar-background-wp {
+    border-color: #192d52;
+    background: #192d52;
+  }
+
+  .toolbar-title-md,
+  .toolbar-title-ios,
+  .toolbar-title-wp {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #f5f5f5;
+  }
+
+  .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #f5f5f5;
+    background-color: transparent;
+  }
+
+  .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+    color: #f5f5f5 !important;
+    background-color: transparent;
+  }
+
+  .bar-button-default-wp, .bar-button-clear-wp-default, .bar-button-wp-default {
+    color: #f5f5f5;
+    background-color: transparent;
+  }
+
+  .rich_url-image img {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 3px 3px 0 0;
+  }
+
+  .rich_url p {
+    font: .8em;
+    color: #666;
+    margin: 10px;
+  }
+
+  .rich_url h2 {
+    margin: 2px 10px;
+    font-size: 1.6rem;
+    font-weight: normal;
+    color: #222;
+  }
+
+  .post-attach.rich_url {
+      width: 100%;
+      border: 1px solid #efecec;
+      padding: 0;
+      margin-top: 10px;
+      border-radius: 3px;
+  }
+
+  .post-images {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+  }
+
+  .post-image {
+    order: 0;
+    overflow: hidden;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 49%;
+    padding: 2px;
+    margin: 0 0 2px 2px;
+    position: relative;
+    border-radius: 4px;
+  }
+
+
+
+  .post-image img {
+    width: auto !important;
+    max-width: 100% !important;
+    display: inline !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+}

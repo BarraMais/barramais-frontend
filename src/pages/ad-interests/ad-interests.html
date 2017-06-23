@@ -1,0 +1,48 @@
+<!--
+  Generated template for the AdInterests page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <bm-header></bm-header>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <div class="areaText">
+      <ion-item-divider color="light">Áreas de interesse</ion-item-divider>
+    </div>
+
+        <!-- <ion-item *ngFor="let interest_area of interestList" (click)="toggleUserSelectedArea(interest_area)">
+          <img class="image-list" src="{{host + interest_area.photo_url}}" alt="Sem foto" item-left>
+          {{interest_area.name}}
+          <ion-icon item-right name="boat" *ngIf="checkSelectedAreas(interest_area)"></ion-icon>
+          <ion-icon item-right name="boat-outline" *ngIf="!checkSelectedAreas(interest_area)"></ion-icon>
+
+        </ion-item> -->
+
+        <div class="interest-list">
+          <ion-item class="interest-list-items" *ngFor="let interest_area of interestList" (click)="toggleUserSelectedArea(interest_area)" no-lines>
+            <div class="image-notSelected" *ngIf="checkSelectedAreas(interest_area)">
+              <img class="image-list" src="{{interest_area.photo_url}}">
+            </div>
+            <div class="image-selected" *ngIf="!checkSelectedAreas(interest_area)">
+              <img class="image-list" src="{{interest_area.photo_url}}">
+            </div>
+            <div class="textToBeAligned">
+              {{interest_area.name}}
+            </div>
+          </ion-item>
+        </div>
+  </ion-list>
+
+  <button class="form-buttons" ion-button type="button" (click)="openNextPage(adDescriptionsPage, ad)" block>Próximo</button>
+
+  <button class="form-buttons" ion-button type="button" (click)="goBack()" block>Voltar</button>
+</ion-content>

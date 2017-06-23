@@ -1,0 +1,117 @@
+bm-post {
+    .rich_url-image img {
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 3px 3px 0 0;
+    }
+    .rich_url p {
+        font: .8em;
+        color: #666;
+        margin: 10px;
+    }
+    .rich_url h2 {
+        margin: 2px 10px;
+        font-size: 1.6rem;
+        font-weight: normal;
+        color: #222;
+    }
+    .post-attach.rich_url {
+        width: 100%;
+        border: 1px solid #efecec;
+        padding: 0;
+        margin-top: 10px;
+        border-radius: 3px;
+    }
+    .destroy-button {
+        font-size: 0.7em !important;
+        margin: 4px 0 !important;
+        background-color: transparent !important;
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #aeadad;
+    }
+    .post-comments {
+        background-color: rgba(241, 241, 241, 0.57);
+        border-bottom: 1px solid #efeaea;
+    }
+    .post-header .post-header-title,
+    .post-header ion-avatar {
+        padding-top: 5px;
+    }
+    .post-header ion-avatar {
+        margin-right: 10px !important;
+    }
+    .post-header-title {
+        display: flex;
+        flex-wrap: nowrap;
+        color: #353535;
+    }
+    .post-header-title .domain_title {
+        margin-left: 5px;
+    }
+    .button-clear-md img,
+    .button-clear-ios img,
+    .button-clear-wp img {
+        background: none;
+        width: 1.3em;
+    }
+    .posts-end {
+        margin-bottom: 75px;
+    }
+    .social-row-data * div,
+    .button-clear-md * div {
+        text-transform: lowercase !important;
+        color: #b5b5b5 !important;
+        font-size: 1.2rem !important;
+    }
+    .btn-right {
+        float: right;
+    }
+    .button.button-md.button-clear.button-clear-md.button-small.button-small-md {
+        color: #8F8F8F;
+    }
+    .col {
+        padding: 0 5px;
+    }
+    .row-line {
+        border-top: 1px solid #f3f3f3;
+        margin: 0 5%;
+    }
+    .social-row,
+    .social-row * .div {
+        font-size: 0.8em;
+        color: #b5b5b5 !important;
+        width: 90%;
+        margin: 0 auto;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+    }
+    .social-row .col {
+        padding: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+    .social-row .col button span div {
+        font-size: 1.2rem;
+        color: #b5b5b5 !important;
+    }
+    .social-row .icon {
+        font-size: 1em;
+    }
+    .ion-ios-text,
+    .ion-md-text,
+    .ion-ios-share-alt,
+    .ion-md-share-alt {
+        color: #b5b5b5;
+    }
+    @media screen and (max-height: 570px) {
+        .social-row {
+            width: 100% !important;
+        }
+        .social-row .col button span div {
+            font-size: 1rem;
+            color: #b5b5b5 !important;
+        }
+    }
+}

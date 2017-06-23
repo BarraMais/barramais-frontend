@@ -1,0 +1,64 @@
+page-friendship-request {
+    .button-outline-md-light {
+        color: #f5f5f5;
+        background: #192d52;
+        width: 100%;
+    }
+    .button-outline-ios-light {
+        color: #f5f5f5;
+        background: #192d52;
+        width: 100%;
+    }
+    .button-outline-wp-light {
+        color: #f5f5f5;
+        background: #192d52;
+        width: 100%;
+    }
+    .button-md-primary,
+    .button-ios-primary,
+    .button-wp-primary {
+        color: #fff;
+        background-color: #123f5f;
+    }
+    .item-md .item-button,
+    .item-ios .item-button,
+    .item-wp .item-button {
+        height: 2.4rem;
+    }
+    .item-inner {
+        border-bottom: 1px solid #dedede !important;
+    }
+    .label-md,
+    .label-ios,
+    .label-wp {
+        margin: 13px 1px 5px 0;
+    }
+    .friends-tab-bar {
+        margin-top: 2em;
+        justify-content: center;
+    }
+    .friends-tab-bar .col button {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        background: #fff;
+        border: #efefef 1px solid;
+        color: #2b5a7d;
+    }
+    .friends-tab-bar .actions-row {
+        width: 90%;
+        margin: 0 auto;
+        justify-content: center;
+    }
+    .actions-row * p {
+        font-size: 1.4rem;
+    }
+    .friends-tab-bar .actions-row .col {
+        background-color: #fff;
+        color: #ccc;
+        text-align: center;
+        border: 1px #ccc solid;
+    }
+    .f-strong-blue {
+        color: #2B5A7D !important;
+    }
+}

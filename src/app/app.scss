@@ -1,0 +1,505 @@
+app-menu {
+    @import url('https://fonts.googleapis.com/css?family=Lato|Montserrat');
+    .comming {
+        max-width: 54px !important;
+        margin-left: 20px !important;
+    }
+    .preloader {
+        position: fixed;
+        z-index: 9999;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+    }
+    .preloader img {
+        position: absolute;
+        top: calc(50% - 32px);
+        left: calc(50% - 32px);
+    }
+    .background-image {
+        background: #4e6692 !important;
+    }
+    * {
+        box-shadow: none !important;
+        font-family: 'Montserrat' !important;
+    }
+    a {
+        color: #192d52;
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    ion-icon {
+        font-size: 2.4em;
+    }
+    ion-content {
+        background: #f1f1f1 !important;
+    }
+    ion-segment {
+        margin-top: 10px;
+    }
+    .card,
+    .item-friends,
+    .searchbar-content {
+        margin-bottom: 15px !important;
+        box-shadow: 0 4px 7px #ccc !important;
+        border: none !important;
+    }
+    ion-card img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 5px;
+        background: #4e6692;
+    }
+    ion-thumbnail img {
+        display: block;
+        border-radius: 4px;
+    }
+    .bar-buttons {
+        padding: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background-color: transparent !important;
+        // order: 1;
+        margin: 0 5px;
+        min-width: 28px;
+        text-align: right;
+        // float: right;
+        color: #f5f5f5;
+        padding: 0 2px;
+        height: 32px;
+        border: 0;
+        border-radius: 2px;
+        font-size: 1.4rem;
+        font-weight: 500;
+        position: relative;
+        line-height: 1;
+        text-overflow: ellipsis;
+        cursor: pointer;
+        z-index: 99;
+        text-decoration: none;
+    }
+    .bar-button-default-md,
+    .bar-button-default-ios,
+    .bar-button-default-wp {
+        color: #f5f5f5;
+    }
+    .toolbar {
+        min-height: 40px;
+    }
+    .toolbar-background-md,
+    .toolbar-background-ios,
+    .toolbar-background-wp {
+        background: color($colors, barramais-secondary);
+        background: -webkit-linear-gradient(left, color($colors, barramais-primary) 0%, color($colors, barramais-secondary) 100%);
+        background: -moz-linear-gradient(left, color($colors, barramais-primary) 0%, color($colors, barramais-secondary) 100%);
+        background: -o-linear-gradient(left, color($colors, barramais-primary) 0%, color($colors, barramais-secondary) 100%);
+        background: linear-gradient(to right, color($colors, barramais-primary) 0%, color($colors, barramais-secondary) 100%);
+    }
+    .toolbar-title {
+        color: #fff;
+        font-size: 1.5rem;
+    }
+    #menu * label p a {
+        font-size: 1.2rem;
+        color: #2f8eab;
+    }
+    #menu * label p {
+        color: #2f2f2f;
+    }
+    #menu * {
+        overflow: hidden;
+    }
+    .menu-inner {
+        top: 0;
+        width: 300px;
+    }
+    .footer-menu {
+        background-color: color($colors, barramais-primary) !important;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .footer-menu ion-icon {
+        color: #fff
+    }
+    .footer-menu button {
+        width: 25%;
+    }
+    .item-inner {
+        font-size: 1.4rem;
+        color: color($colors, barramais-primary);
+    }
+    .menu-item img {
+        max-width: 26px;
+    }
+    .icon-itens {
+        vertical-align: middle;
+        margin: 0 10px;
+    }
+    .menu-config {
+        width: 98%;
+        margin: 0 auto;
+    }
+    .bar-button-menutoggle-md ion-icon {
+        font-size: 2.4em;
+    }
+    .bar-button-menutoggle-ios,
+    .bar-button-menutoggle-wp {
+        padding: 0 6px;
+        font-size: 3.8rem;
+    }
+    .bar-button-default-ios,
+    .bar-button-default.bar-button-ios-default,
+    .bar-button-clear-ios-default {
+        color: #f5f5f5;
+        background-color: transparent;
+    }
+    .bar-button-default-wp,
+    .bar-button-clear-wp-default,
+    .bar-button-wp-default {
+        color: #f5f5f5;
+        background-color: transparent;
+    }
+    .button-clear-md,
+    .button-clear-ios,
+    .button-clear-wp {
+        color: #192d52;
+        font-size: 1.8rem;
+    }
+    .logo {
+        float: left;
+    }
+    .form-buttons {
+        // background-color: #192d52 !important;
+    }
+    .toolbar-ios {
+        padding-top: 0;
+        height: auto;
+        min-height: auto;
+    }
+    .toolbar-ios .segment-ios {
+        position: relative;
+        padding-top: 0 !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin-top: 4px;
+    }
+    .sub-menu-item {
+        transition: all 1s ease-in !important;
+        padding-left: 40px;
+    }
+    .item-sub {
+        font-size: 1.3em !important;
+    }
+    .avatar {
+        background: #f5f5f5;
+    }
+    .last-links {
+        min-height: 1.4em !important;
+    }
+    .last-links .label-md,
+    .last-links .label-ios,
+    .last-links .label-wp {
+        margin: 5px !important;
+    }
+    .social-media {
+        width: 29px;
+    }
+    .item-ios[detail-push] .item-inner,
+    button.item-ios:not([detail-none]) .item-inner,
+    a.item-ios:not([detail-none]) .item-inner {
+        background-image: none;
+    }
+    .item-md ion-avatar img,
+    .item-ios ion-avatar img,
+    .item-wp ion-avatar img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    .item-sub ion-label {
+        font-size: .8em;
+    }
+    .item-border {
+        border-top: #c8c7cc;
+        border-style: solid;
+    }
+    .menu-item li:last-child .item-block .item-inner {
+        border-bottom: none;
+    }
+    .action-status {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-around;
+        background-color: #f3f1f1;
+    }
+    ion-badge {
+        display: inline-block;
+        font-weight: bold;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: 3px !important;
+        font-size: 0.7em;
+        background-color: #ffa051 !important;
+    }
+    .badges-container {
+        min-width: 32px;
+        min-height: 32px;
+        position: relative;
+        top: 29px;
+        left: 37px;
+        z-index: 9999;
+    }
+    .button-md-primary,
+    .button-ios-primary,
+    .button-wp-primary {
+        color: #fff;
+        background-color: #27809D;
+    }
+    .item-md,
+    .item-ios,
+    .item-wp {
+        background-color: transparent;
+    }
+    .send-comment-button {
+        margin: 0px !important;
+        padding: 0 .6em !important;
+        height: auto !important;
+        font-size: 0.8rem !important;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 12%;
+        box-shadow: none;
+        transition: none !important;
+        border-radius: 0 0 2px 0;
+        border-left: solid 1px #a7acaf;
+    }
+    .plus-sign-icon::before {
+        content: "+ Imagens";
+        position: absolute;
+        background: rgba(0, 0, 0, 0.4);
+        top: 0px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 42% 10%;
+        color: #fff;
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    textarea {
+        overflow: hidden;
+        height: auto;
+        font: inherit;
+        color: inherit;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 88%;
+        border: none;
+        border-radius: 2px 0 0 0;
+        padding: 10px;
+        resize: none;
+        border-top: solid 1px #f1f1f1;
+    }
+    .comment-form {
+        height: 38px;
+        display: flex;
+    }
+    .menu-item-icone {
+        width: 30px;
+        height: 30px;
+        margin: 0 10px;
+        border: 0;
+    }
+    .inicio {
+        background: url('../assets/images/icones.png') -124px -31px;
+    }
+    .conv-amigos {
+        background: url('../assets/images/icones.png') -465px 0;
+    }
+    .amigos {
+        background: url('../assets/images/icones.png') -310px -31px;
+    }
+    .paginas {
+        background: url('../assets/images/icones.png') -62px 0;
+    }
+    .blog {
+        background: url('../assets/images/icones.png') -93px -31px;
+    }
+    .eventos {
+        background: url('../assets/images/icones.png') -341px 0;
+    }
+    .viagens {
+        background: url('../assets/images/icones.png') -434px -31px;
+    }
+    .pesca {
+        background: url('../assets/images/icones.png') -31px 0;
+    }
+    .classificados {
+        background: url('../assets/images/icones.png') 0 -31px;
+    }
+    .publicidade {
+        background: url('../assets/images/icones.png') -248px -31px;
+    }
+    .menu-item-container {
+        display: flex;
+        align-items: center;
+    }
+    .menu-item-container i {
+        font-size: 2em;
+    }
+    .menu-item-container div {
+        width: 30px;
+        margin-left: 5%;
+        margin-right: 10px;
+    }
+    .fab {
+        border-radius: 25%;
+    }
+    .fab-md-danger {
+        color: #fff;
+        background-color: #faa35f;
+    }
+    .fab-ios-danger {
+        color: #fff;
+        background-color: #faa35f;
+    }
+    .fab-wp-danger {
+        color: #fff;
+        background-color: #faa35f;
+    }
+    .fab-md-danger.activated {
+        color: #fff;
+        background-color: #faa35f;
+    }
+    .fab-ios-danger.activated {
+        color: #fff;
+        background-color: #faa35f;
+    }
+    .fab-wp-danger.activated {
+        color: #fff;
+        background-color: #faa35f;
+    }
+    .item-friends {
+        background: #fff !important;
+        // border-bottom: solid 4px #dedede !important;
+        margin: 8px !important;
+        width: calc(100% - 16px) !important;
+        padding-left: 8px !important;
+        border-radius: 2px !important;
+    }
+    .item-friends .item-inner {
+        border-bottom: none !important;
+    }
+    .friend-information-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+    }
+    .friend-information-text {
+        display: flex;
+        order: 0;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: auto;
+        align-self: flex-start;
+        flex-direction: column;
+    }
+    .friend-information-buttons {
+        display: flex;
+        order: 1;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: auto;
+        align-self: flex-end;
+        flex-direction: end;
+    }
+    .post-images {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        align-content: stretch;
+    }
+    .post-image {
+        order: 0;
+        overflow: hidden;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        -webkit-flex-shrink: 1;
+        -ms-flex-negative: 1;
+        flex-shrink: 1;
+        -webkit-flex-basis: auto;
+        -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+        -webkit-align-self: auto;
+        -ms-flex-item-align: auto;
+        align-self: auto;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        width: 49%;
+        padding: 2px;
+        margin: 0 0 2px 2px;
+        position: relative;
+        border-radius: 4px;
+    }
+    .post-image img {
+        width: auto !important;
+        max-width: 100% !important;
+        display: inline !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+    }
+    .or {
+        text-align: center;
+        margin-top: 12vh;
+        font-size: 1.1rem;
+        color: color($colors, barramais-primary);
+        font-weight: bold;
+        height: 12vh;
+    }
+    .or div {
+        width: 97%;
+        text-align: center;
+        border-bottom: 1px solid #dedede;
+        line-height: 0.1em;
+        margin: 0 auto;
+    }
+    .or div span {
+        background: #fafafa;
+        padding: 0 30px;
+    }
+    @media screen and (max-height: 570px) {}
+    .btn-1 {
+        background-color: #fff;
+        color: #27809d;
+        border: 1px #27809d solid;
+        font-size: 1.3rem;
+    }
+    .btn-2 {
+        background-color: #2F8EAB;
+        color: #fff;
+    }
+}

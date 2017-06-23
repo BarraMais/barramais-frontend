@@ -1,0 +1,58 @@
+<!--
+  Generated template for the AdBanners page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <bm-header></bm-header>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="container" [hidden]="isAdvertiser">
+    <ion-item-divider color="light">Você ainda não é um anunciante</ion-item-divider>
+  </div>
+
+  <div class="container" [hidden]="!isAdvertiser">
+    <button class="form-buttons" ion-button type="button" (click)="openPage(midiaKitPage)" block>Modelos</button>
+
+    <br/>
+
+    <ion-list radio-group [(ngModel)]="ad.area" name="ad_area">
+      <ion-item-divider color="light">Escolha o modelo do anúncio</ion-item-divider>
+      <ion-item>
+        <ion-label>Banner no blog M</ion-label>
+        <ion-radio value="blog_medium"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Banner no blog G</ion-label>
+        <ion-radio value="blog_large"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Banner na home</ion-label>
+        <ion-radio value="home"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Banner na lateral</ion-label>
+        <ion-radio value="lateral"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Banner menor na lateral</ion-label>
+        <ion-radio value="lateral_small"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Anúncio em post</ion-label>
+        <ion-radio value="timeline_post"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+    <button class="form-buttons" ion-button type="button" (click)="openNextPage(adInterestsPage, ad)" block>Próximo</button>
+  </div>
+
+  <button class="form-buttons" ion-button type="button" (click)="goBack()" block>Voltar</button>
+</ion-content>

@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Nova Postagem
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list no-lines>
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="{{current_user.avatar_url}}">
+        </ion-avatar>
+        <p>{{current_user.first_name}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-textarea [(ngModel)]="post.description" [formControl]="postController" placeHolder="O que você está pensando..."></ion-textarea>
+      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-item>
+            <button ion-button item-right color="primary" (click)="createPost()">
+              <span ion-text>Publicar</span>
+            </button>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <div *ngIf="post.medias.images">
+            <div class='post-images' (click)="openPhotos(post.post_images)">
+              <div *ngFor="let media of post.medias.images | slice:0:4; let i = index" class="{{i == 3 ? 'post-image plus-sign-icon' : 'post-image'}}">
+                <img src="{{media.image}}" />
+              </div>
+            </div>
+          </div>
+        </ion-row>
+        <ion-row>
+          <div class="post-attach rich_url" *ngIf="link_preview">
+            <div class="rich_url-image">
+              <img src="{{link_preview.images[0].src}}" *ngIf="link_preview.images.length > 0" alt="" />
+              <!-- <img src="{{link_preview.images[0].src}}" *ngIf="link_preview.images.length > 0 && link_preview.videos.length == 0" alt="" /> -->
+              <!-- <iframe src="{{transform(link_preview.videos[0].src)}}" *ngIf="link_preview.videos.length > 0"></iframe> -->
+            </div>
+            <h2>{{link_preview.title}}</h2>
+            <p>
+              {{link_preview.description}}
+            </p>
+          </div>
+        </ion-row>
+      </ion-grid>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button class="form-buttons" color="light" clear (click)="openMediaOptions()" icon-left>
+      <ion-icon ios="ios-open" md="md-open"></ion-icon>
+      Selecionar midia
+    </button>
+  </ion-toolbar>
+</ion-footer>

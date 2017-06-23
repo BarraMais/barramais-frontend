@@ -1,0 +1,135 @@
+<!--
+  Generated template for the Advertiser page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <bm-header></bm-header>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <!-- DIVIDIR EM DUAS PÁGINAS, UMA PARA O CADASTRO E A OUTRA PARA A LISTAGEM -->
+
+  <div class="container" [hidden]="isAdvertiser">
+  <ion-slides pager>
+  <!--<div class="container" [hidden]="isAdvertiser">
+    <form (ngSubmit)="save(advertiser, address)">-->
+    <ion-slide>
+        <ion-item-divider color="light">Dados do anunciante</ion-item-divider>
+        <ion-item>
+          <ion-label floating>Tipo de documento</ion-label>
+          <ion-select [(ngModel)]="advertiser.document_type" name="advertiser_document_type">
+            <ion-option value="cpf" selected="true">CPF</ion-option>
+            <ion-option value="cnpj">CNPJ</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Número do documento</ion-label>
+          <ion-input type="text" [(ngModel)]="advertiser.document_number" name="advertiser_document_number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Selecione o Estado</ion-label>
+          <ion-select [(ngModel)]="address.state_id" (ionChange)="getCities()" name="state">
+            <ion-option *ngFor="let state of states" [value]="state.id">{{state.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Selecione a cidade</ion-label>
+          <ion-select [(ngModel)]="address.city_id" name="city">
+            <ion-option *ngFor="let city of cities" [value]="city.id">{{city.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Endereço</ion-label>
+          <ion-input type="text" [(ngModel)]="address.street" name="advertiser_address_street"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Complemento</ion-label>
+          <ion-input type="text" [(ngModel)]="address.complement" name="advertiser_address_complement"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Bairro</ion-label>
+          <ion-input type="text" [(ngModel)]="address.neighborhood" name="advertiser_address_neighborhood"></ion-input>
+        </ion-item>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-item-divider color="light">Informações de contato</ion-item-divider>
+        <ion-item>
+          <ion-label floating>Website</ion-label>
+          <ion-input type="text" [(ngModel)]="advertiser.website" name="advertiser_website"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Facebook</ion-label>
+          <ion-input type="text" [(ngModel)]="advertiser.facebook" name="advertiser_facebook"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Instagram</ion-label>
+          <ion-input type="text" [(ngModel)]="advertiser.instagram" name="advertiser_instagram"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="text" [(ngModel)]="advertiser.email" name="advertiser_email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Telefone</ion-label>
+          <ion-input type="text" [(ngModel)]="advertiser.landline" name="advertiser_landline"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Celular</ion-label>
+          <ion-input type="text" [(ngModel)]="advertiser.cell_phone" name="advertiser_cell_phone"></ion-input>
+        </ion-item>
+
+
+    </ion-slide>
+
+    <ion-slide>
+      <ion-item-divider color="light">Dados de pagamento</ion-item-divider>
+
+      <button class="form-advertiser" ion-button type="button" (click)="save(advertiser, address)" block>Finalizar cadastro</button>
+    </ion-slide>
+    <!--</form>
+  </div>-->
+
+  </ion-slides>
+  </div>
+
+  <!-- <div class="container" [hidden]="isAdvertiser">
+    <ion-item-divider color="light">Você ainda não é um anunciante</ion-item-divider>
+  </div> -->
+
+  <div class="container" [hidden]="!isAdvertiser">
+    <ion-list>
+      <ion-item-divider [hidden]="!isAdsEmpty" color="light">Anúncios</ion-item-divider>
+      <ion-item-divider [hidden]="isAdsEmpty" color="light">Não há anúncios cadastrados</ion-item-divider>
+      <ion-item *ngFor="let ad of ads">
+        <ion-thumbnail item-left>
+          <img src="../../assets/images/1.jpg" alt="Sem foto">
+        </ion-thumbnail>
+        <ion-label class="line-break">
+          <h2><strong>{{ad.description}}</strong></h2>
+
+          <button class="form-buttons actionButton" ion-button icon-only (click)="openEditPage(adBannersPage, ad)">
+            <ion-icon name="create"></ion-icon>
+          </button>
+
+          <button class="form-buttons actionButton" ion-button icon-only (click)="destroy(ad)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- <ion-fab right bottom>
+      <button ion-fab mini color="danger" (click)="openPage(adsPage)"><ion-icon name="add"></ion-icon></button>
+    </ion-fab> -->
+  </div>
+</ion-content>
+
+<!--{{this.host + ad.photo_url}}-->

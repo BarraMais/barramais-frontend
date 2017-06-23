@@ -1,0 +1,151 @@
+<ion-menu [content]="content" id="menu" persistent="true" (ionClose)="menuClosed()">
+  <ion-content class="no-scroll">
+    <ion-list class="custom-ion-list">
+      <ion-item no-lines>
+        <ion-avatar item-left>
+          <img src="{{user.avatar_url}}">
+        </ion-avatar>
+        <p>{{user.first_name}} {{user.last_name}}</p>
+        <p>
+            <!-- <a menuClose (click)="openPage(mainPage, 4)"> Visualizar Perfil </a> -->
+            <a menuClose (click)='openProfile(user.user_id)'> Visualizar Perfil </a>
+        </p>
+        
+        <button ion-button icon-only clear item-right menuClose (click)="presentConfirm()">
+          <!-- <ion-icon name="log-out"></ion-icon> -->
+          <img style="height: 20px" src="assets/images/icons/logout@2x.png">
+        </button>
+      </ion-item>
+      <!-- <button menuClose ion-item  *ngFor="let p of pages" (click)="openPage(p.component)" class="item-menu" [disabled]="p.isDisabled">        
+        <div class="menu-item-container">
+          <i class="menu-item-icone {{p.icon}}"></i>
+          {{p.title}}
+        </div>
+      </button> -->
+
+     <!-- <ul class="photo-menu">
+        <li menuClose>
+          <ion-item no-lines class="avatar">
+            <ion-thumbnail item-left (click)="presentActionSheet()">
+              <img src="{{user.avatar_url}}" id='user_avatar' *ngIf="user" >
+            </ion-thumbnail>
+            <a (click)="openPage(mainPage, 4)">
+              {{user.first_name}} {{user.last_name}}
+            </a>
+          </ion-item>
+        </li>
+      </ul> -->
+     
+      <ul class="menu-item">
+        <li>
+          <button menuClose ion-item (click)="openPage(mainPage, 0)">
+            <div class="menu-item-container">
+              <i class="menu-item-icone ion-md-boat"></i>
+              Feed de publicações
+            </div>
+          </button>
+        </li>
+       
+        <li>
+          <button menuClose ion-item (click)="openFriends()">
+            <div class="menu-item-container">
+              <i class="menu-item-icone ion-md-contacts"></i>
+              Amigos
+            </div>
+          </button>
+        </li>
+
+        <li>
+          <button menuClose ion-item (click)="openMessages()">
+            <div class="menu-item-container">
+              <div>
+                  <img style="height: 20px" src="assets/images/chatbubbleWorkingBlue.png">
+              </div>
+              Mensagens
+            </div>
+          </button>
+        </li>
+        
+        <li>
+          <button menuClose ion-item (click)="openPage()">
+            <div class="menu-item-container">
+              <!-- <i class="menu-item-icone amigos"></i> -->
+              <div>
+                  <img style="height: 20px" src="assets/images/icons/logout@2x.png">
+              </div>
+              Páginas
+            </div>
+          </button>
+        </li>
+
+        <li>
+          <button menuClose ion-item (click)="openFriends()">
+            <div class="menu-item-container">
+              <div>
+                  <img style="height: 20px" src="assets/images/icons/group@2x.png">
+              </div>
+              Catálogo de atividades
+            </div>
+          </button>
+        </li>
+
+        <li>
+          <button menuClose ion-item (click)="openPage(classifiedUserListPage)">
+            <div class="menu-item-container">
+              <div>
+                  <img style="height: 20px" src="assets/images/icons/cash@2x.png">
+              </div>
+              Classificados
+            </div>
+          </button>
+        </li>
+
+         <li>
+          <button menuClose ion-item (click)="openPage(userPage)">
+            <div class="menu-item-container">
+              <div>
+                  <img style="height: 20px" src="assets/images/icons/config@2x.png">
+              </div>
+              Configurações
+            </div>
+          </button>
+        </li> 
+
+        <li>
+          <button menuClose ion-item (click)="openPage(helpPage)">
+            <div class="menu-item-container">
+              <div>
+                  <img style="height: 20px" src="assets/images/icons/help@2x.png">
+              </div>
+              Ajuda e suporte
+            </div>
+          </button>
+        </li> 
+       </ul>
+    </ion-list>
+    <div class="footer-menu">
+      <!-- <ion-buttons> -->
+        <button menuClose ion-button icon-only clear (click)="openLink('https://www.facebook.com/barramaisoficial/')" >
+           <!-- <ion-icon name="logo-facebook"></ion-icon> -->
+           <img height="26" src="assets/images/facebook-icon.png">
+        </button>
+
+        <button ion-button icon-only clear menuClose (click)="openLink('https://www.instagram.com/barramaisoficial/')">
+           <!-- <ion-icon name="logo-instagram"></ion-icon> -->
+           <img height="26" src="assets/images/instagram-icon.png">               
+        </button>
+
+        <button ion-button icon-only clear menuClose (click)="openLink('https://plus.google.com/u/0/116777254689631886658')">
+           <ion-icon name="logo-googleplus"></ion-icon>
+        </button>
+        
+        <button ion-button icon-only clear menuClose (click)="openLink('https://www.youtube.com/channel/UCQY10_M3S9eJt1YdPTxBkVg')">
+           <ion-icon name="logo-youtube"></ion-icon>
+        </button>
+      <!-- </ion-buttons>        --> 
+   </div>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

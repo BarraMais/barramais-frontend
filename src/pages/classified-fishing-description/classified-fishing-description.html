@@ -1,0 +1,68 @@
+<!--
+  Generated template for the ClassifiedFishingDescription page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <bm-header></bm-header>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Título do classificado</ion-label>
+    <ion-input type="text" [(ngModel)]="classified.title" name="classified_title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <a (click)="presentActionSheet()" [hidden]="classified.photo_url == ''">
+      <ion-thumbnail item-left>
+        <img src="{{host + classified.photo_url}}" id='classified_photo'>
+      </ion-thumbnail>
+    </a>
+    <a (click)="presentActionSheet()" [hidden]="classified.photo_url != ''">
+      <ion-thumbnail item-left>
+        <img src="assets/images/bg_app.png" id='classified_photo'>
+      </ion-thumbnail>
+    </a>
+  </ion-item>
+
+  <ion-item>
+    <a (click)="presentActionSheet()" [hidden]="classified.photo_a_url == ''">
+      <ion-thumbnail item-left>
+        <img src="{{host + classified.photo_a_url}}" id='classified_photo_a'>
+      </ion-thumbnail>
+    </a>
+    <a (click)="presentActionSheet()" [hidden]="classified.photo_a_url != ''">
+      <ion-thumbnail item-left>
+        <img src="assets/images/bg_app.png" id='classified_photo_a'>
+      </ion-thumbnail>
+    </a>
+  </ion-item>
+
+  <ion-item>
+    <a (click)="presentActionSheet()" [hidden]="classified.photo_b_url == ''">
+      <ion-thumbnail item-left>
+        <img src="{{host + classified.photo_b_url}}" id='classified_photo_b'>
+      </ion-thumbnail>
+    </a>
+    <a (click)="presentActionSheet()" [hidden]="classified.photo_b_url != ''">
+      <ion-thumbnail item-left>
+        <img src="assets/images/bg_app.png" id='classified_photo_b'>
+      </ion-thumbnail>
+    </a>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Descrição</ion-label>
+    <ion-textarea [(ngModel)]="classified.description" name="classified_description"></ion-textarea>
+  </ion-item>
+
+  <button class="form-buttons" ion-button type="button" (click)="openNextPage(classifiedFishingPreviewPage, classified)" block>Próximo</button>
+
+  <button class="form-buttons" ion-button type="button" (click)="goBack()" block>Voltar</button>
+</ion-content>

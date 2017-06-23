@@ -1,0 +1,47 @@
+<!--
+  Generated template for the AdPreview page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <bm-header></bm-header>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item-divider color="light">Prévia do anúncio</ion-item-divider>
+
+  <ion-item>
+    <ion-thumbnail item-left>
+      <img src="{{host + ad.photo_url}}" id='ad_photo'>
+    </ion-thumbnail>
+  </ion-item>
+
+  <ion-item *ngIf="ad.area=='blog_medium'">Banner no blog M</ion-item>
+  <ion-item *ngIf="ad.area=='blog_large'">Banner no blog G</ion-item>
+  <ion-item *ngIf="ad.area=='home'">Banner na home</ion-item>
+  <ion-item *ngIf="ad.area=='lateral'">Banner na lateral</ion-item>
+  <ion-item *ngIf="ad.area=='lateral_small'">Banner menor na lateral</ion-item>
+  <ion-item *ngIf="ad.area=='timeline_post'">Anúncio em post</ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let interest_area of selectedAreas">
+      <img class="image-list" src="{{host + interest_area.photo_url}}" alt="Sem foto" item-left>
+      {{interest_area.name}}
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <h2>{{ad.description}}</h2>
+  </ion-item>
+
+  <button class="form-buttons" ion-button type="button" (click)="save(ad)" [hidden]="isEditing" block>Cadastrar anúncio</button>
+  <button class="form-buttons" ion-button type="button" (click)="update(ad)" [hidden]="!isEditing" block>Modificar anúncio</button>
+
+  <button class="form-buttons" ion-button type="button" (click)="goBack()" block>Voltar</button>
+</ion-content>

@@ -1,0 +1,104 @@
+<ion-header>
+<!--     <ion-navbar>
+        <button ion-button icon-only menuToggle start>
+            <ion-icon name="menu"></ion-icon>
+            <img alt="logo" height="26" src="assets/images/logoBarraMais.png">
+        </button>
+
+        <ion-title> Amigos </ion-title>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click) = "openAddUsersPage()">
+              <ion-icon name="md-add"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar> -->
+
+    <ion-navbar primary hideBackButton>
+          <button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+            <img alt="logo" height="26" src="assets/images/logoBarraMais.png">
+          </button>
+
+        <ion-title> Amigos </ion-title>
+
+        <ion-buttons end>
+          <button (click) = "openAddUsersPage()" ion-button icon-only>
+            <ion-icon name="md-add"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="friends-tab-bar">
+    <ion-row class="actions-row">
+      <ion-col  ion-button outline color="light" (click)="openPage(friendsPage)">
+        <p class="icon-word f-strong-blue">
+          AMIGOS
+        </p>
+      </ion-col>
+
+      <ion-col   ion-button outline color="light" (click)="openPage(friendshipRequestPage)">
+        <p class="icon-word">
+          PENDENTES
+        </p>
+      </ion-col>
+    </ion-row>
+  </div>
+
+
+  <!-- <ion-list>
+    <ion-item class="item-friends" *ngFor="let user of friends">
+      <ion-thumbnail item-left (click)='openProfile(user)'>
+        <img src="{{user.avatar_url}}" />
+      </ion-thumbnail>
+      <div class="friend-information-container">
+        <div class="friend-information-text">
+          <h2 (click)='openProfile(user)'>{{user.first_name}} {{user.last_name}}</h2>
+          <p>{{user.birthday | date:'MMMM d, y'}}</p>
+        </div>
+        <div class="friend-information-buttons">
+          <button ion-button icon-left color="danger" (click)="unfriend(user)" *ngIf="user.isFriend === true">
+            <ion-icon name="remove"></ion-icon>
+            Amigo
+          </button>
+          <button ion-button icon-left color="primary" (click)='request_friendship(user)' *ngIf="user.isFriend === false && user.id != current_user.id">
+            <ion-icon name="add"></ion-icon>
+            Amigo
+          </button>
+          <button ion-button icon-only clear (click)='isWaiting(user.first_name)' *ngIf="user.isFriend === 'waiting'" >
+            <ion-icon name="time"></ion-icon>
+          </button>
+          <button ion-button icon-left  (click)='createConversationWith(user)' *ngIf="user.id != current_user.id">
+            <ion-icon name="chatbubbles"></ion-icon>
+            Chat
+          </button>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list> -->
+
+
+
+    <ion-list>
+    <ion-item class="item-friends" *ngFor="let user of friends">
+      <ion-thumbnail item-left (click)='openProfile(user)'>
+        <img src="{{user.avatar_url}}" />
+      </ion-thumbnail>
+      <div class="friend-information-container">
+        <div class="friend-information-text">
+          <h2 (click)='openProfile(user)'>{{user.first_name}} {{user.last_name}}</h2>
+        </div>        
+      </div>
+      <button item-right ion-button icon-only class="user-popover" (click)="presentPopover($event)">
+          <ion-icon name="md-checkmark"></ion-icon>
+          <span>Amigos</span>
+          <ion-icon name="md-arrow-dropup"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

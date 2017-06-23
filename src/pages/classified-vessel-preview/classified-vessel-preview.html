@@ -1,0 +1,147 @@
+<!--
+  Generated template for the ClassifiedVesselPreview page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <bm-header></bm-header>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div class="container" [hidden]="!classifiedInformation">
+    <ion-item-divider color="light">Prévia do classificado</ion-item-divider>
+
+    <ion-item>
+      <ion-label>Título do classificado</ion-label>
+      <ion-label>{{classified.title}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="{{host + classified.photo_url}}" id='classified_photo'>
+      </ion-thumbnail>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="{{host + classified.photo_a_url}}" id='classified_photo_a'>
+      </ion-thumbnail>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="{{host + classified.photo_b_url}}" id='classified_photo_b'>
+      </ion-thumbnail>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Descrição</ion-label>
+      <ion-label>{{classified.description}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tipo de embarcação</ion-label>
+      <ion-label>{{vesselType.name}}</ion-label>
+    </ion-item>
+
+    <ion-item-divider color="light">Estado da embarcação</ion-item-divider>
+
+    <ion-item *ngIf="vessel.status==0">Novo</ion-item>
+    <ion-item *ngIf="vessel.status==1">Usado</ion-item>
+    <ion-item *ngIf="vessel.status==2">Sucata</ion-item>
+
+    <ion-item>
+      <ion-label>Ano de fabricação</ion-label>
+      <ion-label>{{vessel.manufacturation_year}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Ano de ativação</ion-label>
+      <ion-label>{{vessel.activation_year}}</ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="vessel.alienated==0">Não alienado</ion-item>
+    <ion-item *ngIf="vessel.alienated==1">Alienado</ion-item>
+
+    <ion-item>
+      <ion-label>Fabricante</ion-label>
+      <ion-label>{{brand.name}}</ion-label>
+    </ion-item>
+
+    <ion-item [hidden]="vessel.mold_id==null">
+      <ion-label>Modelo</ion-label>
+      <ion-label>{{mold.name}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Número do chassi</ion-label>
+      <ion-label>{{vessel.chassis_number}}</ion-label>
+    </ion-item>
+
+    <ion-item-divider color="light"  *ngIf="accessoriesPrice!=0">Acessórios da embarcação</ion-item-divider>
+
+    <ion-item *ngFor="let accessory of accessories">
+      {{accessory.name}}
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Valor da embarcação</ion-label>
+      <ion-label>{{classified.price}}</ion-label>
+    </ion-item>
+  </div>
+
+  <div class="container" [hidden]="classifiedInformation">
+    <ion-item-divider color="light">Dados do anunciante</ion-item-divider>
+
+    <ion-item *ngIf="classified.bonded">Perfil vinculado</ion-item>
+    <ion-item *ngIf="!classified.bonded">Perfil não vinculado</ion-item>
+
+    <ion-item *ngIf="classified.document_type==0">
+      <ion-label>Nome</ion-label>
+      <ion-label>{{classified.seller_name}}</ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="classified.document_type==0">
+      <ion-label>CPF</ion-label>
+      <ion-label>{{classified.document_number}}</ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="classified.document_type==1">
+      <ion-label>Razão social</ion-label>
+      <ion-label>{{classified.seller_name}}</ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="classified.document_type==1">
+      <ion-label>CNPJ</ion-label>
+      <ion-label>{{classified.document_number}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-label>{{classified.email}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Telefone</ion-label>
+      <ion-label>{{classified.landline}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Celular</ion-label>
+      <ion-label>{{classified.cell_phone}}</ion-label>
+    </ion-item>
+  </div>
+
+  <button class="form-buttons" ion-button type="button" (click)="toggleClassifiedInformation()" block>Mudar</button>
+
+  <button class="form-buttons" ion-button type="button" [hidden]="isEditing" (click)="save()" block>Cadastrar Classificado</button>
+
+  <button class="form-buttons" ion-button type="button" [hidden]="!isEditing" (click)="update()" block>Atualizar Classificado</button>
+
+  <button class="form-buttons" ion-button type="button" (click)="goBack()" block>Voltar</button>
+</ion-content>

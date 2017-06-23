@@ -1,0 +1,50 @@
+<!--
+  Generated template for the ClassifiedVesselAccessories page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <bm-header></bm-header>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Acessório</ion-label>
+    <ion-select [(ngModel)]="accessory_for_select" name="vessel_accessory">
+      <ion-option *ngFor="let accessory of accessories" [value]="accessory">{{accessory.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <button class="form-buttons" ion-button type="button" (click)="includeAccessoryToVessel()" block>Incluir</button>
+
+  <ion-item>
+    <ion-label>Comunicação e navegação</ion-label>
+    <ion-select [(ngModel)]="communication_for_select" name="vessel_communication">
+      <ion-option *ngFor="let accessory of communications" [value]="accessory">{{accessory.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <button class="form-buttons" ion-button type="button" (click)="includeCommunicationToVessel()" block>Incluir</button>
+
+  <ion-item>
+    <ion-label>Eletrônicos</ion-label>
+    <ion-select [(ngModel)]="eletronic_for_select" name="vessel_eletronic">
+      <ion-option *ngFor="let accessory of eletronics" [value]="accessory">{{accessory.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <button class="form-buttons" ion-button type="button" (click)="includeEletronicToVessel()" block>Incluir</button>
+
+  <ion-item *ngFor="let accessory of chosenAccessories" (click)="excludeAccessoryFromVessel(accessory)">
+    {{accessory.name}}
+  </ion-item>
+
+  <button class="form-buttons" ion-button type="button" (click)="openNextPage(classifiedVesselDescriptionPage)" block>Próximo</button>
+
+  <button class="form-buttons" ion-button type="button" (click)="goBack()" block>Voltar</button>
+</ion-content>

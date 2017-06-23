@@ -1,0 +1,45 @@
+<!--
+  Generated template for the ClassifiedFishing page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <bm-header></bm-header>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-item-divider color="light">Categoria do classificado</ion-item-divider>
+
+  <ion-item [hidden]="provisionalCategory">
+    <ion-label>Categoria</ion-label>
+    <ion-select [(ngModel)]="fishing.fishing_category_id" (ionChange)="getFishingSubCategories()" name="fishing_category">
+      <ion-option *ngFor="let fishingCategory of fishingCategories" [value]="fishingCategory.id">{{fishingCategory.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item [hidden]="provisionalCategory">
+    <ion-label>Sub categoria</ion-label>
+    <ion-select [(ngModel)]="fishing.fishing_sub_category_id" name="fishing_sub_category">
+      <ion-option *ngFor="let fishingSubCategory of fishingSubCategories" [value]="fishingSubCategory.id">{{fishingSubCategory.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Não encontrei a categoria</ion-label>
+    <ion-checkbox item-right [(ngModel)]="provisionalCategory" name="provisionalCategory"></ion-checkbox>
+  </ion-item>
+
+  <ion-item [hidden]="!provisionalCategory">
+    <ion-label floating>Nova categoria</ion-label>
+    <ion-input type="text" [(ngModel)]="fishing.provisional_category" name="fishing_provisional_category"></ion-input>
+  </ion-item>
+
+  <button class="form-buttons" ion-button type="button" (click)="openNextPage(classifiedFishingStatusPage, provisionalCategory, fishing)" block>Próximo</button>
+
+  <button class="form-buttons" ion-button type="button" (click)="goBack()" block>Voltar</button>
+</ion-content>

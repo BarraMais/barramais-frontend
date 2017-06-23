@@ -1,0 +1,437 @@
+<ion-header>
+    <bm-header [title]= "''"></bm-header>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+        <div class="session-divider" (click)="showAccountInformations()" >
+          <i class="session-icon account"></i>
+          <p>
+            Informações de conta
+          </p>
+        </div>
+        <div class="session-content" [hidden]="!accountInformations">
+          <ion-item class="avatar-user">
+            <ion-thumbnail item-left>
+              <img src="{{user.avatar_url}}" id='user_avatar'>
+            </ion-thumbnail>
+            <a class="camera-button" (click)="presentActionSheet()">
+              <ion-icon name="camera"></ion-icon>
+            </a>
+            <p>Adicionar/Editar Foto</p>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Nome</ion-label>
+            <ion-input type="text" [(ngModel)]="user.first_name" name="first_name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Sobrenome</ion-label>
+            <ion-input type="text" [(ngModel)]="user.last_name" name="last_name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Nome de usuário</ion-label>
+            <ion-input type="text" [(ngModel)]="user.nickname" name="nickname"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Data de nascimento</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="user.birthday" name="birthday"></ion-datetime>
+          </ion-item>
+          <!-- <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="text" [(ngModel)]="user.email" name="email"></ion-input>
+          </ion-item> -->
+          <!-- <ion-item>
+            <ion-label floating>Confirmar Email</ion-label>
+            <ion-input type="text" [(ngModel)]="userEmailConfirmation" name="email_confirmation"></ion-input>
+          </ion-item> -->
+          <ion-item>
+            <ion-label floating>Email Alternativo</ion-label>
+            <ion-input type="text" [(ngModel)]="user.alternative_email" name="alternative_email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <button ion-button (click)='editPassword()'>
+              Alterar Senha
+            </button>
+            <button ion-button (click)='deleteAccount()' style="background-color:#8e9093; opacity:0.5;">
+              Deletar Conta
+            </button>
+          </ion-item>
+          <!-- <ion-item>
+            <ion-label floating>Senha</ion-label>
+            <ion-input type="password" [(ngModel)]="user.current_password" name="current_password"></ion-input>
+          <ion-item>
+            <ion-label floating>Confirmar Senha</ion-label>
+            <ion-input type="password" [(ngModel)]="userPasswordConfirmation" name="password_confirmation"></ion-input>
+          </ion-item> -->
+        </div>
+        <br>
+        <div class="session-divider" (click)="showPersonalInformations()">
+          <i class="session-icon personal"></i>
+          <p>
+            Informações pessoais
+          </p>
+        </div>
+        <div  class="session-content" [hidden]="!personalInformations">
+          <ion-item>
+            <ion-label floating>Biografia</ion-label>
+            <ion-textarea [(ngModel)]="user.about" name="about"></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Facebook</ion-label>
+            <ion-input type="text" [(ngModel)]="user.facebook" name="facebook"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Instagram</ion-label>
+            <ion-input type="text" [(ngModel)]="user.instagram" name="instagram"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Twitter</ion-label>
+            <ion-input type="text" [(ngModel)]="user.twitter" name="twitter"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Linkedin</ion-label>
+            <ion-input type="text" [(ngModel)]="user.linkedin" name="linkedin"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Site</ion-label>
+            <ion-input type="text" [(ngModel)]="user.website" name="website"></ion-input>
+          </ion-item>
+          <div class="divider-items"></div>
+          <ion-item>
+            <ion-label>Educação</ion-label>
+            <ion-select [(ngModel)]="user.academic_profile" name="academic_profile">
+              <ion-option [value]="ensino_fundamental" >Ensino fundamental</ion-option>
+              <ion-option [value]="ensino_medio" >Ensino Médio</ion-option>
+              <ion-option [value]="ensino_superior" >Ensino Superior</ion-option>
+              <ion-option [value]="pos_graduado" >Pós Graduado</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Profissão</ion-label>
+            <ion-input type="text" [(ngModel)]="user.profession" name="profession"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Trabalho</ion-label>
+            <ion-input type="text" [(ngModel)]="user.work" name="work"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Idioma</ion-label>
+            <ion-textarea [(ngModel)]="user.language" name="language"></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Data de nascimento</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="user.birthday" name="birthday"></ion-datetime>
+          </ion-item>
+          <div class="divider-items"></div>
+          <ion-list radio-group [(ngModel)]="user.sex" name="sex">
+            <ion-list-header>
+              Gênero
+            </ion-list-header>
+            <ion-item>
+              <ion-label>Masculino</ion-label>
+              <ion-radio value="M"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Feminino</ion-label>
+              <ion-radio value="F"></ion-radio>
+            </ion-item>
+          </ion-list>
+          <div class="divider-items"></div>
+          <ion-list radio-group no-lines [(ngModel)]="user.relationship" name="relationship">
+            <ion-list-header>
+              Relacionamento
+            </ion-list-header>
+            <ion-item>
+              <ion-label>Solteiro</ion-label>
+              <ion-radio value="solteiro"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Em um relacionamento sério</ion-label>
+              <ion-radio value="relacionamento_serio"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Casado(a)</ion-label>
+              <ion-radio value="casado"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Em um relacionamento aberto</ion-label>
+              <ion-radio value="relacionamento_aberto"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Divorciado(a)</ion-label>
+              <ion-radio value="divorciado"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Viúvo(a)</ion-label>
+              <ion-radio value="viuvo"></ion-radio>
+            </ion-item>
+          </ion-list>
+          <div class="divider-items"></div>
+          <ion-item>
+            <ion-label floating>Contato</ion-label>
+            <ion-input mask="(**)*****-****" type="text" [(ngModel)]="user.cellphone" name="cellphone"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Operadora</ion-label>
+            <ion-input type="text" [(ngModel)]="user.mobile_operator" name="mobile_operator"></ion-input>
+          </ion-item>
+        </div>
+        <br>
+        <div class="session-divider" (click)="showNauticalInformations()">
+          <i class="session-icon nautical"></i>
+          <p>
+            Informações náuticas
+          </p>
+        </div>
+        <div  class="session-content" [hidden]="!nauticalInformations">
+          <ion-item>
+            <ion-label floating>Viagens nacionais</ion-label>
+            <ion-input type="text" [(ngModel)]="user.national_trips" name="national_trips"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Viagens internacionais</ion-label>
+            <ion-input type="text" [(ngModel)]="user.international_trips" name="international_trips"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Viagens de cruzeiro</ion-label>
+            <ion-input type="text" [(ngModel)]="user.cruise_trips" name="cruise_trips"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Literaturas náuticas favoritas</ion-label>
+            <ion-input type="text" [(ngModel)]="user.nautical_literature" name="nautical_literature"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Aplicativos náuticos favoritos</ion-label>
+            <ion-input type="text" [(ngModel)]="user.nautical_application" name="nautical_application"></ion-input>/
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Marcas náuticas favoritas</ion-label>
+            <ion-input type="text" [(ngModel)]="user.nautical_brand" name="nautical_brand"></ion-input>/
+          </ion-item>
+          <ion-item-divider color="light">Experiência náutica</ion-item-divider>
+          <ion-list no-lines>
+          <ion-item>
+            <ion-label>Trabalha com a náutica?</ion-label>
+            <ion-toggle [(ngModel)]="user.nautical_professional" name="nautical_professional" (ionChange)="hideNautical()"></ion-toggle>
+          </ion-item>
+          <ion-item id="nautical_profession_description" [hidden]="showNauticalWorkText == false">
+            <ion-label>Selecione seu trabalho:</ion-label>
+            <ion-select [(ngModel)]="user.nautical_profession_description" name="nautical_profession_description">
+              <ion-option [value]="empresario" >Empresário</ion-option>
+              <ion-option [value]="representante" >Representante</ion-option>
+              <ion-option [value]="broker" >Broker</ion-option>
+              <ion-option [value]="investidor" >Investidor</ion-option>
+              <ion-option [value]="instrutor" >Instrutor</ion-option>
+              <ion-option [value]="navio" >Navio</ion-option>
+              <ion-option [value]="cruzeiro" >Cruzeiro</ion-option>
+              <ion-option [value]="despachante" >Despachante náutico</ion-option>
+              <ion-option [value]="mecanico" >Mecânico náutico</ion-option>
+              <ion-option [value]="marinheiro" >Marinheiro</ion-option>
+              <ion-option [value]="marina" >Marina</ion-option>
+              <ion-option [value]="lojista" >Lojista</ion-option>
+              <ion-option [value]="servicos_gerais" >Serviços gerais</ion-option>
+              <ion-option [value]="outros" >Outros</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Possui algum tipo embarcação?</ion-label>
+            <ion-toggle [(ngModel)]="user.has_embarcation" name="has_embarcation"></ion-toggle>
+          </ion-item>
+          <ion-list *ngIf="user.has_embarcation" no-lines>
+            <ion-item *ngFor='let vessel_type of vessels_type'>
+              <ion-checkbox item-right (click)='includeVesselTypeToOwnVessels(vessel_type)' [(ngModel)]='vessel_type.checked'></ion-checkbox>
+              <ion-label>{{vessel_type.name}}</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="{{vessel_type.photo_url}}"/></ion-icon>
+            </ion-item>
+          </ion-list>
+        </ion-list>
+        <ion-list no-lines>
+          <ion-item>
+            <ion-label>Possui algum tipo de habilitação náutica?</ion-label>
+            <ion-toggle [(ngModel)]="user.has_nautical_license" name="has_nautical_license" (ionChange)="hideNauticalLicenses()"></ion-toggle>
+          </ion-item>
+          <ion-item [hidden]="showNauticalLicenses == true">
+            <ion-label>Interesse em se habilitar?</ion-label>
+            <ion-toggle item-right [(ngModel)]="user.license_interest" name="license_interest"></ion-toggle>
+          </ion-item>
+          <ion-list radio-group [(ngModel)]="user.nautical_license" name="nautical_license" id="nautical_license" [hidden]="showNauticalLicenses == false">
+            <ion-item>
+              <ion-radio value="capitao_amador"></ion-radio>
+              <ion-label>Capitão amador</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/capitao_amador.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="mestre_amador"></ion-radio>
+              <ion-label>Mestre amador</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/mestre_amador.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="arrais_amador"></ion-radio>
+              <ion-label>Arrais amador</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/arrais_amador.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="motonauta"></ion-radio>
+              <ion-label>Motonauta</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/motonauta.png"/></ion-icon>
+            </ion-item>
+          </ion-list>
+          </ion-list>
+          <ion-list no-lines>
+          <ion-item>
+            <ion-label>Integrante da Marinha?</ion-label>
+            <ion-toggle [(ngModel)]="user.naval_service" name="naval_service" (ionChange)="hideNavalPatents()"></ion-toggle>
+          </ion-item>
+          </ion-list>
+          <ion-list no-lines radio-group [(ngModel)]="user.naval_service_patent" name="naval_service_patent" id="naval_service_patent" [hidden]="showNavalPatents == false">
+            <ion-item>
+              <ion-radio value="almirante_de_esquadra"></ion-radio>
+              <ion-label>Almirante de Esquadra</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/almirante_de_esquadra.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="vice_almirante"></ion-radio>
+              <ion-label>Vice Almirante</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/vice_almirante.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="contra_almirante"></ion-radio>
+              <ion-label>Contra Almirante</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/contra_almirante.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="capitao_de_mar_e_guerra"></ion-radio>
+              <ion-label>Capitao de mar e guerra</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/capitao_de_mar_e_guerra.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="capitao_de_fragata"></ion-radio>
+              <ion-label>Capitao de Fragata</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/capitao_de_fragata.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="capitao_de_corveta"></ion-radio>
+              <ion-label>Capitao de Corveta</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/capitao_de_corveta.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="capitao_tenente"></ion-radio>
+              <ion-label>Capitao Tenente</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/capitao_tenente.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="primeiro_tenente"></ion-radio>
+              <ion-label>Primeiro Tenente</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/primeiro_tenente.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="segundo_tenente"></ion-radio>
+              <ion-label>Segundo Tenente</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/segundo_tenente.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="suboficial"></ion-radio>
+              <ion-label>Suboficial</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/suboficial.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="primeiro_sargento"></ion-radio>
+              <ion-label>Primeiro Sargento</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/primeiro_sargento.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="segundo_sargento"></ion-radio>
+              <ion-label>Segundo Sargento</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/segundo_sargento.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="terceiro_sargento"></ion-radio>
+              <ion-label>Terceiro Sargento</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/terceiro_sargento.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+              <ion-radio value="cabo"></ion-radio>
+              <ion-label>Cabo</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/cabo.png"/></ion-icon>
+            </ion-item>
+            <ion-item>
+                <ion-radio value="marinheiro"></ion-radio>
+              <ion-label>Marinheiro</ion-label>
+              <ion-icon item-left><img class="nautical_license" src="assets/images/marinheiro.png"/></ion-icon>
+            </ion-item>
+          </ion-list>
+          <ion-item>
+            <ion-label>É praticante de pesca?</ion-label>
+            <ion-toggle [(ngModel)]="user.fishing" name='fishing'></ion-toggle>
+          </ion-item>
+          <ion-item *ngIf="user.fishing">
+            <ion-label>Tipo de pesca</ion-label>
+            <ion-select [(ngModel)]="user.fishing_type" name="fishing_type">
+              <ion-option [value]=0 >Pesca tradicional</ion-option>
+              <ion-option [value]=1 >Pesca profissional</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item no-lines>
+            <ion-label>É praticante de turismo de pesca?</ion-label>
+            <ion-toggle [(ngModel)]="user.fishing_tourist" name='fishing_tourist'></ion-toggle>
+          </ion-item>
+          <ion-item *ngIf="user.fishing_tourist">
+            <ion-label floating>Quais lugares?</ion-label>
+            <ion-input type="text" [(ngModel)]="user.tourist_places" name="tourist_places"></ion-input>
+          </ion-item>
+          <ion-item no-lines>
+            <ion-label>É praticante de esportes náuticos?</ion-label>
+            <ion-toggle [(ngModel)]="user.water_sportsman" name='water_sportsman'></ion-toggle>
+          </ion-item>
+          <div  class="session-content session-sports" *ngIf="user.water_sportsman">
+            <ion-list>
+              <div class="interest-list">
+                <ion-item class="interest-list-items" *ngFor="let nauticalSport of nauticalSports" (click)="toggleUserSelectedArea(nauticalSport)" no-lines>
+                  <div class="image-selected" *ngIf="checkSelectedAreas(nauticalSport)">
+                    <img class="image-list" src="{{nauticalSport.photo_url}}">
+                  </div>
+                  <div class="image-notSelected" *ngIf="!checkSelectedAreas(nauticalSport)">
+                    <img class="image-list" src="{{nauticalSport.photo_url}}">
+                  </div>
+                  <div class="textToBeAligned">
+                    {{nauticalSport.name}}
+                  </div>
+                </ion-item>
+              </div>
+            </ion-list>
+          </div>
+        </div>
+        <br/>
+        <div class="session-divider" (click)="showInterestInformations()">
+          <i class="session-icon interest"></i>
+          <p>
+            Informações de interesse
+          </p>
+        </div>
+        <div  class="session-content session-interest" [hidden]="!interestInformations">
+          <ion-list>
+            <div class="areaText">
+              <ion-item-divider color="light">Áreas de interesse</ion-item-divider>
+            </div>
+            <div class="interest-list">
+              <ion-item class="interest-list-items" *ngFor="let interest of interests" (click)="toggleUserInterests(interest)" no-lines>
+                <div class="image-selected" *ngIf="checkUserInterests(interest)">
+                  <img class="image-list" src="{{interest.photo_url}}">
+                </div>
+                <div class="image-notSelected" *ngIf="!checkUserInterests(interest)">
+                  <img class="image-list" src="{{interest.photo_url}}">
+                </div>
+                <div class="textToBeAligned">
+                  {{interest.name}}
+                </div>
+              </ion-item>
+            </div>
+          </ion-list>
+        </div>
+        <br>
+  </div>
+  <ion-fab right bottom *ngIf="show_save_button()">
+    <button ion-fab mini color="danger" (click)="save(user)"><ion-icon name="done-all"></ion-icon></button>
+  </ion-fab>
+</ion-content>

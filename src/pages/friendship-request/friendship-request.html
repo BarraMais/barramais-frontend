@@ -1,0 +1,59 @@
+<ion-header>
+    <bm-header [title]= "'Pendentes'"></bm-header>
+</ion-header>
+<ion-content>
+  <!-- <ion-row>
+    <ion-col width-50>
+      <button ion-button outline color="light" (click)="openPage(friendsPage)">
+        Amigos
+      </button>
+    </ion-col>
+    <ion-col width-50>
+      <button ion-button outline color="light" (click)="openPage(friendshipRequestPage)">
+        Pendentes
+      </button>
+    </ion-col>
+  </ion-row> -->
+  
+  <div class="friends-tab-bar">
+    <ion-row class="actions-row">
+      <ion-col  ion-button outline color="light" (click)="openPage(friendsPage)">
+        <p class="icon-word ">
+          AMIGOS
+        </p>
+      </ion-col>
+
+      <ion-col  *ngIf="current_user.id == user.id" ion-button outline color="light" (click)="openPage(friendshipRequestPage)">
+        <p class="icon-word f-strong-blue">
+          PENDENTES
+        </p>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <ion-list>
+    <ion-item class="item-friends" *ngFor="let user of pendingFriendships">
+      <ion-thumbnail item-left (click)='openProfile(user)'>
+        <img src="{{user.avatar_url}}" />
+      </ion-thumbnail>
+      <div class="friend-information-container">
+        <div class="friend-information-text">
+          <h2 (click)='openProfile(user)'>{{user.first_name}} {{user.last_name}}</h2>
+          <p>{{user.birthday | date:'MMMM d, y'}}</p>
+        </div>
+        <div class="friend-information-buttons">
+          <button ion-button color="primary" (click)='accept_friendship(user)'>
+            Aceitar
+          </button>
+          <button ion-button icon-left color="danger" (click)='refuse_friendship(user)'>
+            Recusar
+          </button>
+          <button ion-button icon-left  (click)='createConversationWith(user)'>
+            <ion-icon name="chatbubbles"></ion-icon>
+            Chat
+          </button>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

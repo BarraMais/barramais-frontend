@@ -1,0 +1,110 @@
+page-friends {
+    .button-outline-md-light {
+        color: #f5f5f5;
+        background: #192d52;
+        width: 100%;
+    }
+    .button-outline-ios-light {
+        color: #f5f5f5;
+        background: #192d52;
+        width: 100%;
+    }
+    .button-outline-wp-light {
+        color: #f5f5f5;
+        background: #192d52;
+        width: 100%;
+    }
+    .button-md-primary,
+    .button-ios-primary,
+    .button-wp-primary {
+        color: #fff;
+        background-color: #123f5f;
+    }
+    .item-md .item-button,
+    .item-ios .item-button,
+    .item-wp .item-button {
+        height: 2.4rem;
+    }
+    .item-inner {
+        border-bottom: 1px solid #dedede !important;
+    }
+    .label-md,
+    .label-ios,
+    .label-wp {
+        margin: 13px 1px 5px 0;
+    }
+    .friends-tab-bar {
+        margin-top: 2em;
+        justify-content: center;
+    }
+    .friends-tab-bar .col button {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        background: #fff;
+        border: #efefef 1px solid;
+        color: #2b5a7d;
+    }
+    .friends-tab-bar .actions-row {
+        width: 90%;
+        margin: 0 auto;
+        justify-content: center;
+    }
+    .actions-row * p {
+        font-size: 1.4rem;
+    }
+    .friends-tab-bar .actions-row .col {
+        background-color: #fff;
+        color: #ccc;
+        text-align: center;
+        border: 1px #ccc solid;
+    }
+    .f-strong-blue {
+        color: #2B5A7D !important;
+    }
+    .friend-title {
+        color: #2f2f2f;
+    }
+    .item-md ion-thumbnail {
+        min-height: 50px;
+        margin-right: 0;
+    }
+    .item-friends {
+        margin-top: 30px !important;
+        border: none !important;
+        box-shadow: 0px 3px 7px #d9d9d9 !important;
+    }
+    .item-md ion-thumbnail[item-left] {
+        margin-right: 0;
+        min-width: 60px;
+    }
+    .label.label-md {
+        padding-bottom: 1.7em;
+    }
+    .friend-information h2 {
+        color: 404040;
+    }
+    .input-wrapper .label {
+        position: absolute !important;
+        top: 0 !important;
+        color: #434343;
+    }
+    // .label {
+    //     width: 100%;
+    // }
+    .user-popover,
+    .activated {
+        background-color: #27809c !important;
+        height: 3rem !important;
+    }
+    .user-popover ion-icon:first-child {
+        padding-right: 10px;
+    }
+    .user-popover span {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    .user-popover ion-icon:last-child {
+        padding: 2px 7px 2px 10px !important;
+        background-color: #1b5d71;
+    }
+}

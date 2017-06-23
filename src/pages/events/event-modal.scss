@@ -1,0 +1,144 @@
+page-event-modal {
+
+  .ion-md-share {
+    color: #ED4248;
+  }
+  .ion-md-arrow-dropright-circle {
+    color: #508AE4;
+  }
+  .ion-md-heart-outline {
+    color: #31D55F;
+  }
+  .action-sheet-cancel ion-icon,
+  .action-sheet-destructive ion-icon {
+    color: #757575;
+  }
+
+  .item-md, .item-ios, .item-wp {
+     padding-left: 0;
+  }
+
+  .item-md ion-avatar ion-img, .item-md ion-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .item-ios ion-avatar ion-img, .item-ios ion-avatar img {
+    width: 36px;
+    height: 36px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .item-wp ion-avatar ion-img, .item-wp ion-avatar img {
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+  }
+
+  .item-md, .item-wp, .item-ios{
+    color: #d5d5d5;
+  }
+
+  .item-inner {
+    color: #123f5f;
+  }
+
+  //Android
+  .toolbar-background-md {
+    border-color: #123f5f;
+    background: #123F5F;
+  }
+
+  .toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #f5f5f5;
+  }
+
+  .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #f5f5f5;
+    background-color: transparent;
+  }
+
+  //IOS
+  .toolbar-background-ios {
+    border-color: #123f5f;
+    background: #123F5F;
+  }
+
+  .toolbar-title-ios {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #f5f5f5;
+  }
+
+  .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+    color: #f5f5f5 !important;
+    background-color: transparent;
+  }
+
+  //Windows
+  .toolbar-background-wp {
+    border-color: #123f5f;
+    background: #123F5F;
+  }
+
+  .toolbar-title-wp {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #f5f5f5;
+  }
+
+  .bar-button-default-wp, .bar-button-clear-wp-default, .bar-button-wp-default {
+    color: #f5f5f5;
+    background-color: transparent;
+  }
+
+  .form-buttons{
+    background-color: #123f5f !important;
+  }
+
+  .container{
+    padding: 10px;
+  }
+
+  .background-image {
+    background: #4e6692 !important;
+    background-size: cover;
+    background-position: center;
+    min-height: 200px;
+    max-height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+  }
+
+  .background-image img{
+    min-width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+
+  .cover-camera-icon{
+    position: absolute !important;
+    top: 2px !important;
+    right: 6px !important;
+    z-index: 999 !important;
+    opacity: 0.7 !important;
+    color: #faa35f !important;
+    font-size: 35px;
+  }
+
+}

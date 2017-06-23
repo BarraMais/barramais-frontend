@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Fazer Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content isScrolling="false" padding>
+  <form (ngSubmit)="login(user)">
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+    </ion-item>
+    <br/>
+    <button color="barramais-primary" class="form-buttons" ion-button type="submit" block>
+      CONTINUAR
+    </button>
+  </form>
+  <div class="forgot" (click)='gotToForgotPassword()'>
+    ESQUECI MINHA SENHA
+  </div>
+  <div class="or">
+    <div> 
+        <span>OU</span>
+    </div>  
+  </div>
+  <br>
+  <button color="barramais-primary"  ion-button outline block (click)="openPage(registrationPage)">CRIAR UMA CONTA</button>
+</ion-content>

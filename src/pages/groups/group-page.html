@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <bm-header></bm-header>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="background-image">
+    <button ion-button icon-only class="button-more" (click)="presentPopover($event)" *ngIf="!send_request_to || is_member_of">
+      <ion-icon name="more"></ion-icon>
+    </button>
+    <img src="{{group.cover_photo_url}}" alt="Perfil Header"/>
+  </div>
+  <div class="main-content">
+    <button icon-left class="perfil-actions" color="danger" style="right: 84px !important;" ion-button *ngIf="showAdminActions" (click)="presentConfirmDelete(group)">
+      <ion-icon name="close"></ion-icon>
+      Excluir
+    </button>
+    <button icon-left class="perfil-actions" color="primary" ion-button (click)="openEditModal(groupUpdate, group)" *ngIf="showAdminActions">
+      <ion-icon name="create"></ion-icon>
+      Editar
+    </button>
+    <ion-item>
+      <h2 class="group-name">{{group.name}}</h2>
+      Criado em {{group.createdAt | date:'MMMM d, y'}}
+    </ion-item>
+    <div class="profile-description">
+      <ion-row class="actions-row">
+        <ion-col width-25 (click)="openModal(groupMembers, confirmedMembers, 'confirmados')">
+          <h2 class="icon-button">{{l_confirmedMembers}}</h2>
+          <p class="icon-word">
+            Membros
+          </p>
+        </ion-col>
+        <ion-col width-25 (click)="openModal(addGroupMembers, friends)" *ngIf="is_member_of || showAdminActions">
+          <ion-icon name="person-add" class="icon-button"></ion-icon>
+          <p class="icon-word">
+            Convidar
+          </p>
+        </ion-col>
+        <ion-col width-25 (click)="openModal(groupMembers, pendingByAdmin, 'pendentes')" *ngIf="showAdminActions">
+          <ion-icon name="time" class="icon-button"></ion-icon>
+          <p class="icon-word">
+            Pendentes
+          </p>
+        </ion-col>
+        <ion-col width-25 (click)="groupInformation()">
+          <ion-icon name="ios-information-circle" class="icon-button"></ion-icon>
+          <p class="icon-word">
+            Info
+          </p>
+        </ion-col>
+      </ion-row>
+      <div class="groupInformation" [hidden]="!showGroupInformation">
+        {{group.about}}
+      </div>
+    </div>
+    <bm-post [posts]="posts"></bm-post>
+  </div>
+  <ion-fab right bottom *ngIf="is_member_of" >
+    <button ion-fab mini color="danger" (click)="openPostModal()"><ion-icon name="create"></ion-icon></button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,34 @@
+page-ad-interests {
+  .image-list {
+    border: 0;
+    width: 40px;
+  }
+
+  .image-selected{
+    opacity: 0.3;
+  }
+
+  .interest-list{
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-items: stretch;
+     align-content: stretch;
+     padding-left: 25px;
+  }
+
+  .interest-list-items{
+     display: flex;
+     width: 33.3333%;
+  }
+
+  .textToBeAligned{
+    text-align: left;
+    font-size: 74%;
+  }
+
+  .areaText{
+    text-align: center;
+  }
+}

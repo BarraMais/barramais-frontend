@@ -1,0 +1,100 @@
+page-album-list {
+  .actionButton {
+    font-size: 1.0rem;
+    color: #123f5f !important;
+    float: right;
+  }
+
+  .form-advertiser{
+    background-color: #123f5f !important;
+  }
+
+  .form-buttons{
+    background-color: #f5f5f5 !important;
+  }
+
+  .form-buttonsBack{
+    background-color: #123f5f !important;
+  }
+
+  .line-break{
+    overflow: inherit;
+    text-overflow: inherit;
+    white-space: normal;
+  }
+
+  .item-ios, .item-md, .item-wp{
+    border-bottom: solid 1px #f5f5f5;
+  }
+
+  .fab{
+    border-radius: 25%;
+  }
+
+  .fab-md-danger {
+    color: #fff;
+    background-color: #faa35f;
+  }
+
+  .fab-ios-danger {
+    color: #fff;
+    background-color: #faa35f;
+  }
+
+  .fab-wp-danger {
+    color: #fff;
+    background-color: #faa35f;
+  }
+
+  .fab-md-danger.activated {
+    color: #fff;
+    background-color: #faa35f;
+  }
+
+  .fab-ios-danger.activated {
+    color: #fff;
+    background-color: #faa35f;
+  }
+
+  .fab-wp-danger.activated {
+    color: #fff;
+    background-color: #faa35f;
+  }
+
+
+  .photos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+
+  .photo {
+      width: calc(25% - 2px);
+      background: #ccc;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1px;
+  }
+
+  .photo img {
+    max-width: 140%;
+    width: auto;
+    height: auto;
+  }
+
+  .photo button {
+    position: relative;
+    top: -30px;
+    left: -30%;
+    height: 15px;
+    color: #faa35f;
+    background: transparent;
+  }
+
+}

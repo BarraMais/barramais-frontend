@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Comentários
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor='let comment of comments'>
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="{{comment.commentator.avatar_url}}">
+      </ion-avatar>
+      <h2>{{comment.commentator.name}}</h2>
+      <p>{{comment.created_at}}</p>
+    </ion-item>
+    <ion-card-content>
+      <p>{{comment.body}}</p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-grid class='formgrid'>
+    <ion-row>
+      <ion-col width-80>
+        <ion-textarea placeholder='Comentar..' [(ngModel)]="comment.body"></ion-textarea>
+      </ion-col>
+      <ion-col>
+        <button ion-button round small outline icon-only (click)="createComment()">
+          <ion-icon name="send"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

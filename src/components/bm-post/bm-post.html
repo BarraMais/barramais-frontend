@@ -1,0 +1,146 @@
+<!-- <ion-item-divider color="light" *ngIf="!hasPosts">Não há posts no seu feed de notícias</ion-item-divider> -->
+<p style="text-align: center;" *ngIf="posts?.length == 0"> Não há publicações aqui. </p>
+<ion-card *ngFor="let post of posts">
+  <ion-item class='post-header'>
+    <ion-avatar item-left (click)='openProfile(post.user.user_id)'>
+      <img src="{{post.user.avatar_url}}"/>
+    </ion-avatar>
+    <button ion-button class="destroy-button" clear type="button" *ngIf="post.user.user_id == current_user.id" item-right small (click)="deletePost(post)">
+      <ion-icon name="close"></ion-icon>
+    </button>
+
+    <div class='post-header-title'>
+      <h2 (click)='openProfile(post.user.user_id)'>
+        {{post.user.name}}
+      </h2>
+      <h2
+      class='domain_title'
+      (click)='openDomain(post.domain_type, post.domain)'
+      *ngIf='notTheAuthor(post)'
+      >
+        > {{getDomainName(post)}}
+      </h2>
+    </div>
+    <p style="font-size: 1rem">{{post.sent_date_format}}</p>
+  </ion-item>
+  <ion-card-content>
+    <p>{{post.description}}</p>
+    <div *ngIf="post.post_images">
+      <div class='post-images' (click)="openPhotos(post.post_images)">
+        <div *ngFor="let image of post.post_images | slice:0:4; let i = index" class="{{i == 3 ? 'post-image plus-sign-icon' : 'post-image'}}">
+          <img src="{{image.post_image}}" />
+        </div>
+      </div>
+    </div>
+    <div class="post-attach rich_url" *ngIf="post.rich_url" (click)="openLink(post.rich_url.url)">
+      <div class="rich_url-image">
+        <img src="{{post.rich_url.images[0].src}}" *ngIf="post.rich_url.images.length > 0" alt="" />
+      </div>
+      <h2>{{post.rich_url.title}}</h2>
+      <p>
+        {{post.rich_url.description}}
+      </p>
+    </div>
+  </ion-card-content>
+
+  <!-- <ion-row>
+    <ion-col width-25>
+      <div class="badges-container" (click)="openPage(likesPage, post)">
+        <ion-badge item-left small *ngIf='post.likes.size > 0'>{{post.likes.size}}</ion-badge>
+      </div>
+      <button class='like-action' ion-button icon-left clear small (click)='toogle_like(post)'>
+        <ion-icon name="star" [color]="like_color_for(post)"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col width-25>
+      <div class="badges-container">
+        <ion-badge item-left small *ngIf='post.comments.length > 0'>{{post.comments.length}}</ion-badge>
+      </div>
+      <button ion-button icon-left clear small (click)='post.showComments = !post.showComments'>
+        <ion-icon ios="ios-text" md="md-text" color="barramais"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row> -->
+  
+   
+
+   <ion-row class="social-row-data">
+    <ion-col>
+      <button ion-button icon-left clear small (click)="openPage(likesPage, post)">
+        <!-- <ion-icon name="thumbs-up"></ion-icon> -->
+        <div>{{post.likes.size}} curtiram</div>
+      </button>
+    </ion-col>
+    <ion-col (click)='post.showComments = !post.showComments'>
+      <button ion-button icon-left clear small class="btn-right" >
+        <!-- <ion-icon name="text"></ion-icon> -->
+        <div>{{post.comments.length}} comentário(s)</div>
+      </button>
+    </ion-col>
+    <!-- <ion-col center text-center>
+      <ion-note>
+        11h ago
+      </ion-note>
+    </ion-col> -->
+  </ion-row>
+
+  <div *ngIf="post.showComments">
+    <div class="post-comments" *ngFor='let comment of post.comments'>
+      <ion-item>
+        <ion-avatar item-left (click)='openProfile(comment.commentator.user_id)'>
+          <img src="{{comment.commentator.avatar_url}}">
+        </ion-avatar>
+        <h2 (click)='openProfile(comment.commentator.user_id)'>{{comment.commentator.name}}</h2>
+        <p>{{comment.sent_date_format}}</p>
+        <button
+          ion-button
+          class="destroy-button"
+          type="button"
+          *ngIf="post.user.user_id == current_user.id || comment.commentator.user_id == current_user.id"
+          item-right
+          clear
+          small
+          (click)="deleteComment(post, comment)">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-item>
+      <ion-card-content>
+        <p>{{comment.body}}</p>
+      </ion-card-content>
+    </div>
+  </div>
+  <div class="row-line"></div>
+
+ 
+
+  <ion-row class="social-row">
+    <ion-col style="width:84px" >
+      <button ion-button icon-left clear small (click)='toogle_like(post)'>
+        <ion-icon name="ios-heart" [color]="like_color_for(post)"></ion-icon>
+        <div>Curtir</div>
+      </button>
+    </ion-col>
+
+    <ion-col style="width:104px" >
+      <button ion-button icon-left clear small >
+        <ion-icon name="text"></ion-icon>
+        <div (click)='toggleCommentBox(post)'>Comentar</div>
+      </button>
+    </ion-col>
+
+    <ion-col style="width:121px" >
+      <button ion-button icon-left clear small >
+        <ion-icon name="ios-share-alt"></ion-icon>
+        <div>Compartilhar</div>
+      </button>
+    </ion-col>
+  </ion-row>
+
+  <div class="comment-form" *ngIf="post.show_comment_box">
+    <textarea placeholder='Comentar..' [(ngModel)]="post.new_comment_body"></textarea>
+    <button class="send-comment-button" item-right icon-button ion-button color="primary" (click)="createComment(post, post.new_comment_body)">
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </div> 
+</ion-card>
+<div class="posts-end"></div>

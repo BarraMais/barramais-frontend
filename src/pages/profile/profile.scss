@@ -1,0 +1,355 @@
+page-profile {
+    .background-image {
+        background-size: cover;
+        background-position: center;
+        min-height: 200px;
+        max-height: 400px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        align-content: stretch;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .perfil-actions {
+        position: absolute !important;
+        //top: 5px !important;
+        float: right;
+        //right: 6px !important;
+        z-index: 999 !important;
+        font-size: .7em;
+        height: 28px;
+        top: 50px !important;
+        right: 9px !important;
+        background-color: initial;
+        border: 1px solid #2b5a7d;
+        color: #2b5a7d;
+    }
+    .background-image img {
+        max-width: 100%;
+        min-width: 100%;
+        position: relative;
+    }
+    .main-content {
+        background-color: transparent;
+        position: relative;
+        top: -55px;
+    }
+    .item-md,
+    .item-ios,
+    .item-wp {
+        background-color: transparent;
+    }
+    .button-outline-md-light {
+        color: #123f5f;
+    }
+    .button-outline-ios-light {
+        color: #123f5f;
+    }
+    .button-outline-wp-light {
+        color: #123f5f;
+    }
+    .item-md ion-thumbnail ion-img,
+    .item-md ion-thumbnail img {
+        width: 70px;
+        height: 70px;
+        border-radius: 4px;
+        border: solid 1px #f5f5f5;
+    }
+    .item-ios ion-thumbnail ion-img,
+    .item-ios ion-thumbnail img {
+        width: 70px;
+        height: 70px;
+        border-radius: 4px;
+        border: solid 1px #f5f5f5;
+    }
+    .item-wp ion-thumbnail ion-img,
+    .item-wp ion-thumbnail img {
+        width: 70px;
+        height: 70px;
+        border-radius: 4px;
+        border: solid 1px #f5f5f5;
+    }
+    //Android
+    .tabs-md .tabbar {
+        background: #123f5f;
+        color: #f5f5f5;
+    }
+    .tabs-md .tab-button {
+        color: #f5f5f5;
+    }
+    .tabs-md .tab-button[aria-selected=true] {
+        color: #fff;
+    }
+    //WindowsPhone
+    .tabs-wp .tabbar {
+        background: #123f5f;
+        color: #f5f5f5;
+    }
+    .tabs-wp .tab-button {
+        color: #f5f5f5;
+    }
+    .tabs-wp .tab-button[aria-selected=true] {
+        color: #fff;
+    }
+    //IOS
+    .tabs-ios .tabbar {
+        background: #123f5f;
+        color: #f5f5f5;
+    }
+    .tabs-ios .tab-button {
+        color: #f5f5f5;
+    }
+    .tabs-ios .tab-button[aria-selected=true] {
+        color: #fff;
+    }
+    ion-col[width-17] {
+        -webkit-flex: 0 0 17%;
+        -ms-flex: 0 0 17%;
+        flex: 0 0 17%;
+        max-width: 17%;
+    }
+    .icon-button {
+        float: left;
+        width: 100%;
+        text-align: center;
+        color: #123f5f;
+        font-size: 2.3em;
+    }
+    .icon-word {
+        float: left;
+        width: 100%;
+        text-align: center;
+        color: #8e9093;
+        font-size: 0.875em;
+        margin: -5px 0;
+    }
+    .actions-row {
+        border-bottom: solid 2px #fff;
+        margin-bottom: 15px
+    }
+    .information-button {
+        margin: 15px;
+        width: calc(100% - 30px);
+    }
+    .profile-information {
+        margin: 10px;
+        background: #fff;
+        border-radius: 2px;
+    }
+    .profile-information p {
+        float: left;
+        margin: 6px;
+    }
+    .profile-information ion-icon {
+        float: left;
+    }
+    .profile-description {
+        background: #fff;
+        margin: 10px;
+        border-radius: 2px;
+    }
+    .profile-description h2 {
+        color: #666;
+        text-align: center;
+        font-size: 1em;
+    }
+    .section-title {
+        width: calc(100% - 30px);
+        margin: 15px 15px 0px 15px;
+        padding-top: 1px;
+        position: relative;
+        // border-bottom: solid 1px #f1f1f1;
+    }
+    .section-title img {
+        max-height: 20px;
+        max-width: 20px;
+    }
+    .thumb-user {
+        width: 84px;
+        height: 84px;
+        margin: 10px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        border: solid 2px #f5f5f5;
+    }
+    .cover-camera-icon {
+        position: absolute !important;
+        top: 2px !important;
+        right: 16px !important;
+        z-index: 999 !important;
+        opacity: 0.7 !important;
+        color: #fff !important;
+        font-size: 1.8em;
+    }
+    .cover-camera-icon:hover {
+        opacity: 0.8 !important;
+        color: #123f5f !important;
+    }
+    .item-md.item-block .item-inner,
+    .item-wp.item-block .item-inner,
+    .item-ios.item-block .item-inner {
+        padding-right: 8px;
+        border-bottom: inherit;
+    }
+    // .item-name-field{
+    //   position: absolute;
+    //   top: 40px;
+    //   left: 89px;
+    // }
+    // ion-list{
+    //   border-bottom: solid 1px #666;
+    // }
+    .item-inner {
+        color: #666;
+    }
+    .skill-icons {
+        font-size: 0.8em !important;
+    }
+    ion-col {
+        padding-bottom: 13px;
+    }
+    .profile-information p {
+        font-size: 0.8em !important;
+    }
+    .profile-information ion-icon {
+        font-size: 1.5em !important;
+    }
+    ion-col[width-80] {
+        -webkit-flex: 0 0 80%;
+        -ms-flex: 0 0 80%;
+        flex: 0 0 80%;
+        max-width: 80%;
+        color: #8e9093;
+    }
+    .sports {
+        width: 100%;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        font-size: 0.8em !important;
+        color: #666;
+    }
+    .sports {
+        margin: 0 10px;
+    }
+    .sport {
+        width: 49%;
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+    }
+    .sport img {
+        width: 15%;
+        margin: 5px;
+    }
+    .sport ion-icon {
+        width: 15%;
+        margin: 5px;
+    }
+    .profile-content {
+        width: 100%;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        font-size: 0.8em !important;
+        color: #666;
+    }
+    .profile-content {
+        margin: 0 10px;
+    }
+    .social {
+        width: 90%;
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        margin-left: 17%;
+        color: #838181;
+    }
+    .social img {
+        width: 7.5%;
+        margin: 5px;
+    }
+    .social ion-icon {
+        width: 7.5%;
+        margin: 5px;
+        font-size: 1.7em;
+    }
+    #user_avatar {
+        height: 80px;
+        width: 80px;
+        margin-top: 1em;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        position: relative;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #e9e9e9, 0 2px 5px 4px rgba(0, 0, 0, .2) !important;
+        -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #e9e9e9, 0 2px 5px 4px rgba(0, 0, 0, .2) !important;
+        box-shadow: 0 0 0 3px #fff, 0 0 0 4px #e9e9e9, 0 2px 5px 4px rgba(0, 0, 0, .2) !important;
+    }
+    .label h2 {
+        text-align: center;
+    }
+    .profile-description * .col {
+        display: flex;
+        align-items: center;
+        padding: 20px 0;
+        border: #efefef 1px solid;
+    }
+    .btn-1 {
+        height: 2em;
+        width: 84%;
+        margin: 0 auto;
+    }
+    .section-title h2 {
+        color: #2b5a7d;
+        display: inline-block;
+        font-size: 0.9em;
+        font-weight: 600px;
+        text-transform: uppercase;
+    }
+    .section-title .icon,
+    .section-title img {
+        display: inline-block;
+        font-size: 1.6em;
+        color: #2b5a7d;
+        margin-right: 20px;
+    }
+    .profile-container {
+        margin: 10px;
+        padding: 5px;
+        background-color: #fff;
+    }
+    // .perfil-actions.button.button-md.button-default.button-default-md.button-md-secondary,
+    // .perfil-actions.button.button-md.button-default.button-default-md.button-md-secondary.activated {
+    //     top: 50px !important;
+    //     right: 9px !important;
+    //     background-color: initial;
+    //     border: 1px solid #2b5a7d;
+    //     color: #2b5a7d;        
+    // }
+    .perfil-actions {
+        width: 11rem;
+        font-size: 1.15rem;
+    }
+}
