@@ -4,6 +4,7 @@ import { User } from '../../providers/user';
 import { UserModel } from "../../models/user.model";
 import { ToastController } from 'ionic-angular';
 import { FeedsPage }from '../feeds/feeds';
+import { RegistrationPage } from "../registration/registration";
 import { MainPage }from '../main/main';
 import { JwtHelper } from 'angular2-jwt';
 import { Events } from 'ionic-angular';
@@ -20,6 +21,7 @@ export class LoginPage {
   user: UserModel = new UserModel();
   feeds: any = FeedsPage;
   main: any = MainPage;
+  registrationPage = RegistrationPage;
 
   constructor(
     public navCtrl: NavController,
@@ -40,7 +42,8 @@ export class LoginPage {
   }
 
   openPage(page) {
-    this.navCtrl.push(page);
+    this.navCtrl.push(RegistrationPage);
+    //console.log("yolo");
   }
 
   gotToForgotPassword() {

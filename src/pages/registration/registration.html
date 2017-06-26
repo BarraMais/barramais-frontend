@@ -1,6 +1,14 @@
-<ion-header>
-    <bm-header [title]= "'Criar Conta'"></bm-header>
-</ion-header>
+<ion-navbar primary hideBackButton >
+      <button menuToggle style="order: 1;">
+       <!--  <ion-icon name="menu"></ion-icon>
+        <img alt="logo" height="26" src="assets/images/logoBarraMais.png"> -->
+      </button>
+
+    <ion-title style="order: 2;"> Criar conta </ion-title>
+
+    <ion-buttons end>
+    </ion-buttons>
+</ion-navbar>
 
 <ion-content padding>
     <form (ngSubmit)="save(user)">

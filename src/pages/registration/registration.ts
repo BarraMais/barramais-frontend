@@ -5,10 +5,12 @@ import { MainPage } from "../main/main";
 import { User } from '../../providers/user';
 import { ToastController } from 'ionic-angular';
 import { PrivacyPage } from "../privacy/privacy";
+import { LoginPage } from "../login/login";
 import { TermsPage } from "../terms/terms";
 import { InterestSelectionPage } from "../interest-selection/interest-selection";
 import { Events } from 'ionic-angular';
 import { JwtHelper } from 'angular2-jwt';
+
 /*
   Generated class for the Registration1 page.
 
@@ -24,8 +26,9 @@ export class RegistrationPage {
   user: UserModel = new UserModel();
   jwtHelper: JwtHelper = new JwtHelper();
   rootPage = MainPage;
-  privacyPage: any = PrivacyPage;
+  privacyPage: any = PrivacyPage;  
   termsPage: any = TermsPage;
+  loginPage: any = LoginPage;
   userEmailConfirmation: string = "";
 
   constructor(
@@ -38,7 +41,7 @@ export class RegistrationPage {
     public events: Events,
 
   ) {
-    this.menu.enable(false, 'menu');
+    //this.menu.enable(false, 'menu');
     }
 
   ionViewDidLoad() {
@@ -101,7 +104,7 @@ export class RegistrationPage {
     this.navCtrl.pop();
   }
 
-  openPage(page){
+  openPage(page) {
     this.navCtrl.setRoot(page);
   }
 
