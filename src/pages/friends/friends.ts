@@ -107,6 +107,9 @@ export class FriendsPage {
       (friends) => {
         this.friends = friends;
         this.friendsCount = friends.length;
+        console.log("friends = ");
+        console.log(this.friends);
+
       },
       (error) => console.log(error)
     );

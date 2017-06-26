@@ -66,7 +66,6 @@
   </ion-list> -->
 
 
-
     <ion-list>
     <ion-item class="item-friends" *ngFor="let user of friends">
       <ion-thumbnail item-left (click)='openProfile(user)'>
@@ -74,12 +73,13 @@
       </ion-thumbnail>
       <div class="friend-information-container">
         <div class="friend-information-text">
-          <h2 (click)='openProfile(user)'>{{user.first_name}} {{user.last_name}}</h2>
+          <h2 style="font-weight:600; font-size:1.4rem;" (click)='openProfile(user)'>{{user.first_name}} {{user.last_name}}</h2>
+          <p style="font-size:0.9rem; color:#ccc">{{user.profession}} {{user.first_name}}</p>
         </div>        
       </div>
       <button item-right ion-button icon-only class="user-popover" (click)="presentPopover($event)">
           <ion-icon name="md-checkmark"></ion-icon>
-          <span>Amigos</span>
+          <!--<span>Amigos</span>-->&nbsp;
           <ion-icon name="md-arrow-dropup"></ion-icon>
       </button>
     </ion-item>
