@@ -185,8 +185,11 @@ export function getAuthHttp(http) {
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp, {
-      backButtonText: ''
-    })
+      backButtonText: '',
+      platforms : {
+            ios: { statusbarPadding: true }
+      }
+    })    
   ],
   bootstrap: [IonicApp],
   entryComponents: [

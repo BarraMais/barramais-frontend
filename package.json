@@ -94,7 +94,11 @@
                 "APP_NAME": "Barra Mais"
             },
             "ionic-plugin-keyboard": {},
-            "cordova-plugin-media-capture": {},
+            "cordova-plugin-media-capture": {
+                "CAMERA_USAGE_DESCRIPTION": " ",
+                "MICROPHONE_USAGE_DESCRIPTION": " ",
+                "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
+            },
             "com.telerik.plugins.nativepagetransitions": {},
             "com-sarriaroman-photoviewer": {},
             "cordova-plugin-console": {},

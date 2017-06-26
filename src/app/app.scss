@@ -40,6 +40,17 @@ app-menu {
     ion-segment {
         margin-top: 10px;
     }
+
+    // .platform-ios .ios-header {
+    //   height:calc(56px + 20px);
+    //   min-height:calc(56px + 20px);
+    //   padding-top:20px;
+    // }
+
+    // .platform-ios .ios-header * .title{      
+    //   padding-top:20px;
+    // }
+
     .card,
     .item-friends,
     .searchbar-content {
@@ -315,8 +326,12 @@ app-menu {
         border-top: solid 1px #f1f1f1;
     }
     .comment-form {
-        height: 38px;
+        height: 4.1rem !important;
         display: flex;
+    }
+    .comment-form button {
+        height: 4.1rem !important;
+        padding: 0 !important;
     }
     .menu-item-icone {
         width: 30px;
