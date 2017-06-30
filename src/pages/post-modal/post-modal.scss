@@ -4,7 +4,8 @@ page-post-modal {
   .toolbar-background-ios,
   .toolbar-background-wp {
     border-color: #192d52;
-    background: #192d52;
+    // background: #192d52;
+    background-image: linear-gradient(to right, rgb(47, 142, 171) 0%, rgb(10, 70, 93) 100%);
   }
 
   .toolbar-title-md,

@@ -24,6 +24,9 @@ import {
     ConversationPage
 } from '../../pages/conversation/conversation';
 import {
+    MessagesPage
+} from '../../pages/messages/messages';
+import {
     UserModel
 } from "../../models/user.model";
 import {
@@ -57,6 +60,7 @@ export class MainPage {
     friends: any = FriendsPage;
     profile: any = ProfilePage;
     conversation: any = ConversationPage;
+    messages:any = MessagesPage;
     notifications: any = NotificationsPage;
     mySelectedIndex: number;
 

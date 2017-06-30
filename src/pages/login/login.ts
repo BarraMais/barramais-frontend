@@ -42,8 +42,7 @@ export class LoginPage {
   }
 
   openPage(page) {
-    this.navCtrl.push(RegistrationPage);
-    //console.log("yolo");
+    this.navCtrl.push(page);
   }
 
   gotToForgotPassword() {
@@ -51,6 +50,8 @@ export class LoginPage {
   }
 
   login(user) {
+    console.log("login init");
+    console.log(user);
     let loader = this.loadingCtrl.create({
       content: "Entrando, aguarde..."
     });

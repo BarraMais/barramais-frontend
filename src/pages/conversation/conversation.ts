@@ -23,20 +23,21 @@ export class ConversationPage {
     public navParams: NavParams,
     public conversationsProvider: Conversations
   ) {
-    
+    this.loadConversations();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ConversationPage');
-    this.loadConversations();
+    console.log('ionViewDidLoad ConversationPage');    
   }
 
   loadConversations() {
     this.conversationsProvider.my_conversations().subscribe(
-      (conversations) => this.conversations = conversations,
+      (conversations) => this.conversations =  conversations ,
       (error) => console.log(error),
       () => console.log("completed")
     );
+    console.log("conv =");
+    console.log(this.conversations);
   }
 
   openPage(page, params={}){

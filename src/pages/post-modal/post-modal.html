@@ -5,8 +5,8 @@
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
-        <span ion-text color="primary" showWhen="ios">Cancel</span>
-        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+        <!-- <span ion-text color="primary" >Cancelar</span> -->
+        <ion-icon name="md-close"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>
@@ -26,7 +26,7 @@
       <ion-grid>
         <ion-row>
           <ion-item>
-            <button ion-button item-right color="primary" (click)="createPost()">
+            <button ion-button item-right color="secondary" (click)="createPost()">
               <span ion-text>Publicar</span>
             </button>
           </ion-item>

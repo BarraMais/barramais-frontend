@@ -16,8 +16,8 @@
         <img src="{{conversation.opposed.avatar}}">
       </ion-avatar>
       <h2 (click)="openProfile(profilePage, conversation.opposed.id)">{{conversation.opposed.name}}</h2>
-      <p>{{conversation.last_message.body}}</p>
-      <ion-note item-right>{{conversation.last_message.sent_date}}</ion-note>
+      <p>{{conversation.last_message?.body}}</p>
+      <ion-note item-right>{{conversation.last_message?.sent_date}}</ion-note>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -1,4 +1,4 @@
-<ion-menu [content]="content" id="menu" persistent="true" (ionClose)="menuClosed()">
+<ion-menu  [content]="content" id="menu" persistent="true" (ionClose)="menuClosed()">
   <ion-content class="no-scroll">
     <ion-list class="custom-ion-list">
       <ion-item no-lines>
@@ -8,7 +8,7 @@
         <p>{{user.first_name}} {{user.last_name}}</p>
         <p>
             <!-- <a menuClose (click)="openPage(mainPage, 4)"> Visualizar Perfil </a> -->
-            <a menuClose (click)='openProfile(user.user_id)'> Visualizar Perfil </a>
+            <a style="color:#2B87A3" menuClose (click)='openProfile(user.user_id)'> Visualizar Perfil </a>
         </p>
         
         <button ion-button icon-only clear item-right menuClose (click)="presentConfirm()">
@@ -71,7 +71,7 @@
             <div class="menu-item-container">
               <!-- <i class="menu-item-icone amigos"></i> -->
               <div>
-                  <img style="height: 20px" src="assets/images/icons/logout@2x.png">
+                  <img style="height: 20px" src="assets/images/icons/pages@2x.png">
               </div>
               Páginas
             </div>
@@ -118,6 +118,17 @@
                   <img style="height: 20px" src="assets/images/icons/help@2x.png">
               </div>
               Ajuda e suporte
+            </div>
+          </button>
+        </li>
+
+        <li>
+          <button menuClose ion-item >
+            <div class="menu-item-container">
+              <div>
+                  <img style="height: 20px" src="assets/images/icons/about@2x.png">
+              </div>
+              Sobre a Barra Mais
             </div>
           </button>
         </li> 

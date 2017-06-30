@@ -132,7 +132,7 @@ app-menu {
         position: absolute;
         bottom: 0;
         width: 100%;
-        height: 50px;
+        height: 5rem;
         display: flex;
         justify-content: space-around;
     }
@@ -516,5 +516,25 @@ app-menu {
     .btn-2 {
         background-color: #2F8EAB;
         color: #fff;
+    }
+
+    .button-ios.activated,
+    .button.activated {
+        background-color: #2f8eab;
+        opacity: 1;
+        color: #fff;
+    }
+
+    .show-backdrop {
+        height: 100vh;
+        /* right: 0px !important; */
+        margin-left: 300px;
+        display: block;
+        /* width: calc(100% - 300px); */
+        opacity: .5;
+        background: black;
+        z-index: 9999;
+        position: absolute;
+        position: relative;
     }
 }

@@ -9,6 +9,7 @@
   <ion-tab tabTitle="Publicações" tabIcon="md-boat" [root]="feeds"></ion-tab>
   <ion-tab tabTitle="Amigos" tabIcon="md-contacts" [root]="friends"></ion-tab>
   <ion-tab  tabTitle="Mensagens" tabIcon="ex-chat-bubble" [root]="conversation"></ion-tab>
+  <!-- <ion-tab  tabTitle="Mensagens" tabIcon="ex-chat-bubble" [root]="messages"></ion-tab> -->
   <ion-tab tabTitle="Notificações" tabIcon="md-notifications" (ionSelect)="openNotificationsModal()" tabBadge="{{uncheckedNotifications.length > 0 ? uncheckedNotifications.length : null}}" tabBadgeStyle="danger">
   </ion-tab>
 </ion-tabs>

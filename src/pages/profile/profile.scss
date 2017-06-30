@@ -3,7 +3,8 @@ page-profile {
         background-size: cover;
         background-position: center;
         min-height: 200px;
-        max-height: 400px;
+        // max-height: 400px;
+        height: 15.4rem;
         overflow: hidden;
         display: flex;
         align-items: center;
@@ -11,6 +12,10 @@ page-profile {
         justify-content: center;
         flex-direction: column;
         flex-wrap: wrap;
+    }
+    .background-image img {
+        // max-height: 400px;
+        height: 15.4rem;
     }
     .perfil-actions {
         position: absolute !important;
@@ -351,5 +356,9 @@ page-profile {
     .perfil-actions {
         width: 11rem;
         font-size: 1.15rem;
+    }
+
+    .selected-menu {
+        font-weight: 600;        
     }
 }

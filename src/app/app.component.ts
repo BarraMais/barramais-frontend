@@ -270,6 +270,7 @@ export class MyApp {
                 window.localStorage.removeItem("jwt");
                 window.localStorage.removeItem("user");
                 window.localStorage.removeItem("vessels_type");
+                window.localStorage.clear();
                 this.nav.setRoot(HomePage);
               },
               (error) => console.log(error)

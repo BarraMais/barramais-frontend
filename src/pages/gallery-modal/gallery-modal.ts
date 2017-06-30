@@ -28,8 +28,10 @@ export class GalleryModalPage {
     console.log('ionViewDidLoad GalleryModalPage');
   }
 
-  imageOpen(image_url){
+  imageOpen(image_url) {
     this.photoViewer.show(image_url, '', {share: true});
   }
-
+    dismiss() {
+        this.navCtrl.pop();
+  }
 }

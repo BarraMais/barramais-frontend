@@ -82,7 +82,7 @@ export class ProfilePage {
         this.current_user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
         this.setUser(params.data.user);
         
-        if (this.current_user.id == this.user.id){
+        if (this.current_user.id == this.user.id) {
           events.subscribe('onUpdateUser', (user) => { this.user = new UserModel(user) });
         }
     }
@@ -95,7 +95,7 @@ export class ProfilePage {
 
   getUserNauticalSports() {
     this.userProvider.get_nautical_sports_by_user(this.user.id)
-      .subscribe(response =>{
+      .subscribe(response => {
         this.nautical_sports = response;
         console.log(response);
       }, error => {
@@ -159,7 +159,7 @@ export class ProfilePage {
     toast.present();
   }
 
-  unfriend(user){
+  unfriend(user) {
     this.userProvider.unfriend(user)
     .subscribe(
       (response) =>{
@@ -196,7 +196,7 @@ export class ProfilePage {
   }
 
 
-  accept_friendship(user){
+  accept_friendship(user) {
     this.userProvider.accept_friendship(user)
     .subscribe(
       (response) => {
@@ -206,7 +206,7 @@ export class ProfilePage {
     );
   }
 
-  refuse_friendship(user){
+  refuse_friendship(user) {
     this.userProvider.refuse_friendship(user)
     .subscribe(
       (response) => {
@@ -216,7 +216,7 @@ export class ProfilePage {
     );
   }
 
-  request_friendship(user){
+  request_friendship(user) {
     this.userProvider.request_friendship(user)
     .subscribe(
       (response) => {
@@ -227,7 +227,7 @@ export class ProfilePage {
     );
   }
 
-  is_friend_of(user){
+  is_friend_of(user) {
     this.userProvider.is_friend_of(user)
     .subscribe(
       (response) => {
@@ -260,26 +260,40 @@ export class ProfilePage {
     );
   }
 
-  setUser(user_id){
-    if(!user_id){
+  setUser(user_id) {
+    if (!user_id) {
       this.user = this.current_user;
       this.loadPosts();
+      this.user.last_name = this.checkIfStringIsNull(this.user.last_name);
     } else {
       this.userProvider.getUser(user_id)
       .subscribe(
         (user) => {
-          this.user = new UserModel(user);
+          this.user = new UserModel(user);          
           this.checkUser();
           this.loadFriends(user);
           user.id == this.current_user.id? this.isFriend = null : this.is_friend_of(user);
           this.loadPosts();
+          this.user.last_name = this.checkIfStringIsNull(this.user.last_name);
         },
         (error) => console.log(error)
       );
     }
   }
 
-  checkUser(){
+ checkIfStringIsNull(string) {   
+    if (string == null ||
+        string == 'null' ||
+        string == undefined ||
+        string == 'undefined') {
+        return "";
+    }
+    else {
+        return string;    
+    }
+ }
+
+  checkUser() {
     if(this.user.id == this.current_user.id){
         this.visitorActions = false;
     }else{
