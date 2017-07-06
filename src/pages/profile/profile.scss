@@ -13,7 +13,7 @@ page-profile {
         flex-direction: column;
         flex-wrap: wrap;
     }
-    .background-image img {
+    .background-image .img-standard {
         // max-height: 400px;
         height: 15.4rem;
     }
@@ -31,7 +31,7 @@ page-profile {
         border: 1px solid #2b5a7d;
         color: #2b5a7d;
     }
-    .background-image img {
+    .background-image .img-standard {
         max-width: 100%;
         min-width: 100%;
         position: relative;
@@ -179,7 +179,7 @@ page-profile {
         border-radius: 5px;
         border: solid 2px #f5f5f5;
     }
-    .cover-camera-icon {
+    .background-image ion-icon {
         position: absolute !important;
         top: 2px !important;
         right: 16px !important;
@@ -188,7 +188,7 @@ page-profile {
         color: #fff !important;
         font-size: 1.8em;
     }
-    .cover-camera-icon:hover {
+    .background-image ion-icon:hover {
         opacity: 0.8 !important;
         color: #123f5f !important;
     }
@@ -360,5 +360,12 @@ page-profile {
 
     .selected-menu {
         font-weight: 600;        
+    }
+
+    .cover-camera {
+        position: absolute;
+        width: 2rem;
+        right: 10px;
+        top: 23px;
     }
 }

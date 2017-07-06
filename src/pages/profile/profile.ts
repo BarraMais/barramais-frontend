@@ -18,6 +18,8 @@ import { ToastController, AlertController } from 'ionic-angular';
 import { Platform, LoadingController }  from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { AlbumListPage } from '../album-list/album-list';
+import { AlbumsPage } from '../albums/albums';
+import { CreateAlbumPage } from '../albums/create-album';
 
 declare var cordova: any;
 
@@ -38,6 +40,8 @@ export class ProfilePage {
   user: UserModel = new UserModel();
   userPage: any = UserPage;
   profilePage: any = ProfilePage;
+  albumsPage: any = AlbumsPage;
+  createAlbumPage: any = CreateAlbumPage;
   feedsPage: any = FeedsPage;
   groupsPage: any = GroupsPage;
   eventsPage: any = EventsPage;
@@ -345,7 +349,9 @@ export class ProfilePage {
 
   takePicture(sourceType) {
     var options = {
-      quality: 100,
+      quality: 90,
+      targetWidth: 1200,
+      targetHeight: 600,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
@@ -371,17 +377,17 @@ export class ProfilePage {
   }
 
   save_cover_photo() {
-    let loader = this.loadingCtrl.create({
-      content: "Salvando seus dados, aguarde..."
-    });
+    // let loader = this.loadingCtrl.create({
+    //   content: "Salvando seus dados, aguarde..."
+    // });
 
-    loader.present();
+    //loader.present();
 
     this.userProvider.save_cover_photo(this.user)
     .subscribe((user_params) => {
         this.current_user = new UserModel(this.jwtHelper.decodeToken(user_params.user));
         this.user = new UserModel(this.jwtHelper.decodeToken(user_params.user));
-        loader.dismiss();
+        //loader.dismiss();
     }, error => {
         alert(error.json());
         console.log(JSON.stringify(error.json()));

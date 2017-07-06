@@ -85,6 +85,8 @@ import { ClassifiedShowProductsPage } from '../pages/classified-show-products/cl
 import { ClassifiedShowVesselsPage } from '../pages/classified-show-vessels/classified-show-vessels';
 import { UserPopover } from '../pages/user-popover/user-popover';
 import { AddUsersPage } from '../pages/users/add-users';
+import { AlbumsPage } from '../pages/albums/albums';
+import { CreateAlbumPage } from '../pages/albums/create-album';
 import { UsersPage } from '../pages/users/users';
 import { Posts } from '../providers/posts';
 import { Camera } from '@ionic-native/camera';
@@ -166,6 +168,8 @@ export function getAuthHttp(http) {
     ClassifiedShowVesselsPage,
     UserPopover,
     AddUsersPage,
+    AlbumsPage,
+    CreateAlbumPage,
     UsersPage,
     GroupModalPage,
     GroupMembersPage,
@@ -252,6 +256,8 @@ export function getAuthHttp(http) {
     ClassifiedShowVesselsPage,
     UserPopover,
     AddUsersPage,
+    AlbumsPage,
+    CreateAlbumPage,
     UsersPage,
     GroupModalPage,
     GroupMembersPage,

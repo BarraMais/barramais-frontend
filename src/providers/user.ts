@@ -66,6 +66,9 @@ export class User {
   private my_notifications_url: string;
   private open_my_notifications_url: string;
   private get_ads_with_starting_id_url: string;
+  private create_album_url: string;
+  private get_album_url: string;
+  private edit_album_url: string;
 
   constructor(
     public http: Http,
@@ -103,8 +106,6 @@ export class User {
     this.load_nautical_sports_url = host + "users/load_nautical_sports";
     this.load_state_for_travels_url = host + "users/load_state_for_travels";
     this.load_country_for_travels_url = host + "users/load_country_for_travels";
-    this.get_user_album_url = host + "album_photos/get_user_album/";
-    this.user_album_url = host + "album_photos"
     this.update_user_interests_url = host + "users/update_user_interests";
     this.get_interests_by_user_url = host + "interests/get_interests_by_user/";
     this.interests_url = host + "interests";
@@ -123,7 +124,12 @@ export class User {
     this.omniauth_callback_url = host + '/users/auth/facebook/callback.json';
     this.my_notifications_url = host + '/users/my_notifications';
     this.open_my_notifications_url = host + '/users/open_my_notifications';
-    this.get_ads_with_starting_id_url = host + 'users/get_ads_with_starting_id/'
+    this.get_ads_with_starting_id_url = host + 'users/get_ads_with_starting_id/';
+    this.get_user_album_url = host + "album_photos/get_user_album/";
+    this.user_album_url = host + "album_photos";
+    this.create_album_url = host + "albums/create";
+    this.get_album_url = host + "albums";
+    this.edit_album_url = host + "albums/edit";
   }
 
   getAdsWithStartingId(ad_id){
@@ -199,6 +205,13 @@ export class User {
 
   get_interests(){
     return this.authHttp.get(this.interests_url + ".json")
+      .map(res => res.json());
+  }
+
+  create_album(album, user_id) {
+    let d = new Date;
+    let new_name = user_id + d.getTime();
+    return this.authHttp.post(this.create_album_url + ".json", {'photo': {'image': albumPhoto.photo, 'filename': new_name}})
       .map(res => res.json());
   }
 
