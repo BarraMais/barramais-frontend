@@ -69,21 +69,34 @@ export class EditAlbumPage {
     //   this.presentToast("Você deve selecionar uma foto de capa!");
     //   return;
     // }
-    if (this.newPhotos,length > 0) {
-        this.userProvider.add_photos_to_album(this.album.id, this.newPhotos)
-          .subscribe(response => {
-            //this.redirectPage(this.albumListPage);
-            this.presentToast("Album atualizado com sucesso!");
-            this.navCtrl.pop();
-        }, error => {
-            console.log(error.json());
-            this.presentToast(error.json());
-        });
-    }
-    else {
-        this.presentToast("Album atualizado com sucesso!");
-        this.navCtrl.pop();
-    }
+
+    //change title, cover photo
+    console.log("save album");
+    console.log(album);
+
+    this.userProvider.edit_album(album)
+      .subscribe(response => {
+        console.log("titulo trocado com sucesso")
+      }, error => {
+        console.log(error.json());
+        this.presentToast(error.json());
+    });
+
+    // if (this.newPhotos,length > 0) {
+    //     this.userProvider.add_photos_to_album(this.album.id, this.newPhotos)
+    //       .subscribe(response => {
+    //         //this.redirectPage(this.albumListPage);
+    //         this.presentToast("Album atualizado com sucesso!");
+    //         this.navCtrl.pop();
+    //     }, error => {
+    //         console.log(error.json());
+    //         this.presentToast(error.json());
+    //     });
+    // }
+    // else {
+    //     this.presentToast("Album atualizado com sucesso!");
+    //     this.navCtrl.pop();
+    // }
     
   }
 

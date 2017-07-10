@@ -68,8 +68,7 @@ export class User {
   private get_ads_with_starting_id_url: string;
   private create_album_url: string;
   private get_albums_url: string;
-  private edit_album_url: string;
-  private delete_album_url: string;
+  private album_url: string;
   private get_album_photos_url: string;
   private add_photos_to_album_url: string;
 
@@ -133,8 +132,7 @@ export class User {
     this.create_album_url = host + "albums";
     this.get_albums_url = host + "albums/get_user_album/";
     this.get_album_photos_url = host + "photos/get_album_photo/";
-    this.edit_album_url = host + "albums/edit";
-    this.delete_album_url = host + "albums/";
+    this.album_url = host + "albums";
     this.add_photos_to_album_url = host + "photos";
   }
 
@@ -228,7 +226,9 @@ export class User {
   create_album_photo(albumPhoto, user_id){
     let d = new Date;
     let new_name = user_id + d.getTime();
-    return this.authHttp.post(this.user_album_url + ".json", {'photo': {'image': albumPhoto.photo, 'filename': new_name}})
+    return this.authHttp.post(this.user_album_url + ".json", {
+        'photo': {'image': albumPhoto.photo, 'filename': new_name}
+    })
       .map(res => res.json());
   }
     
@@ -251,10 +251,11 @@ export class User {
     };
     
     const path = this.add_photos_to_album_url + ".json";
+    //const path = this.create_album_url + ".json";
     console.log("path url = " + path);    
     console.log(param);
 
-    return this.authHttp.post(path, param)
+    return this.authHttp.put(path, param)
       .map(res => res.json());
   }
 
@@ -277,9 +278,24 @@ export class User {
 
   //gu
   delete_album(album_id){
-    return this.authHttp.delete(this.delete_album_url + album_id + ".json")
+    return this.authHttp.delete(this.album_url +"/"+ album_id + ".json")
       .map(res => res.json());
   }
+  
+  //gu
+  edit_album(album) {
+    const url = this.host + "albums" +"/"+ album.id + ".json";
+    console.log("edit url = " + url);
+
+    return this.authHttp.put(url, {
+        'title': album.title, 
+        //'image': { albumPhoto.photo, 'filename': new_name}
+        'id':album.id,
+    })
+        .map(res => res.json());
+  }
+
+ 
 
   destroy_user_album_photo(photo_id){
     return this.authHttp.delete(this.user_album_url + "/" + photo_id + ".json")
