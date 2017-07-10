@@ -1,8 +1,8 @@
 page-profile {
     .background-image {
-        background-size: cover;
-        background-position: center;
-        min-height: 200px;
+        // background-size: cover;
+        // background-position: center;
+        min-height: 10px;
         // max-height: 400px;
         height: 15.4rem;
         overflow: hidden;
@@ -15,7 +15,7 @@ page-profile {
     }
     .background-image .img-standard {
         // max-height: 400px;
-        height: 15.4rem;
+        // height: 15.4rem !important;
     }
     .perfil-actions {
         position: absolute !important;
@@ -354,7 +354,7 @@ page-profile {
     //     color: #2b5a7d;        
     // }
     .perfil-actions {
-        width: 11rem;
+        width: 9rem;
         font-size: 1.15rem;
     }
 
@@ -367,5 +367,40 @@ page-profile {
         width: 2rem;
         right: 10px;
         top: 23px;
+    }
+
+    .photo-list {
+        margin-top: 40px;
+    }
+
+    .photo-list img{
+        display: block;
+    }
+
+    .photo-list div {
+        height: 4rem;
+        background-color: #2B829F;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    .photo-list p {
+        color: #2B829F;
+        font-weight: 600;
+    }
+
+    .photo-list > div > div {
+        display: flex;
+        align-items: center !important;
+        justify-content: center !important;
+        
+    }
+    .photo-list > div > div * {
+        color: #fff;
+    }
+
+    #user_cover_photo {
+        height: 15.4rem !important;
     }
 }

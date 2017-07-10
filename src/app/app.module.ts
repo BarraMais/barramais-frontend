@@ -87,6 +87,8 @@ import { UserPopover } from '../pages/user-popover/user-popover';
 import { AddUsersPage } from '../pages/users/add-users';
 import { AlbumsPage } from '../pages/albums/albums';
 import { CreateAlbumPage } from '../pages/albums/create-album';
+import { ViewAlbumPage } from '../pages/albums/view-album';
+import { EditAlbumPage } from '../pages/albums/edit-album';
 import { UsersPage } from '../pages/users/users';
 import { Posts } from '../providers/posts';
 import { Camera } from '@ionic-native/camera';
@@ -170,6 +172,8 @@ export function getAuthHttp(http) {
     AddUsersPage,
     AlbumsPage,
     CreateAlbumPage,
+    ViewAlbumPage,
+    EditAlbumPage,
     UsersPage,
     GroupModalPage,
     GroupMembersPage,
@@ -258,6 +262,8 @@ export function getAuthHttp(http) {
     AddUsersPage,
     AlbumsPage,
     CreateAlbumPage,
+    ViewAlbumPage,
+    EditAlbumPage,
     UsersPage,
     GroupModalPage,
     GroupMembersPage,

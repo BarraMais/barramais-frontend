@@ -1,0 +1,46 @@
+page-view-album {
+
+    .album-title {
+        color: #2B829F;
+        font-size: 1.5rem;
+    }
+
+    .input-container .text-input{
+        border: 1px #bab7b7 solid;
+        padding: 10px 5px;
+    }
+
+    .input-container .label{
+        margin-left: 16px;
+        color: #5d5d5d;
+        margin-bottom: 0px;
+    }
+
+    .input-container .input-text{
+        margin-left: 16px;
+        color: #5d5d5d;
+        margin-bottom: 0px;
+    }
+
+    .tabbar {
+        display: none;
+    }
+    
+    .photo-list {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .photo-list div {
+        width: 100px;
+        height: 100px;
+        margin: 10px 0;
+    }
+
+    .photo-list div div {        
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+    }
+}

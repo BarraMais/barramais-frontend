@@ -1,7 +1,23 @@
- <ion-header>
-    <bm-header [title]= "'Foto'"></bm-header>
+<ion-header>
+    <ion-navbar primary >
+          <button  style="background: none;">
+            <img alt="logo" height="26" width="26" src="assets/images/logoBarraMais.png">
+          </button>
+
+        <ion-title> Foto </ion-title>
+
+        <ion-buttons end>
+         <!--  <button (click) = "openAddUsersPage()" ion-button icon-only>
+            <ion-icon style="font-size: 2rem;" name="md-add"></ion-icon>
+          </button> -->
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <img src="{{photo.url}}" (click)="imageOpen(photo.url)"/>
+    <div class="photo-container">
+        <img src="{{photo.url}}">
+        <!-- <div [ngStyle]="{background: 'url(' + photo.url + ')'}" (click)="imageOpen(photo.url)"> </div> -->
+    </div>
+    
 </ion-content>

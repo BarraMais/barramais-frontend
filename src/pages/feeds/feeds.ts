@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { App } from 'ionic-angular';
 import { NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
 import { PostModalPage } from "../post-modal/post-modal";
 import { ProfilePage } from "../profile/profile";
+import { HomePage } from "../home/home";
 import { Posts } from '../../providers/posts';
 import { UserModel } from "../../models/user.model";
 import { JwtHelper } from 'angular2-jwt';
@@ -28,7 +30,8 @@ export class FeedsPage {
     public modalCtrl: ModalController,
     public postsProvider: Posts,
     public userProvider: User,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    private app: App
   ) {
 
   }
@@ -67,7 +70,7 @@ export class FeedsPage {
       content: "Carregando Feed..."
     });
 
-    loader.present();
+    //loader.present();
 
     this.postsProvider.index().subscribe(
       (posts) => {
@@ -75,11 +78,28 @@ export class FeedsPage {
             posts[index]['show_comment_box'] = false;
         }
         this.posts = posts;
-        loader.dismiss();
+        //loader.dismiss();
       },
       (error) => {
         console.log(error);
-        loader.dismiss();
+        if (typeof error.statusText != "undefined"  &&
+            error.statusText == "Unauthorized") {
+            this.userProvider.logout().subscribe(
+              (response) => {
+                console.log("logout init");
+                window.localStorage.removeItem("jwt");
+                window.localStorage.removeItem("user");
+                window.localStorage.removeItem("vessels_type");
+                window.localStorage.clear();
+                this.navCtrl.setRoot(HomePage);
+                this.app.getRootNav().setRoot(HomePage);
+
+              },
+              (error) => console.log(error)
+            );
+        }
+
+        //loader.dismiss();
       }
     );
   }

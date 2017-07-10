@@ -49,6 +49,8 @@ import { UserPopover } from '../pages/user-popover/user-popover';
 import { AddUsersPage } from '../pages/users/add-users';
 import { AlbumsPage } from '../pages/albums/albums';
 import { CreateAlbumPage } from '../pages/albums/create-album';
+import { ViewAlbumPage } from '../pages/albums/view-album';
+import { EditAlbumPage } from '../pages/albums/edit-album';
 import { AlertController } from 'ionic-angular';
 import { UserModel } from "../models/user.model";
 import { JwtHelper } from 'angular2-jwt';
@@ -120,6 +122,8 @@ export class MyApp {
   addUsersPage: any = AddUsersPage;
   albumsPage: any = AlbumsPage;
   createAlbumPage: any = CreateAlbumPage;
+  viewAlbumPage: any = ViewAlbumPage;
+  editAlbumPage: any = EditAlbumPage;
   interestSelectionPage: any = InterestSelectionPage;
   loginPage: any = LoginPage;
   eventsPage: any = EventsPage;

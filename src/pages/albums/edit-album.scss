@@ -1,4 +1,4 @@
-page-create-album {
+page-edit-album {
     .preview-image {
         max-width: 100%;
         min-height: 100px;
@@ -38,5 +38,25 @@ page-create-album {
 
     .tabbar {
         display: none;
+    }
+
+    .photo-list {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .photo-list div {
+        width: 100px;
+        height: 100px;
+        margin: 10px 0;
+        display: flex;
+    }
+
+    .photo-list div div {        
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
     }
 }

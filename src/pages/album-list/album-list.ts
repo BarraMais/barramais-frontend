@@ -165,7 +165,7 @@ export class AlbumListPage {
     }
   }
 
-  openPhoto(photo){
+  openPhoto(photo) {
     let modal = this.modalCtrl.create(PhotoModalPage, {photo: photo});
     modal.present();
   }

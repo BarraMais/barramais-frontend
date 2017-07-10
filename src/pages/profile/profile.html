@@ -42,7 +42,7 @@
         <button icon-left class="perfil-actions"  style="left: 9px !important;"   ion-button *ngIf="visitorActions && isFriend == true" (click)='createConversationWith(user)'>
             <!-- <ion-icon name="chatbubbles"></ion-icon> -->
             <img style="height: 1.4rem" src="assets/images/icons/msg.png">
-            &nbsp;&nbsp; Chat
+            &nbsp;&nbsp; Mensagem
         </button>
 
         <img src="{{user.avatar_url}}" id='user_avatar'>
@@ -199,12 +199,27 @@
         <div class="profile-container" [hidden]="!show_album">
             <br/>
             <button (click)="openPage(createAlbumPage)" ion-button outline block color="barramais-primary" class="btn-1" *ngIf="user.id == current_user.id"  >CRIAR NOVO ÁLBUM</button>
+            
+            <ion-list>
+                <!-- <ion-item *ngFor="let photo of album"> -->
+                <div *ngFor="let album of albums" class="photo-list">
+                    <p>{{album.title}}</p>
+                    <img src="http://www.aquatlodecascais.com/img/estoril/cascais_baia_clube_naval.jpg"  />
+                    <div >
+                       <div (click)="goToAlbum(viewAlbumPage, album)"> 
+                            <span>VISUALIZAR</span> 
+                        </div>
 
-           <!--  <ion-list>
-                <ion-item *ngFor="let photo of album">
-                    <img src="{{photo.url}}" (click)="openPhoto(photo)" />
-                </ion-item>
-            </ion-list> -->
+                       <div *ngIf="user.id == current_user.id" (click)="goToAlbum(editAlbumPage, album)"> 
+                            <span>EDITAR</span> 
+                        </div>
+
+                       <div *ngIf="user.id == current_user.id" (click)="deleteAlbum(album)"> 
+                            <span>EXCLUIR</span> 
+                        </div>
+                    </div>
+                </div>
+            </ion-list>
         </div>
 
     </div>

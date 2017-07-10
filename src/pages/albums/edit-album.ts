@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ActionSheetController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController, AlertController, ModalController } from 'ionic-angular';
 import { JwtHelper } from 'angular2-jwt';
 import { UserModel } from "../../models/user.model";
 import { AlbumModel } from "../../models/album.model";
+import { PhotoModel } from "../../models/photo.model";
 import { User } from '../../providers/user';
 import { ProfilePage } from '../profile/profile';
 
 //import { Camera } from 'ionic-native';
 import { Camera } from '@ionic-native/camera';
-import { ToastController } from 'ionic-angular';
+import { ToastController,  Platform, LoadingController  } from 'ionic-angular';
+import { PhotoModalPage } from '../photo-modal/photo-modal';
 
-import { Platform, LoadingController }  from 'ionic-angular';
 
 
 /*
@@ -20,10 +21,10 @@ import { Platform, LoadingController }  from 'ionic-angular';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-create-album',
-  templateUrl: 'create-album.html'
+  selector: 'page-edit-album',
+  templateUrl: 'edit-album.html'
 })
-export class CreateAlbumPage {
+export class EditAlbumPage {
   album: AlbumModel = new AlbumModel();
 
   jwtHelper: JwtHelper = new JwtHelper();
@@ -32,6 +33,9 @@ export class CreateAlbumPage {
   profilePage: any = ProfilePage;
   isEditing: boolean = false;
   previewImage: string = '';
+  photos: Array<any>;
+  newPhotos: Array<any> = [];
+
 
   constructor(
     public navCtrl: NavController,
@@ -43,35 +47,44 @@ export class CreateAlbumPage {
     private camera: Camera,
     public platform: Platform,
     public loadingCtrl: LoadingController,
+    public modalCtrl: ModalController
   ) {
-      this.current_user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
-      this.album = new AlbumModel();
-      this.album.user_id = this.current_user.id;
-      //this.albumPhoto = navParams.data.albumPhoto ? new AlbumPhotoModel(navParams.data.albumPhoto) : new AlbumPhotoModel();
-  }
+        this.current_user = new UserModel(this.jwtHelper.decodeToken(this.user_token));      
+        this.album.user_id = this.current_user.id;
+        this.getPhotos(navParams.data.album.id);    
+        this.album = new AlbumModel();
+        this.album = navParams.data.album;
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AlbumPhotoCreatePage');
   }
 
-  save(album) {
-    if (album.title == null || album.title == "") {
+  updateAlbum(album) {
+    if (this.album.title == null || album.title == "") {
       this.presentToast("O campo nome deve ser preenchido!");
       return;
     }
-    else if (album.cover_url == null || album.cover_url == "") {
-      this.presentToast("Você deve selecionar uma foto de capa!");
-      return;
+    // else if (album.cover_url == null || album.cover_url == "") {
+    //   this.presentToast("Você deve selecionar uma foto de capa!");
+    //   return;
+    // }
+    if (this.newPhotos,length > 0) {
+        this.userProvider.add_photos_to_album(this.album.id, this.newPhotos)
+          .subscribe(response => {
+            //this.redirectPage(this.albumListPage);
+            this.presentToast("Album atualizado com sucesso!");
+            this.navCtrl.pop();
+        }, error => {
+            console.log(error.json());
+            this.presentToast(error.json());
+        });
     }
-
-    this.userProvider.create_album(album, this.current_user.id)
-      .subscribe(response => {
-        //this.redirectPage(this.albumListPage);
-        this.presentToast("Album cadastrado com sucesso!");
-    }, error => {
-        console.log(error.json());
-        this.presentToast(error.json());
-    });
+    else {
+        this.presentToast("Album atualizado com sucesso!");
+        this.navCtrl.pop();
+    }
+    
   }
 
   // update(albumPhoto){
@@ -84,7 +97,10 @@ export class CreateAlbumPage {
   //       this.presentToast(error.json());
   //   });
   // }
-    openMediaOptions() {
+
+    openMediaOptions() {        
+
+
         let actionSheet = this.actionSheetCtrl.create({
           title: 'Carregar midia',
           cssClass: 'page-post-modal',
@@ -134,9 +150,17 @@ export class CreateAlbumPage {
         this.camera.getPicture(options).then(
             image_url => {                
                 let includeToNewMedia = (image) => {
-                    console.log("img_url ok");
-                    this.album.cover_url = 'data:image/jpeg;base64,' + image;    
-                    this.navCtrl.push(this.profilePage, {user: this.current_user});          
+                    console.log("got the image");                    
+                    let newPhoto = new PhotoModel();
+                    newPhoto.url = 'data:image/jpeg;base64,' + image;
+
+                    let date = new Date;
+                    newPhoto.filename =  (this.current_user.id + date.getTime()).toFixed(2);
+                    
+                    this.newPhotos.push('data:image/jpeg;base64,' + image);
+                    //this.photos.push('data:image/jpeg;base64,' + image);
+                    this.photos.push(newPhoto);
+                    //console.log(this.photos);
                 };
 
                 includeToNewMedia(image_url);
@@ -159,11 +183,32 @@ export class CreateAlbumPage {
     toast.present();
   }
 
-  redirectPage(page){
+  redirectPage(page) {
     this.navCtrl.setRoot(page);
   }
 
-  goBack(){
+  goBack() {
     this.navCtrl.pop();
   }
+
+  getPhotos(album_id) {
+        this.userProvider.get_album_photos(album_id)
+          .subscribe(response => {
+            console.log(response);
+            this.photos = response;
+            console.log("photos");
+            console.log(this.photos);
+            //this.checkIfAlbumIsEmpty();
+            //loader.dismiss();
+
+          }, error => {
+            //loader.dismiss();
+            console.log("Erro ao carregar a lista de classificados" + error.json())
+        });
+    }
+
+    openPhoto(photo) {
+        let modal = this.modalCtrl.create(PhotoModalPage, {photo: photo});
+        modal.present();
+    }
 }

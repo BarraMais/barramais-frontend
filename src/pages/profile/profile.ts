@@ -20,6 +20,9 @@ import { Events } from 'ionic-angular';
 import { AlbumListPage } from '../album-list/album-list';
 import { AlbumsPage } from '../albums/albums';
 import { CreateAlbumPage } from '../albums/create-album';
+import { ViewAlbumPage } from '../albums/view-album';
+import { EditAlbumPage } from '../albums/edit-album';
+
 
 declare var cordova: any;
 
@@ -44,6 +47,8 @@ export class ProfilePage {
   createAlbumPage: any = CreateAlbumPage;
   feedsPage: any = FeedsPage;
   groupsPage: any = GroupsPage;
+  viewAlbumPage: any = ViewAlbumPage;
+  editAlbumPage: any = EditAlbumPage;
   eventsPage: any = EventsPage;
   friendsPage: any = FriendsPage;
   friends: any;
@@ -51,7 +56,7 @@ export class ProfilePage {
   profileInformation: boolean = false;
   publications: boolean = false;
   show_album:boolean = false;
-  album: any[] = [];
+  albums: any[] = [];
   isAlbumEmpty: boolean = false;
   visitorActions: boolean = false;
   current_user: UserModel = new UserModel();
@@ -70,7 +75,7 @@ export class ProfilePage {
 
   constructor(
     public navCtrl: NavController,
-    params: NavParams,
+    navParams: NavParams,
     private userProvider: User,
     public conversationProvider: Conversations,
     public modalCtrl: ModalController,
@@ -84,7 +89,7 @@ export class ProfilePage {
     private camera: Camera
   ) {
         this.current_user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
-        this.setUser(params.data.user);
+        this.setUser(navParams.data.user);
         
         if (this.current_user.id == this.user.id) {
           events.subscribe('onUpdateUser', (user) => { this.user = new UserModel(user) });
@@ -250,7 +255,7 @@ export class ProfilePage {
       content: "Carregando Feed..."
     });
 
-    loader.present();
+    //loader.present();
 
     this.postsProvider.posts_with_domain(domain_config).subscribe(
       (posts) => {
@@ -351,7 +356,7 @@ export class ProfilePage {
     var options = {
       quality: 90,
       targetWidth: 1200,
-      targetHeight: 600,
+      targetHeight: 800,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
@@ -456,27 +461,39 @@ export class ProfilePage {
     this.personalInformation = !this.personalInformation;
   }
 
-    getUserAlbum(){
+    getUserAlbum() {
         let loader = this.loadingCtrl.create({
           content: "Carregando galeria, aguarde..."
-    });
+        });
 
-    loader.present();
+        //loader.present();
+        
+        // this.userProvider.get_user_album(this.user.id)
+        //   .subscribe(response =>{
+        //     console.log(response);
+        //     this.album = response;
+        //     this.checkIfAlbumIsEmpty();
+        //     loader.dismiss();
+        //   }, error => {
+        //     loader.dismiss();
+        //     console.log("Erro ao carregar a lista de classificados" + error.json())
+        // });
 
-    this.userProvider.get_user_album(this.user.id)
-      .subscribe(response =>{
-        console.log(response);
-        this.album = response;
-        this.checkIfAlbumIsEmpty();
-        loader.dismiss();
-      }, error => {
-        loader.dismiss();
-        console.log("Erro ao carregar a lista de classificados" + error.json())
-      });
+        this.userProvider.get_albums(this.user.id)
+          .subscribe(response => {
+            console.log(response);
+            this.albums = response;
+            //this.checkIfAlbumIsEmpty();
+            //loader.dismiss();
+
+          }, error => {
+            //loader.dismiss();
+            console.log("Erro ao carregar a lista de classificados" + error.json())
+        });
     }
 
     checkIfAlbumIsEmpty() {
-        if (this.album.length < 1) {
+        if (this.albums.length < 1) {
             this.isAlbumEmpty = true;
         }
     }
@@ -486,5 +503,52 @@ export class ProfilePage {
           this.isMyAlbum = true;
         }
     }
+    goToAlbum(albumPage, album) {
+        this.navCtrl.push(albumPage, {user: this.user, album: album});
+    }
 
+
+    deleteAlbum(album) {
+     console.log(album);
+
+    
+
+     let alert = this.alertCtrl.create({
+      title: '',
+      message: 'Tem certeza que deseja deletar o album?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancelar');
+          }
+        },
+        {
+          text: 'Sim',
+          handler: () => {
+            this.userProvider.delete_album(album.id)
+              .subscribe(response => {
+                console.log(response);
+                console.log("yolo");
+                const length = this.albums.length; //cache
+                for (let i = 0; i < length; i++) {
+                    if (this.albums[i] == album) {
+                        this.albums.splice(i, 1);
+                    }
+                }
+              }, error => {
+                //loader.dismiss();
+                console.log("Erro ao deletar album" + error.json())
+            });
+          }
+        }
+      ]
+    });
+    alert.present();
+
+
+
+        
+    }
 }

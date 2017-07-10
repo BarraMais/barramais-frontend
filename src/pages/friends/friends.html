@@ -74,7 +74,7 @@
       <div class="friend-information-container">
         <div class="friend-information-text">
           <h2 style="font-weight:600; font-size:1.4rem;" (click)='openProfile(user)'>{{user.first_name}} {{user.last_name}}</h2>
-          <p style="font-size:0.9rem; color:#ccc">{{user.profession}} {{user.first_name}}</p>
+          <p style="font-size:1rem; color:#ccc">{{user.profession}} {{user.about}}</p>
         </div>        
       </div>
       <button item-right ion-button icon-only class="user-popover" (click)="presentPopover($event)">

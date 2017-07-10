@@ -1,20 +1,32 @@
 <ion-header>
-    <bm-header [title]= "'Novo Album'"></bm-header>
+    <ion-navbar primary >
+          <button style="background: none;" >            
+            <img alt="logo" height="26" src="assets/images/logoBarraMais.png">
+          </button>
+
+        <ion-title> Novo Álbum </ion-title>
+    </ion-navbar>
 </ion-header>
 
+
+
 <ion-content padding>
-    <form (ngSubmit)="save(album)">
+    
+    <form (ngSubmit)="save(album)">        
+        
+        <!-- <ion-item> -->
+        <div class="input-container">
+            <ion-label>NOME DO ÁLBUM</ion-label>    
+            <ion-input type="text" [(ngModel)]="album.title" name="album_name"></ion-input>
+        </div>
 
-        <button (click)="presentActionSheet()" ion-button outline block color="barramais-primary" class="btn-1" *ngIf="user.id == current_user.id"  >ESCOLHER FOTO</button>
+        <button (click)="openMediaOptions()" type="button" ion-button outline block color="barramais-primary" class="btn-1">ESCOLHER FOTO</button>
+            
+        <!-- </ion-item> -->
 
-        <ion-item>
-            <ion-label floating>NOME DO ÁLBUM</ion-label>
-            <ion-input type="text" [(ngModel)]="album.name" name="album_name"></ion-input>
-        </ion-item>
+        <img [src]="album.cover_url"  class="preview-image" >
 
-        <img src="{{album.cover_photo}}">
-
-        <button ion-button type="submit" outline block color="barramais-primary">SALVAR</button>
+        <button class="btn-salvar" ion-button type="submit"  block color="barramais-primary">SALVAR</button>
     </form>
     
 </ion-content>

@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar primary >
+          <button style="background: none;" >            
+            <img alt="logo" height="26" src="assets/images/logoBarraMais.png">
+          </button>
+
+        <ion-title> Visualizar Álbum </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <p class="album-title">{{album.title}}</p>    
+
+    <div *ngFor="let photo of photos" class="photo-list">   
+        <div>            
+            <div (click)="openPhoto(photo)" [ngStyle]="{background: 'url(' + photo.url + ')'}"></div>
+        </div>
+    </div>
+        
+</ion-content>

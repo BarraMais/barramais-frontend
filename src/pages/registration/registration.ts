@@ -53,19 +53,26 @@ export class RegistrationPage {
 
     if(user.first_name == null || user.first_name == ""){
       this.presentToast("O campo nome deve ser preenchido!");
-    }else if(user.last_name == null || user.last_name == ""){
-      this.presentToast("O campo sobrenome deve ser preenchido!");
-    }else if(user.birthday == null || user.birthday == ""){
-      this.presentToast("Escolha a data de nascimento!");
-    }else if(user.email == null || user.email == "" || !user.email.match(emailRule)){
+    }
+    // else if(user.last_name == null || user.last_name == ""){
+    //   this.presentToast("O campo sobrenome deve ser preenchido!");
+    // }
+    // else if(user.birthday == null || user.birthday == ""){
+    //   this.presentToast("Escolha a data de nascimento!");
+    // }
+    else if(user.email == null || user.email == "" || !user.email.match(emailRule)){
       this.presentToast("O campo email deve ser preenchido corretamente!");
-    }else if(user.password == null || user.password == "" || user.password.length < 8){
+    }
+    else if(user.password == null || user.password == "" || user.password.length < 8){
       this.presentToast("O campo senha deve ser preenchido com no mínimo 8 dígitos!");
-    }else if(user.password_confirmation != user.password){
-      this.presentToast("A confirmação da senha deve ser igual à senha!");
-    }else if(this.userEmailConfirmation != this.user.email){
-      this.presentToast("A confirmação do email deve ser igual ao email!");
-    }else{
+    }
+    // else if(user.password_confirmation != user.password){
+    //   this.presentToast("A confirmação da senha deve ser igual à senha!");
+    // }
+    // else if(this.userEmailConfirmation != this.user.email){
+    //   this.presentToast("A confirmação do email deve ser igual ao email!");
+    // }
+    else{
       let loader = this.loadingCtrl.create({
         content: "Salvando seus dados, aguarde..."
       });

@@ -67,8 +67,11 @@ export class User {
   private open_my_notifications_url: string;
   private get_ads_with_starting_id_url: string;
   private create_album_url: string;
-  private get_album_url: string;
+  private get_albums_url: string;
   private edit_album_url: string;
+  private delete_album_url: string;
+  private get_album_photos_url: string;
+  private add_photos_to_album_url: string;
 
   constructor(
     public http: Http,
@@ -80,7 +83,7 @@ export class User {
       this.setRoutes(this.host);
    }
 
-  setRoutes(host){
+  setRoutes(host) {
     this.url = host + "users";
     this.event_friends_url = host + "users/event_friends/";
     this.group_friends_url = host + "users/group_friends/";
@@ -127,9 +130,12 @@ export class User {
     this.get_ads_with_starting_id_url = host + 'users/get_ads_with_starting_id/';
     this.get_user_album_url = host + "album_photos/get_user_album/";
     this.user_album_url = host + "album_photos";
-    this.create_album_url = host + "albums/create";
-    this.get_album_url = host + "albums";
+    this.create_album_url = host + "albums";
+    this.get_albums_url = host + "albums/get_user_album/";
+    this.get_album_photos_url = host + "photos/get_album_photo/";
     this.edit_album_url = host + "albums/edit";
+    this.delete_album_url = host + "albums/";
+    this.add_photos_to_album_url = host + "photos";
   }
 
   getAdsWithStartingId(ad_id){
@@ -211,7 +217,11 @@ export class User {
   create_album(album, user_id) {
     let d = new Date;
     let new_name = user_id + d.getTime();
-    return this.authHttp.post(this.create_album_url + ".json", {'photo': {'image': albumPhoto.photo, 'filename': new_name}})
+    return this.authHttp.post(this.create_album_url + ".json", {
+        'image': album.cover_url,
+        'title': album.title, 
+        'filename': new_name
+    })
       .map(res => res.json());
   }
 
@@ -221,14 +231,53 @@ export class User {
     return this.authHttp.post(this.user_album_url + ".json", {'photo': {'image': albumPhoto.photo, 'filename': new_name}})
       .map(res => res.json());
   }
-
+    
   update_album_photo(albumPhoto){
     return this.authHttp.put(this.user_album_url + "/" + albumPhoto.id + ".json", {'album_photo': albumPhoto})
+      .map(res => res.json());
+  }
+    //gu
+  add_photos_to_album(album_id, photos_array) {
+    // const param = {
+    //     'photo': {
+    //         'album_id': album_id,
+    //         'image': photos_array,
+    //     }
+    // };
+
+    const param = {
+        'album_id': album_id,
+        'image': photos_array,
+    };
+    
+    const path = this.add_photos_to_album_url + ".json";
+    console.log("path url = " + path);    
+    console.log(param);
+
+    return this.authHttp.post(path, param)
       .map(res => res.json());
   }
 
   get_user_album(user_id){
     return this.authHttp.get(this.get_user_album_url + user_id + ".json")
+      .map(res => res.json());
+  }
+  
+  //gu
+  get_albums(user_id) {
+    return this.authHttp.get(this.get_albums_url  + user_id )
+      .map(res => res.json());
+  }
+
+  //gu
+  get_album_photos(album_id) {
+    return this.authHttp.get(this.get_album_photos_url  + album_id )
+      .map(res => res.json());
+  }
+
+  //gu
+  delete_album(album_id){
+    return this.authHttp.delete(this.delete_album_url + album_id + ".json")
       .map(res => res.json());
   }
 
