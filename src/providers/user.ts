@@ -284,7 +284,7 @@ export class User {
   
   //gu
   edit_album(album) {
-    const url = this.host + "albums" +"/"+ album.id + ".json";
+    const url = this.host + "albums" +"/"+ album.album_id + ".json";
     console.log("edit url = " + url);
 
     return this.authHttp.put(url, {
