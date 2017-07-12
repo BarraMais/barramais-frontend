@@ -285,13 +285,25 @@ export class User {
   //gu
   edit_album(album) {
     const url = this.host + "albums" +"/"+ album.album_id + ".json";
-    console.log("edit url = " + url);
-
-    return this.authHttp.put(url, {
+    const param = {
         'title': album.title, 
-        //'image': { albumPhoto.photo, 'filename': new_name}
+        'image': '',
+        'filename': '',
         'id':album.id,
-    })
+    };
+
+    // if (coverPhotoChanged) {
+    //     const d = new Date;
+    //     const new_name = album.id + d.getTime();
+
+    //     param.image = album.url;
+    //     param.filename = new_name;
+    // }
+
+    console.log("edit url = " + url);
+    console.log("param= " + param);
+
+    return this.authHttp.put(url, param)
         .map(res => res.json());
   }
 

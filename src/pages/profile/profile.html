@@ -204,7 +204,7 @@
                 <!-- <ion-item *ngFor="let photo of album"> -->
                 <div *ngFor="let album of albums" class="photo-list">
                     <p>{{album.title}}</p>
-                    <img src="http://www.aquatlodecascais.com/img/estoril/cascais_baia_clube_naval.jpg"  />
+                    <img src="{{album.url}}"  />
                     <div >
                        <div (click)="goToAlbum(viewAlbumPage, album)"> 
                             <span>VISUALIZAR</span> 

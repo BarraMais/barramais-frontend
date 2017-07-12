@@ -71,6 +71,7 @@ export class ProfilePage {
   embarcationInformation: boolean = false;
   nauticalInformation: boolean = false;
   isMyAlbum: boolean = false;
+  
 
 
   constructor(

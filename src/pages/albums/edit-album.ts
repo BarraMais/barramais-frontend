@@ -36,7 +36,6 @@ export class EditAlbumPage {
   photos: Array<any>;
   newPhotos: Array<any> = [];
 
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -73,7 +72,7 @@ export class EditAlbumPage {
     //change title, cover photo
     console.log("save album");
     console.log(album);
-
+    
     this.userProvider.edit_album(album)
       .subscribe(response => {
         console.log("titulo trocado com sucesso")
@@ -166,7 +165,7 @@ export class EditAlbumPage {
                     console.log("got the image");                    
                     let newPhoto = new PhotoModel();
                     newPhoto.url = 'data:image/jpeg;base64,' + image;
-
+                    
                     let date = new Date;
                     newPhoto.filename =  (this.current_user.id + date.getTime()).toFixed(2);
                     
