@@ -68,6 +68,7 @@ export class CreateAlbumPage {
       .subscribe(response => {
         //this.redirectPage(this.albumListPage);
         this.presentToast("Album cadastrado com sucesso!");
+        this.navCtrl.push(this.profilePage, {user: this.current_user});          
     }, error => {
         console.log(error.json());
         this.presentToast(error.json());
@@ -136,7 +137,7 @@ export class CreateAlbumPage {
                 let includeToNewMedia = (image) => {
                     console.log("img_url ok");
                     this.album.cover_url = 'data:image/jpeg;base64,' + image;    
-                    this.navCtrl.push(this.profilePage, {user: this.current_user});          
+                    //this.navCtrl.push(this.profilePage, {user: this.current_user});          
                 };
 
                 includeToNewMedia(image_url);
