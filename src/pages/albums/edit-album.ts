@@ -73,29 +73,29 @@ export class EditAlbumPage {
     console.log("save album");
     console.log(album);
     
-    this.userProvider.edit_album(album)
-      .subscribe(response => {
-        console.log("titulo trocado com sucesso")
-      }, error => {
-        console.log(error.json());
-        this.presentToast(error.json());
-    });
+    // this.userProvider.edit_album(album)
+    //   .subscribe(response => {
+    //     console.log("titulo trocado com sucesso")
+    //   }, error => {
+    //     console.log(error.json());
+    //     this.presentToast(error.json());
+    // });
 
-    // if (this.newPhotos,length > 0) {
-    //     this.userProvider.add_photos_to_album(this.album.id, this.newPhotos)
-    //       .subscribe(response => {
-    //         //this.redirectPage(this.albumListPage);
-    //         this.presentToast("Album atualizado com sucesso!");
-    //         this.navCtrl.pop();
-    //     }, error => {
-    //         console.log(error.json());
-    //         this.presentToast(error.json());
-    //     });
-    // }
-    // else {
-    //     this.presentToast("Album atualizado com sucesso!");
-    //     this.navCtrl.pop();
-    // }
+    if (this.newPhotos.length > 0) {
+        this.userProvider.add_photos_to_album(this.album.id, this.newPhotos)
+          .subscribe(response => {
+            //this.redirectPage(this.albumListPage);
+            this.presentToast("Album atualizado com sucesso!");
+            this.navCtrl.pop();
+        }, error => {
+            console.log(error.json());
+            this.presentToast(error.json());
+        });
+    }
+    else {
+        this.presentToast("Album atualizado com sucesso!");
+        this.navCtrl.pop();
+    }
     
   }
 
@@ -165,13 +165,13 @@ export class EditAlbumPage {
                     console.log("got the image");                    
                     let newPhoto = new PhotoModel();
                     newPhoto.url = 'data:image/jpeg;base64,' + image;
-                    
+
                     let date = new Date;
                     newPhoto.filename =  (this.current_user.id + date.getTime()).toFixed(2);
                     
-                    this.newPhotos.push('data:image/jpeg;base64,' + image);
-                    //this.photos.push('data:image/jpeg;base64,' + image);
+                    this.newPhotos.push(newPhoto);
                     this.photos.push(newPhoto);
+                    //this.photos.push('data:image/jpeg;base64,' + image);                    
                     //console.log(this.photos);
                 };
 

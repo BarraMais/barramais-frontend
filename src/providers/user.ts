@@ -255,7 +255,7 @@ export class User {
     console.log("path url = " + path);    
     console.log(param);
 
-    return this.authHttp.put(path, param)
+    return this.authHttp.post(path, param)
       .map(res => res.json());
   }
 
