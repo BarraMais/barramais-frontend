@@ -25,11 +25,13 @@ page-view-album {
     .tabbar {
         display: none;
     }
-    
+
     .photo-list {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        float: left;
+        padding: 0 13px;
     }
 
     .photo-list div {
@@ -38,7 +40,7 @@ page-view-album {
         margin: 10px 0;
     }
 
-    .photo-list div div {        
+    .photo-list div div {
         background-size: cover !important;
         background-repeat: no-repeat !important;
         background-position: center !important;

@@ -15,7 +15,7 @@
     <div class="container">
         <div class="background-image">
           <img class="img-standard" src="{{user.cover_photo_url}}" id='user_cover_photo' />
-          <img (click)="openMediaOptions()" [hidden]="visitorActions"  class="cover-camera" src="assets/images/icons/iconCamera@2x.png" 
+          <img (click)="openMediaOptions()" [hidden]="visitorActions"  class="cover-camera" src="assets/images/icons/iconCamera@2x.png"
            />
           <!--  cover-camera-icon  md-camera -->
           <!-- <ion-icon ios="md-camera" name="camera" (click)="openMediaOptions()" [hidden]="visitorActions"></ion-icon> -->
@@ -52,11 +52,11 @@
 
         <div class="profile-description">
             <ion-row class="actions-row">
-              <ion-col width-33 (click)="showProfileInformation()">                            
+              <ion-col width-33 (click)="showProfileInformation()">
                 <p class="icon-word" [ngClass]="{'selected-menu': profileInformation}">PERFIL</p>
               </ion-col>
 
-              <ion-col width-33 (click)="togglePublications()"> 
+              <ion-col width-33 (click)="togglePublications()">
                 <p class="icon-word" [ngClass]="{'selected-menu': publications}">PUBLICAÇÕES</p>
               </ion-col>
 
@@ -66,12 +66,12 @@
               </ion-col>
             </ion-row>
         </div>
-          
+
         <div class="profile-container" [hidden]="!profileInformation">
-            <br/>            
+            <br/>
             <button ion-button outline block color="barramais-primary" class="btn-1" *ngIf="user.id == current_user.id"  >EDITAR PERFIL</button>
 
-            <div class="profile-description" >                
+            <div class="profile-description" >
                 <div class="section-title">
                   <ion-icon name="contact"></ion-icon>
                   <h2>INFORMAÇÕES PESSOAIS</h2>
@@ -118,7 +118,7 @@
                     <img src="assets/images/icon-viagem-nacional.png"/>
                     <h2>Viages nacionais</h2>
                 </div>
-                <div class="social" >                    
+                <div class="social" >
                     {{user.national_trips}}
                 </div>
             </div>
@@ -128,8 +128,8 @@
                     <img src="assets/images/icon-viagem-internacional.png"/>
                     <h2>Viages internacionais</h2>
                 </div>
-                
-                <div class="social" >                    
+
+                <div class="social" >
                     {{user.international_trips}}
                 </div>
             </div>
@@ -138,9 +138,9 @@
                 <div class="section-title">
                     <img src="assets/images/icon-integrante-marinha.png"/>
                     <h2>Integrante da marinha</h2>
-                </div>                
-            </div>            
-        
+                </div>
+            </div>
+
             <div class="profile-description" [hidden]="!profileInformation" *ngIf="user.nautical_license !== null">
                 <div class="section-title">
                     <ion-icon name="ios-star"></ion-icon>
@@ -148,15 +148,15 @@
                 </div>
 
                 <div class="socials" [hidden]="!nauticalInformation">
-                    <div class="social" >                    
+                    <div class="social" >
                         {{user.nautical_license_name}}
-                    </div>   
-                </div>           
-            </div>           
+                    </div>
+                </div>
+            </div>
 
             <div class="profile-description" [hidden]="!profileInformation">
                 <div class="section-title">
-                    <img src="assets/images/icon-embarcacao.png" />                    
+                    <img src="assets/images/icon-embarcacao.png" />
                     <h2>Embarcações</h2>
                 </div>
 
@@ -170,7 +170,7 @@
 
             <div class="profile-description" [hidden]="!profileInformation">
                 <div class="section-title">
-                    <img src="assets/images/icon-esporte.png" />   
+                    <img src="assets/images/icon-esporte.png" />
                     <h2>Esportes náuticos</h2>
                 </div>
 
@@ -184,7 +184,7 @@
 
             <div class="profile-description" [hidden]="!profileInformation">
                 <div class="section-title">
-                    <img src="assets/images/icon-contato.png" />                    
+                    <img src="assets/images/icon-contato.png" />
                     <h2>Contatos</h2>
                 </div>
             </div>
@@ -193,29 +193,29 @@
         <div class="profile-container" [hidden]="!publications">
             <br/>
             <button ion-button outline block color="barramais-primary" class="btn-1" *ngIf="user.id == current_user.id" (click)="openModal()" >NOVA PUBLICAÇÃO </button>
-            <bm-post  [posts]="posts"></bm-post>  
+            <bm-post  [posts]="posts"></bm-post>
         </div>
 
         <div class="profile-container" [hidden]="!show_album">
             <br/>
             <button (click)="openPage(createAlbumPage)" ion-button outline block color="barramais-primary" class="btn-1" *ngIf="user.id == current_user.id"  >CRIAR NOVO ÁLBUM</button>
-            
+
             <ion-list>
                 <!-- <ion-item *ngFor="let photo of album"> -->
-                <div *ngFor="let album of albums" class="photo-list">
+                <div *ngFor="let album of albums" class="photo-list" id="{{album.album_id}}">
                     <p>{{album.title}}</p>
                     <img src="{{album.url}}"  />
                     <div >
-                       <div (click)="goToAlbum(viewAlbumPage, album)"> 
-                            <span>VISUALIZAR</span> 
+                       <div (click)="goToAlbum(viewAlbumPage, album)">
+                            <span>VISUALIZAR</span>
                         </div>
 
-                       <div *ngIf="user.id == current_user.id" (click)="goToAlbum(editAlbumPage, album)"> 
-                            <span>EDITAR</span> 
+                       <div *ngIf="user.id == current_user.id" (click)="goToAlbum(editAlbumPage, album)">
+                            <span>EDITAR</span>
                         </div>
 
-                       <div *ngIf="user.id == current_user.id" (click)="deleteAlbum(album)"> 
-                            <span>EXCLUIR</span> 
+                       <div *ngIf="user.id == current_user.id" (click)="deleteAlbum(album)">
+                            <span>EXCLUIR</span>
                         </div>
                     </div>
                 </div>

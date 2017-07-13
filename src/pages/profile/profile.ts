@@ -71,7 +71,7 @@ export class ProfilePage {
   embarcationInformation: boolean = false;
   nauticalInformation: boolean = false;
   isMyAlbum: boolean = false;
-  
+
 
 
   constructor(
@@ -91,7 +91,7 @@ export class ProfilePage {
   ) {
         this.current_user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
         this.setUser(navParams.data.user);
-        
+
         if (this.current_user.id == this.user.id) {
           events.subscribe('onUpdateUser', (user) => { this.user = new UserModel(user) });
         }
@@ -279,7 +279,7 @@ export class ProfilePage {
       this.userProvider.getUser(user_id)
       .subscribe(
         (user) => {
-          this.user = new UserModel(user);          
+          this.user = new UserModel(user);
           this.checkUser();
           this.loadFriends(user);
           user.id == this.current_user.id? this.isFriend = null : this.is_friend_of(user);
@@ -291,7 +291,7 @@ export class ProfilePage {
     }
   }
 
- checkIfStringIsNull(string) {   
+ checkIfStringIsNull(string) {
     if (string == null ||
         string == 'null' ||
         string == undefined ||
@@ -299,7 +299,7 @@ export class ProfilePage {
         return "";
     }
     else {
-        return string;    
+        return string;
     }
  }
 
@@ -414,8 +414,8 @@ export class ProfilePage {
   showAlbums() {
     this.hideAll();
     this.getUserAlbum();
-    
-    this.show_album = !this.show_album;    
+
+    this.show_album = !this.show_album;
   }
 
   showProfileInformation() {
@@ -439,7 +439,7 @@ export class ProfilePage {
     //   this.publications = true;
     // }
     this.publications = !this.publications;
-    
+
   }
 
   showNauticalInformation(){
@@ -468,7 +468,7 @@ export class ProfilePage {
         });
 
         //loader.present();
-        
+
         // this.userProvider.get_user_album(this.user.id)
         //   .subscribe(response =>{
         //     console.log(response);
@@ -511,9 +511,6 @@ export class ProfilePage {
 
     deleteAlbum(album) {
      console.log(album);
-
-    
-
      let alert = this.alertCtrl.create({
       title: '',
       message: 'Tem certeza que deseja deletar o album?',
@@ -528,10 +525,10 @@ export class ProfilePage {
         {
           text: 'Sim',
           handler: () => {
-            this.userProvider.delete_album(album.id)
+            this.userProvider.delete_album(album.album_id)
               .subscribe(response => {
                 console.log(response);
-                console.log("yolo");
+                console.log("deletar album");
                 const length = this.albums.length; //cache
                 for (let i = 0; i < length; i++) {
                     if (this.albums[i] == album) {
@@ -548,8 +545,5 @@ export class ProfilePage {
     });
     alert.present();
 
-
-
-        
     }
 }

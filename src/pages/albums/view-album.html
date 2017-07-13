@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar primary >
-          <button style="background: none;" >            
+          <button style="background: none;" >
             <img alt="logo" height="26" src="assets/images/logoBarraMais.png">
           </button>
 
@@ -9,12 +9,15 @@
 </ion-header>
 
 <ion-content padding>
-    <p class="album-title">{{album.title}}</p>    
+    <p class="album-title">{{album.title}}</p>
 
-    <div *ngFor="let photo of photos" class="photo-list">   
-        <div>            
+    <div *ngFor="let photo of photos" class="photo-list" id="{{photo.id}}">
+        <div>
+            <div (click)="deletePhoto(photo)"> deletar </div>
+        </div>
+        <div>
             <div (click)="openPhoto(photo)" [ngStyle]="{background: 'url(' + photo.url + ')'}"></div>
         </div>
     </div>
-        
+
 </ion-content>

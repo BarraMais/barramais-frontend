@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar primary >
-          <button style="background: none;" >            
+          <button style="background: none;" >
             <img alt="logo" height="26" src="assets/images/logoBarraMais.png">
           </button>
         <ion-title> Editar Álbum </ion-title>
@@ -10,35 +10,35 @@
 
 
 <ion-content padding>
-    
-    <form (ngSubmit)="updateAlbum(album)">                
+
+    <form (ngSubmit)="updateAlbum(album)">
         <!-- <ion-item> -->
         <div class="input-container">
-            <ion-label>NOME DO ÁLBUM</ion-label>    
+            <ion-label>NOME DO ÁLBUM</ion-label>
             <ion-input type="text" [(ngModel)]="album.title" name="album_name"></ion-input>
         </div>
 
         <button (click)="openMediaOptions()" type="button" ion-button outline block color="barramais-primary" class="btn-1">ESCOLHER FOTO</button>
-            
-        
 
-        <!-- <img [src]="album.cover_url"  class="preview-image" > -->        
-         <div  class="photo-list">   
-            <!-- <div *ngIf="!photo.url.includes('base64')"> 
+
+
+        <!-- <img [src]="album.cover_url"  class="preview-image" > -->
+         <div  class="photo-list">
+            <!-- <div *ngIf="!photo.url.includes('base64')">
                 <div (click)="openPhoto(photo)" [ngStyle]="{background: 'url(' + photo.url + ')'}"></div>
             </div> -->
-            <!-- <div *ngIf="photo.url.includes('base64')">  --> 
+            <!-- <div *ngIf="photo.url.includes('base64')">  -->
 
-            <div (click)="openPhoto(photo)"  *ngFor="let photo of photos">    
-                <img src="{{photo.url}}">
+            <div (click)="openPhoto(photo)"  *ngFor="let photo of photos">
+                <img src="{{photo.image}}">
             </div>
-                
-            <!-- <div>    
+
+            <!-- <div>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlvVhyK_hZ8ui_YTWVmfc5j7G1BcBbbMI3MBE63yIbRzVYDDPm">
             </div> -->
         </div>
 
         <button class="btn-salvar" ion-button type="submit"  block color="barramais-primary">SALVAR</button>
     </form>
-    
+
 </ion-content>
