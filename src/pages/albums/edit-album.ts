@@ -32,22 +32,23 @@ export class EditAlbumPage
   previewImage: string = '';
   photos: Array < any > ;
   newPhotos: Array < any > = [];
-  constructor( public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, private userProvider: User, public toastCtrl: ToastController, private camera: Camera, public platform: Platform, public loadingCtrl: LoadingController, public modalCtrl: ModalController )
-  {
+  constructor( public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, private userProvider: User, public toastCtrl: ToastController, private camera: Camera, public platform: Platform, public loadingCtrl: LoadingController, public modalCtrl: ModalController ) {
     this.current_user = new UserModel( this.jwtHelper.decodeToken( this.user_token ) );
     this.album.user_id = this.current_user.id;
-    this.getPhotos( navParams.data.album.id );
+    //console.log("navParams.data.album");
+    //console.log(navParams.data.album);
+    this.getPhotos( navParams.data.album.album_id );
     this.album = new AlbumModel();
     this.album = navParams.data.album;
   }
-  ionViewDidLoad()
-  {
+
+  ionViewDidLoad() {
     console.log( 'ionViewDidLoad AlbumPhotoCreatePage' );
   }
-  updateAlbum( album )
-  {
-    if ( this.album.title == null || album.title == "" )
-    {
+
+  updateAlbum( album ) {
+
+    if ( this.album.title == null || album.title == "" ) {
       this.presentToast( "O campo nome deve ser preenchido!" );
       return;
     }
@@ -66,21 +67,19 @@ export class EditAlbumPage
         console.log(error.json());
         this.presentToast(error.json());
     });
-    if ( this.newPhotos.length > 0 )
-    {
-      this.userProvider.add_photos_to_album( album.album_id, this.newPhotos ).subscribe( response =>
-      {
+
+    if ( this.newPhotos.length > 0 ) {
+      this.userProvider.add_photos_to_album( album.album_id, this.newPhotos )
+      .subscribe( response => {
         //this.redirectPage(this.albumListPage);
         this.presentToast( "Album atualizado com sucesso!" );
         this.navCtrl.pop();
-      }, error =>
-      {
+      }, error => {
         console.log( error.json() );
         this.presentToast( error.json() );
       } );
     }
-    else
-    {
+    else {
       this.presentToast( "Album atualizado com sucesso!" );
       this.navCtrl.pop();
     }
@@ -95,25 +94,58 @@ export class EditAlbumPage
   //       this.presentToast(error.json());
   //   });
   // }
-  openMediaOptions()
-  {
-    let actionSheet = this.actionSheetCtrl.create(
-    {
+
+    deletePhoto(photo) {
+        console.log(photo);
+        let alert = this.alertCtrl.create({
+        title: '',
+        message: 'Tem certeza que deseja deletar a photo?',
+        buttons: [{
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancelar');
+          }
+        },
+        {
+            text: 'Sim',
+            handler: () => {
+                this.userProvider.delete_photo(photo.id)
+                  .subscribe(response => {
+                    console.log(response);
+                    console.log("deletar photo");
+                    const length = this.photos.length; //cache
+                    for (let i = 0; i < length; i++) {
+                        if (this.photos[i] == photo) {
+                            this.photos.splice(i, 1);
+                        }
+                    }
+                    this.presentToast( "Foto deletada com sucesso!" );
+                  }, error => {
+                    //loader.dismiss();
+                    console.log("Erro ao deletar photo" + error.json())
+                });
+            }
+        }
+      ]
+    });
+        alert.present();
+    }
+
+  openMediaOptions() {
+    let actionSheet = this.actionSheetCtrl.create({
       title: 'Carregar midia',
       cssClass: 'page-post-modal',
-      buttons: [
-      {
+      buttons: [ {
         text: 'Carregar da Galeria',
-        handler: () =>
-        {
+        handler: () => {
           this.takePicture( this.camera.PictureSourceType.PHOTOLIBRARY );
         }
       },
       {
         text: 'Fotos',
         icon: !this.platform.is( 'ios' ) ? 'videocam' : null,
-        handler: () =>
-        {
+        handler: () => {
           this.takePicture( this.camera.PictureSourceType.CAMERA );
           console.log( 'Play clicked' );
         }
@@ -122,16 +154,15 @@ export class EditAlbumPage
         text: 'Cancelar',
         role: 'cancel', // will always sort to be on the bottom
         icon: !this.platform.is( 'ios' ) ? 'close' : null,
-        handler: () =>
-        {
+        handler: () => {
           console.log( 'Cancel clicked' );
         }
       } ]
     } );
     actionSheet.present();
   }
-  takePicture( sourceType )
-  {
+
+  takePicture( sourceType ) {
     var options = {
       quality: 90,
       //targetWidth: 1200,
@@ -181,26 +212,26 @@ export class EditAlbumPage
   {
     this.navCtrl.setRoot( page );
   }
-  goBack()
-  {
+
+  goBack() {
     this.navCtrl.pop();
   }
-  getPhotos( album_id )
-  {
-    this.userProvider.get_album_photos( album_id ).subscribe( response =>
-    {
+
+  getPhotos( album_id ) {
+    this.userProvider.get_album_photos( album_id ).subscribe( response => {
       console.log( response );
       this.photos = response;
-      console.log( "photos" );
-      console.log( this.photos );
+
+      //console.log( "photos" );
+      //console.log( this.photos );
       //this.checkIfAlbumIsEmpty();
       //loader.dismiss();
-    }, error =>
-    {
+    }, error => {
       //loader.dismiss();
       console.log( "Erro ao carregar a lista de classificados" + error.json() )
     } );
   }
+
   openPhoto( photo )
   {
     let modal = this.modalCtrl.create( PhotoModalPage,

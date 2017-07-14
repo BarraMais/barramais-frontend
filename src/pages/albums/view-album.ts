@@ -42,32 +42,28 @@ export class ViewAlbumPage
   {
     console.log( 'ionViewDidLoad ViewAlbumPage' );
   }
-  redirectPage( page )
-  {
+  redirectPage( page ) {
     this.navCtrl.setRoot( page );
   }
-  goBack()
-  {
+
+  goBack() {
     this.navCtrl.pop();
   }
-  getPhotos( album_id )
-  {
-    this.userProvider.get_album_photos( album_id ).subscribe( response =>
-    {
+
+  getPhotos( album_id ) {
+    this.userProvider.get_album_photos( album_id ).subscribe( response => {
       console.log( response );
       this.photos = response;
       //this.checkIfAlbumIsEmpty();
       //loader.dismiss();
-    }, error =>
-    {
+    }, error => {
       //loader.dismiss();
       console.log( "Erro ao carregar a lista de classificados" + error.json() )
     } );
   }
-  openPhoto( photo )
-  {
-    let modal = this.modalCtrl.create( PhotoModalPage,
-    {
+
+  openPhoto( photo ) {
+    let modal = this.modalCtrl.create( PhotoModalPage, {
       photo: photo
     } );
     modal.present();

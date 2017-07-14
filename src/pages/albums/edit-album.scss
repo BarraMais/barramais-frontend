@@ -6,11 +6,12 @@ page-edit-album {
     }
 
     .btn-salvar {
-        position: absolute;
-        bottom: 21px;
+        position: absolute;        
         display: block;
         margin: 0 auto;
         width: 91%;
+        margin-bottom: 20px;
+        margin-top: 20px;
     }
 
     .input-container .text-input{
@@ -52,11 +53,25 @@ page-edit-album {
         height: 100px;
         margin: 10px 0;
         display: flex;
+        position: relative;
     }
 
     .photo-list div div {        
         background-size: cover !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
+    }
+
+    .photo-list > div > .icon {
+        position: absolute;
+        color: red;
+        font-size: 1.5em;
+        right: 0;
+        z-index: 2;
+
+        background: #f1f1f1;
+        border-radius: 80%;
+        height: 19px;
+        background-position: center;
     }
 }

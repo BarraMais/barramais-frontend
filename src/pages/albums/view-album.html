@@ -11,13 +11,18 @@
 <ion-content padding>
     <p class="album-title">{{album.title}}</p>
 
-    <div *ngFor="let photo of photos" class="photo-list" id="{{photo.id}}">
-        <div>
+    <div  class="photo-list" >
+        <!-- <div>
             <div (click)="deletePhoto(photo)"> deletar </div>
+        </div> -->
+        <div *ngFor="let photo of photos" id="{{photo.id}}">
+            <!-- <ion-icon name="ios-close-circle" (click)="deletePhoto(photo)" ></ion-icon> -->
+
+            <div  (click)="openPhoto(photo)" [ngStyle]="{background: 'url(' + photo.url + ')'}">                
+            </div>
         </div>
-        <div>
-            <div (click)="openPhoto(photo)" [ngStyle]="{background: 'url(' + photo.url + ')'}"></div>
-        </div>
+        
+        
     </div>
 
 </ion-content>

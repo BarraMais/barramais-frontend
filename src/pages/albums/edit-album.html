@@ -29,8 +29,15 @@
             </div> -->
             <!-- <div *ngIf="photo.url.includes('base64')">  -->
 
-            <div (click)="openPhoto(photo)"  *ngFor="let photo of photos">
+           <!--  <div (click)="openPhoto(photo)"  *ngFor="let photo of photos">
                 <img src="{{photo.image}}">
+            </div> -->
+
+            <div *ngFor="let photo of photos" id="{{photo.id}}">
+                <ion-icon name="ios-close-circle" (click)="deletePhoto(photo)" ></ion-icon>
+
+                <div  (click)="openPhoto(photo)" [ngStyle]="{background: 'url(' + photo.url + ')'}">                
+                </div>
             </div>
 
             <!-- <div>
