@@ -199,6 +199,7 @@ export class User
   {
     let d = new Date;
     let new_name = user_id + d.getTime();
+    console.log("url criar album = " + this.create_album_url + ".json");
     return this.authHttp.post( this.create_album_url + ".json",
     {
       'album':
@@ -272,14 +273,16 @@ export class User
     return this.authHttp.delete( this.album_url + "/" + album_id + ".json" ).map( res => res.json() );
   }
   //gu
-  edit_album( album )
+  edit_album( album, user_id )
   {
+    let d = new Date;
+    let new_name = user_id + d.getTime();
     const url = this.host + "albums" + "/" + album.album_id + ".json";
     const param = {
       'title': album.title,
-      'image': '',
-      'filename': '',
-      'id': album.id,
+      'image': album.cover_url,
+      'filename': new_name,
+      'id': album.album_id,
     };
     // if (coverPhotoChanged) {
     //     const d = new Date;

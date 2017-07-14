@@ -59,10 +59,10 @@ export class CreateAlbumPage {
       this.presentToast("O campo nome deve ser preenchido!");
       return;
     }
-    else if (album.cover_url == null || album.cover_url == "") {
+    /*else if (album.cover_url == null || album.cover_url == "") {
       this.presentToast("Você deve selecionar uma foto de capa!");
       return;
-    }
+    }*/
 
     this.userProvider.create_album(album, this.current_user.id)
       .subscribe(response => {
