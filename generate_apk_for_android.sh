@@ -6,7 +6,7 @@ APK_NAME="BarraMais"
 KEYSTORE_ALIAS="bmaisreleasekey"
 KEYSTORE_NAME="bmais-release-key"
 OPEN="N"
-PWD_FOR_KEYSTORE="vorteX20**"
+PWD_FOR_KEYSTORE="vorteX20"
 
 echo -e "Open folder for the new APK? [s/N]"
 read OPEN
