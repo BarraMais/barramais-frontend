@@ -10,13 +10,13 @@
             <!-- <a menuClose (click)="openPage(mainPage, 4)"> Visualizar Perfil </a> -->
             <a style="color:#2B87A3" menuClose (click)='openProfile(user.user_id)'> Visualizar Perfil </a>
         </p>
-        
+
         <button ion-button icon-only clear item-right menuClose (click)="presentConfirm()">
           <!-- <ion-icon name="log-out"></ion-icon> -->
           <img style="height: 20px" src="assets/images/icons/logout@2x.png">
         </button>
       </ion-item>
-      <!-- <button menuClose ion-item  *ngFor="let p of pages" (click)="openPage(p.component)" class="item-menu" [disabled]="p.isDisabled">        
+      <!-- <button menuClose ion-item  *ngFor="let p of pages" (click)="openPage(p.component)" class="item-menu" [disabled]="p.isDisabled">
         <div class="menu-item-container">
           <i class="menu-item-icone {{p.icon}}"></i>
           {{p.title}}
@@ -35,7 +35,7 @@
           </ion-item>
         </li>
       </ul> -->
-     
+
       <ul class="menu-item">
         <li>
           <button menuClose ion-item (click)="openPage(mainPage, 0)">
@@ -45,7 +45,7 @@
             </div>
           </button>
         </li>
-       
+
         <li>
           <button menuClose ion-item (click)="openFriends()">
             <div class="menu-item-container">
@@ -65,7 +65,7 @@
             </div>
           </button>
         </li>
-        
+
         <li>
           <button menuClose ion-item (click)="openPage()">
             <div class="menu-item-container">
@@ -109,7 +109,7 @@
               Configurações
             </div>
           </button>
-        </li> 
+        </li>
 
         <li>
           <button menuClose ion-item (click)="openPage(helpPage)">
@@ -123,7 +123,7 @@
         </li>
 
         <li>
-          <button menuClose ion-item >
+          <button menuClose ion-item  (click)="openPage(aboutPage)">
             <div class="menu-item-container">
               <div>
                   <img style="height: 20px" src="assets/images/icons/about@2x.png">
@@ -131,7 +131,7 @@
               Sobre a Barra Mais
             </div>
           </button>
-        </li> 
+        </li>
        </ul>
     </ion-list>
     <div class="footer-menu">
@@ -143,17 +143,17 @@
 
         <button ion-button icon-only clear menuClose (click)="openLink('https://www.instagram.com/barramaisoficial/')">
            <!-- <ion-icon name="logo-instagram"></ion-icon> -->
-           <img height="26" src="assets/images/instagram-icon.png">               
+           <img height="26" src="assets/images/instagram-icon.png">
         </button>
 
         <button ion-button icon-only clear menuClose (click)="openLink('https://plus.google.com/u/0/116777254689631886658')">
            <ion-icon name="logo-googleplus"></ion-icon>
         </button>
-        
+
         <button ion-button icon-only clear menuClose (click)="openLink('https://www.youtube.com/channel/UCQY10_M3S9eJt1YdPTxBkVg')">
            <ion-icon name="logo-youtube"></ion-icon>
         </button>
-      <!-- </ion-buttons>        --> 
+      <!-- </ion-buttons>        -->
    </div>
   </ion-content>
 </ion-menu>

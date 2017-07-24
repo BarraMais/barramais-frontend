@@ -99,6 +99,7 @@ import { Facebook } from '@ionic-native/facebook';
 import { NotificationsPage } from "../pages/notifications/notifications";
 import { NotificationViewPage } from '../pages/notification-view/notification-view';
 import { Search } from '../providers/search';
+import { AboutPage } from '../pages/about/about';
 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
@@ -187,7 +188,8 @@ export function getAuthHttp(http) {
     NotificationViewPage,
     GroupUpdatePage,
     BmPostLikesPage,
-    Mask
+    Mask,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -197,7 +199,7 @@ export function getAuthHttp(http) {
       platforms : {
             ios: { statusbarPadding: true }
       }
-    })    
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -276,7 +278,8 @@ export function getAuthHttp(http) {
     PhotoModalPage,
     NotificationViewPage,
     GroupUpdatePage,
-    BmPostLikesPage
+    BmPostLikesPage,
+    AboutPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

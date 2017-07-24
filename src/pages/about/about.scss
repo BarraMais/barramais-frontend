@@ -1,4 +1,4 @@
-page-help {
+page-about {
 
   .scroll-content {
     padding: 30px !important;
@@ -15,12 +15,6 @@ page-help {
     font-size: .875em !important;
   }
 
-
-  ion-item {
-    border: solid 1px #ccc !important;
-    border-radius: 3px !important;
-  }
-
   ion-list {
     border: solid 1px #ccc;
     border-top: solid 1px #ccc !important;
@@ -31,7 +25,6 @@ page-help {
 
   ion-label {
     font-size: 0.8em !important;
-    color: #969696;
   }
 
   .item-ios,
@@ -43,13 +36,22 @@ page-help {
     padding-left: 16px !important;
   }
 
-  .form-field {
-    margin: 30px 0;
+  .informations {
+    text-align: center;
   }
 
-  .button-md,
-  .button-ios {
-    background-color: #2f8eab !important;
+  .informations img {
+    width: 50px;
+  }
+
+  .informations h4 {
+    font-size: 1.5em !important;
+    color: #2f8eab !important;
+  }
+
+  .informations p {
+    font-size: 0.8em !important;
+    color: #969696 !important;
   }
 
 }

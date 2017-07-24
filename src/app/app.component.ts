@@ -63,6 +63,7 @@ import { Facebook } from '@ionic-native/facebook'; //removido do import, não us
 import { HelpPage } from '../pages/help/help';
 import { Events } from 'ionic-angular';
 import { Camera } from 'ionic-native';
+import { AboutPage } from '../pages/about/about';
 
 declare var cordova: any;
 
@@ -72,7 +73,7 @@ declare var cordova: any;
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
+  aboutPage: any = AboutPage;
   rootPage: any = HomePage;
   mainPage: any = MainPage;
   profilePage: any = ProfilePage;
@@ -166,7 +167,7 @@ export class MyApp {
     private menuCtrl: MenuController,
     public events: Events,
     private nativePageTransitions: NativePageTransitions,
-    public statusBar: StatusBar, 
+    public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public fb: Facebook
   ) {
