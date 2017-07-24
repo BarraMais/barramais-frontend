@@ -1,61 +1,70 @@
 <ion-header>
-    <bm-header [title]= "''"></bm-header>
+    <bm-header [title]= "'Configurações'"></bm-header>
 </ion-header>
 
 <ion-content>
   <div class="container">
-        <div class="session-divider" (click)="showAccountInformations()" >
-          <i class="session-icon account"></i>
-          <p>
-            Informações de conta
-          </p>
-        </div>
-        <div class="session-content" [hidden]="!accountInformations">
-          <ion-item class="avatar-user">
-            <ion-thumbnail item-left>
-              <img src="{{user.avatar_url}}" id='user_avatar'>
-            </ion-thumbnail>
-            <a class="camera-button" (click)="presentActionSheet()">
-              <ion-icon name="camera"></ion-icon>
-            </a>
-            <p>Adicionar/Editar Foto</p>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>Nome</ion-label>
-            <ion-input type="text" [(ngModel)]="user.first_name" name="first_name"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>Sobrenome</ion-label>
-            <ion-input type="text" [(ngModel)]="user.last_name" name="last_name"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>Nome de usuário</ion-label>
-            <ion-input type="text" [(ngModel)]="user.nickname" name="nickname"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>Data de nascimento</ion-label>
-            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="user.birthday" name="birthday"></ion-datetime>
-          </ion-item>
-          <!-- <ion-item>
-            <ion-label floating>Email</ion-label>
-            <ion-input type="text" [(ngModel)]="user.email" name="email"></ion-input>
-          </ion-item> -->
+        <h3>CONTA DE ACESSO</h3>
+        <!-- <ion-item class="avatar-user">
+          <ion-thumbnail item-left>
+            <img src="{{user.avatar_url}}" id='user_avatar'>
+          </ion-thumbnail>
+          <a class="camera-button" (click)="presentActionSheet()">
+            <ion-icon name="camera"></ion-icon>
+          </a>
+          <p>Adicionar/Editar Foto</p>
+        </ion-item> -->
+        <ion-label>EMAIL</ion-label>
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="user.email" name="email"></ion-input>
+        </ion-item>
+        <!-- <ion-label>NOVA SENHA</ion-label>
+        <ion-item>
+          <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+        </ion-item>
+        <ion-label>CONFIRMAR NOVA SENHA</ion-label>
+        <ion-item>
+          <ion-input type="password" [(ngModel)]="user.password_confirmation" name="password_confirmation"></ion-input>
+        </ion-item> -->
+        <!-- <ion-label>CONFIRMAR NOVA SENHA</ion-label>
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="user.email" name="email"></ion-input>
+        </ion-item> -->
+        <!-- <ion-label fixed>NOME</ion-label>
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="user.first_name" name="first_name"></ion-input>
+        </ion-item>
+        <ion-label>SOBRENOME</ion-label>
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="user.last_name" name="last_name"></ion-input>
+        </ion-item>
+        <ion-label>NOME DE USUÁRIO</ion-label>
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="user.nickname" name="nickname"></ion-input>
+        </ion-item>
+        <ion-label>Data de nascimento</ion-label>
+        <ion-item>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="user.birthday" name="birthday"></ion-datetime>
+        </ion-item> -->
           <!-- <ion-item>
             <ion-label floating>Confirmar Email</ion-label>
             <ion-input type="text" [(ngModel)]="userEmailConfirmation" name="email_confirmation"></ion-input>
           </ion-item> -->
-          <ion-item>
-            <ion-label floating>Email Alternativo</ion-label>
+          <!-- <ion-item>
+            <ion-label>Email Alternativo</ion-label>
             <ion-input type="text" [(ngModel)]="user.alternative_email" name="alternative_email"></ion-input>
-          </ion-item>
-          <ion-item>
-            <button ion-button (click)='editPassword()'>
-              Alterar Senha
+          </ion-item> -->
+          <div class="buttons-wrap">
+            <button ion-button block (click)="save(user)" style="">
+              ALTERAR DADOS
             </button>
-            <button ion-button (click)='deleteAccount()' style="background-color:#8e9093; opacity:0.5;">
-              Deletar Conta
+            <button ion-button block (click)='editPassword()'>
+              MUDAR SENHA
             </button>
-          </ion-item>
+            <button ion-button block color="danger" outline (click)='deleteAccount()' style="background-color:transparent !important;">
+              DELETAR MINHA CONTA
+            </button>
+          </div>
           <!-- <ion-item>
             <ion-label floating>Senha</ion-label>
             <ion-input type="password" [(ngModel)]="user.current_password" name="current_password"></ion-input>
@@ -63,8 +72,8 @@
             <ion-label floating>Confirmar Senha</ion-label>
             <ion-input type="password" [(ngModel)]="userPasswordConfirmation" name="password_confirmation"></ion-input>
           </ion-item> -->
-        </div>
-        <br>
+
+        <!-- <br>
         <div class="session-divider" (click)="showPersonalInformations()">
           <i class="session-icon personal"></i>
           <p>
@@ -402,22 +411,14 @@
             </ion-list>
           </div>
         </div>
-        <br/>
-        <div class="session-divider" (click)="showInterestInformations()">
-          <i class="session-icon interest"></i>
-          <p>
-            Informações de interesse
-          </p>
-        </div>
-        <div  class="session-content session-interest" [hidden]="!interestInformations">
-          <ion-list>
-            <div class="areaText">
-              <ion-item-divider color="light">Áreas de interesse</ion-item-divider>
-            </div>
+        <br/> -->
+        <h3>ASSUNTOS DE INTERESSE</h3>
+        <ion-list>
             <div class="interest-list">
               <ion-item class="interest-list-items" *ngFor="let interest of interests" (click)="toggleUserInterests(interest)" no-lines>
                 <div class="image-selected" *ngIf="checkUserInterests(interest)">
                   <img class="image-list" src="{{interest.photo_url}}">
+                  <img class="checkmark" src="assets/images/icons/checkmark.png">
                 </div>
                 <div class="image-notSelected" *ngIf="!checkUserInterests(interest)">
                   <img class="image-list" src="{{interest.photo_url}}">
@@ -427,11 +428,9 @@
                 </div>
               </ion-item>
             </div>
-          </ion-list>
-        </div>
-        <br>
+        </ion-list>
   </div>
-  <ion-fab right bottom *ngIf="show_save_button()">
+  <!-- <ion-fab right bottom *ngIf="show_save_button()">
     <button ion-fab mini color="danger" (click)="save(user)"><ion-icon name="done-all"></ion-icon></button>
-  </ion-fab>
+  </ion-fab> -->
 </ion-content>

@@ -1,217 +1,347 @@
 page-user {
 
-  .toolbar-md-primary .toolbar-background-md {
-      background: #123f5f;
-  }
 
-  .toolbar-ios-primary .toolbar-background-ios {
-      background: #123f5f;
-  }
+    .scroll-content {
+      padding: 30px !important;
+    }
 
-  .toolbar-wp-primary .toolbar-background-wp {
-      background: #123f5f;
-  }
+    .scroll-content h3 {
+      color: #2f8eab !important;
+      font-size: 1em !important;
+      font-weight: bold !important;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
 
-  .item-inner {
-      margin-left: 0 !important;
-      font-size: 1.5rem;
-      // border-bottom: 0.55px solid #c8c7cc !important;
-  }
+    .scroll-content p {
+      color: #969696 !important;
+      font-size: .875em !important;
+    }
 
-  .item-md, .item-ios, .item-wp {
-     padding-left: 0;
-  }
 
-  .container{
-    padding: 10px;
-  }
+    ion-item {
+      border: solid 1px #ccc !important;
+      border-radius: 3px !important;
+    }
 
-  .nautical_license{
-    width: 24.5px;
-  }
-
-  .camera-button {
-      background-color: transparent;
-      float: left;
-      bottom: 0;
-      position: relative;
-      font-size: 1em;
-      color: #123f5f;
-  }
-
-  .avatar-user{
+    .interest-list ion-item{
       border: none !important;
-  }
+      border-radius: 0 !important;
+    }
 
-  .fab{
-    border-radius: 25%;
-  }
+    ion-label {
+      font-size: 0.8em !important;
+      color: #969696;
+    }
 
-  .fab-md-danger {
-    color: #fff;
-    background-color: #faa35f;
-  }
+    .item-ios,
+    .item-md {
+      padding-left: 0 !important;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
 
-  .fab-ios-danger {
-    color: #fff;
-    background-color: #faa35f;
-  }
+    .input-wrapper {
+      padding-left: 16px !important;
+    }
 
-  .fab-wp-danger {
-    color: #fff;
-    background-color: #faa35f;
-  }
+    .form-field {
+      margin: 30px 0;
+    }
 
-  .fab-md-danger.activated {
-    color: #fff;
-    background-color: #faa35f;
-  }
+    .button-md,
+    .button-ios {
+      background-color: #2f8eab !important;
+      margin: 10px 0;
+    }
 
-  .fab-ios-danger.activated {
-    color: #fff;
-    background-color: #faa35f;
-  }
+    .item-ios.item-block .item-inner {
+      padding-right: 8px;
+      border-bottom: 0;
+    }
 
-  .fab-wp-danger.activated {
-    color: #fff;
-    background-color: #faa35f;
-  }
+    .item-md.item-block .item-inner {
+      padding-right: 8px;
+      border-bottom: 0;
+    }
 
-  .item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left] {
-    margin: 8px 16px;
-  }
+    .buttons-wrap {
+      margin: 30px 0;
+    }
 
-  .item-md ion-avatar ion-img, .item-md ion-avatar img {
-    border-radius: 0;
-  }
-
-  .item-md,
-  .item-ios,
-  .item-wp {
-    background-color: #fff;
-  }
+  // #########################################
 
   .image-list {
-    border: 0;
-    width: 40px;
+      border: 0;
   }
 
-  .image-selected{
-    opacity: 0.3;
+  .image-notSelected {
+      opacity: 0.3;
   }
-
-  .interest-list{
-     display: flex;
-     flex-direction: row;
-     flex-wrap: wrap;
-     justify-content: center;
-     align-items: stretch;
-     align-content: stretch;
-     padding-left: 35px;
- }
-
- .interest-list-items{
-     display: flex;
-     width: 33.3333%;
- }
-
- .session-divider{
-   width: 100%;
-   padding: 10px;
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-   justify-content: flex-start;
-   align-items: center;
-   align-content: center;
-   background: #fff;
-   border-radius: 4px;
- }
-
- .session-content{
-   padding: 10px;
-   background: #fff;
- }
-
- .session-icon{
-    width: 30px;
-    height: 30px;
-    margin-right: 17px;
-    margin-left: 7px;
- }
-
- .account{
-   background: url(../assets/images/icones.png) -62px -62px;
- }
-
- .personal{
-   background: url(../assets/images/icones.png) 0px -62px;
- }
-
- .nautical{
-  background: url(../assets/images/icones.png) -31px -62px;
- }
-
- .interest{
-       background: url(../assets/images/icones.png) -93px -62px;
- }
-
- .avatar-user p{
-   margin-left: 10px;
- }
-
- .avatar-user ion-label {
-    display: flex;
-    overflow: hidden;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    margin: 0;
-    font-size: inherit;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    align-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+  .image-notSelected,
+  .image-selected {
+      display: flex;
+      justify-content: center;
   }
-
-  ion-item-divider {
-    margin-top: 20px;
+  .image-selected .checkmark {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 67%;
+  }
+  .interest-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: stretch;
+      align-content: stretch;
+  }
+  .interest-list-items {
+      display: flex;
+      width: 33.3333%;
+  }
+  .textToBeAligned {
+    text-align: center;
+    font-size: 1em;
     text-transform: uppercase;
-    font-size: 0.5em !important;
+    padding-top: 10px;
+    color: #2f8eab;
+    font-weight: bold;
+  }
+  // .areaText{
+  //   text-align: center;
+  // }
+  //  .areaText p {
+  //    font-size: .8em;
+  //    color: #333;
+  //    text-align: justify;
+  //  }
+  .title {
+      text-align: center;
+      font-size: 1.2em;
+      color: #616161;
+  }
+  .btn-2 {
+      position: absolute;
+      bottom: 20px;
+      width: 80%;
+      left: 10%;
   }
 
-  ion-content{
-    background: #f5f5f5 !important;
-  }
-
-  .textToBeAligned{
-    // text-align: center;
-    font-size: 65% !important;
-  }
-
-  .areaText{
-    text-align: center !important;
-  }
-
-  ion-label{
-    font-size: 0.8em !important;
-  }
-
-  .session-interest{
-    padding: 10px !important;
-  }
-
-  .session-sports{
-    padding: 0 !important;
-  }
-
-  .divider-items {
-      width: 100%;
-      margin: 31px 0 10px 0;
-      height: 5px;
-      background: #c8c7cc;
-  }
-
+ //
+ //  .toolbar-md-primary .toolbar-background-md {
+ //      background: #123f5f;
+ //  }
+ //
+ //  .toolbar-ios-primary .toolbar-background-ios {
+ //      background: #123f5f;
+ //  }
+ //
+ //  .toolbar-wp-primary .toolbar-background-wp {
+ //      background: #123f5f;
+ //  }
+ //
+ //  .item-inner {
+ //      margin-left: 0 !important;
+ //      font-size: 1.5rem;
+ //      // border-bottom: 0.55px solid #c8c7cc !important;
+ //  }
+ //
+ //  .item-md, .item-ios, .item-wp {
+ //     padding-left: 0;
+ //  }
+ //
+ //  .container{
+ //    padding: 10px;
+ //  }
+ //
+ //  .nautical_license{
+ //    width: 24.5px;
+ //  }
+ //
+ //  .camera-button {
+ //      background-color: transparent;
+ //      float: left;
+ //      bottom: 0;
+ //      position: relative;
+ //      font-size: 1em;
+ //      color: #123f5f;
+ //  }
+ //
+ //  .avatar-user{
+ //      border: none !important;
+ //  }
+ //
+ //  .fab{
+ //    border-radius: 25%;
+ //  }
+ //
+ //  .fab-md-danger {
+ //    color: #fff;
+ //    background-color: #faa35f;
+ //  }
+ //
+ //  .fab-ios-danger {
+ //    color: #fff;
+ //    background-color: #faa35f;
+ //  }
+ //
+ //  .fab-wp-danger {
+ //    color: #fff;
+ //    background-color: #faa35f;
+ //  }
+ //
+ //  .fab-md-danger.activated {
+ //    color: #fff;
+ //    background-color: #faa35f;
+ //  }
+ //
+ //  .fab-ios-danger.activated {
+ //    color: #fff;
+ //    background-color: #faa35f;
+ //  }
+ //
+ //  .fab-wp-danger.activated {
+ //    color: #fff;
+ //    background-color: #faa35f;
+ //  }
+ //
+ //  .item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left] {
+ //    margin: 8px 16px;
+ //  }
+ //
+ //  .item-md ion-avatar ion-img, .item-md ion-avatar img {
+ //    border-radius: 0;
+ //  }
+ //
+ //  .item-md,
+ //  .item-ios,
+ //  .item-wp {
+ //    background-color: #fff;
+ //  }
+ //
+ //  .image-list {
+ //    border: 0;
+ //    width: 40px;
+ //  }
+ //
+ //  .image-selected{
+ //    opacity: 0.3;
+ //  }
+ //
+ //  .interest-list{
+ //     display: flex;
+ //     flex-direction: row;
+ //     flex-wrap: wrap;
+ //     justify-content: center;
+ //     align-items: stretch;
+ //     align-content: stretch;
+ //     padding-left: 35px;
+ // }
+ //
+ // .interest-list-items{
+ //     display: flex;
+ //     width: 33.3333%;
+ // }
+ //
+ // .session-divider{
+ //   width: 100%;
+ //   padding: 10px;
+ //   display: flex;
+ //   flex-direction: row;
+ //   flex-wrap: wrap;
+ //   justify-content: flex-start;
+ //   align-items: center;
+ //   align-content: center;
+ //   background: #fff;
+ //   border-radius: 4px;
+ // }
+ //
+ // .session-content{
+ //   padding: 10px;
+ //   background: #fff;
+ // }
+ //
+ // .session-icon{
+ //    width: 30px;
+ //    height: 30px;
+ //    margin-right: 17px;
+ //    margin-left: 7px;
+ // }
+ //
+ // .account{
+ //   background: url(../assets/images/icones.png) -62px -62px;
+ // }
+ //
+ // .personal{
+ //   background: url(../assets/images/icones.png) 0px -62px;
+ // }
+ //
+ // .nautical{
+ //  background: url(../assets/images/icones.png) -31px -62px;
+ // }
+ //
+ // .interest{
+ //       background: url(../assets/images/icones.png) -93px -62px;
+ // }
+ //
+ // .avatar-user p{
+ //   margin-left: 10px;
+ // }
+ //
+ // .avatar-user ion-label {
+ //    display: flex;
+ //    overflow: hidden;
+ //    -webkit-flex: 1;
+ //    -ms-flex: 1;
+ //    flex: 1;
+ //    margin: 0;
+ //    font-size: inherit;
+ //    text-overflow: ellipsis;
+ //    white-space: nowrap;
+ //    align-content: center;
+ //    align-items: center;
+ //    flex-direction: row;
+ //    flex-wrap: wrap;
+ //  }
+ //
+ //  ion-item-divider {
+ //    margin-top: 20px;
+ //    text-transform: uppercase;
+ //    font-size: 0.5em !important;
+ //  }
+ //
+ //  ion-content{
+ //    background: #f5f5f5 !important;
+ //  }
+ //
+ //  .textToBeAligned{
+ //    // text-align: center;
+ //    font-size: 65% !important;
+ //  }
+ //
+ //  .areaText{
+ //    text-align: center !important;
+ //  }
+ //
+ //  ion-label{
+ //    font-size: 0.8em !important;
+ //  }
+ //
+ //  .session-interest{
+ //    padding: 10px !important;
+ //  }
+ //
+ //  .session-sports{
+ //    padding: 0 !important;
+ //  }
+ //
+ //  .divider-items {
+ //      width: 100%;
+ //      margin: 31px 0 10px 0;
+ //      height: 5px;
+ //      background: #c8c7cc;
+ //  }
+ //
 }
