@@ -101,7 +101,10 @@
 
     <h3>EMBARCAÇÕES</h3>
 
-    <ion-item>
+    <ion-tags-input [(ngModel)]="user.vessel_list" [once]="'true'" (onChange)="onChange($event)" [placeholder]="'+'" [hideRemove]="true" ></ion-tags-input>
+
+
+    <!-- <ion-item>
       <ion-toggle [(ngModel)]="user.has_embarcation" name="has_embarcation"></ion-toggle>
     </ion-item>
     <ion-list *ngIf="user.has_embarcation" no-lines>
@@ -110,13 +113,13 @@
         <ion-label>{{vessel_type.name}}</ion-label>
         <ion-icon item-left><img class="nautical_license" src="{{vessel_type.photo_url}}"/></ion-icon>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
 
     <h3>ESPORTES NÁUTICOS</h3>
 
-    <!-- <ion-tags-input [(ngModel)]="tags" [once]="'true'" (onChange)="onChange($event)" [placeholder]="'+'"></ion-tags-input> -->
+    <ion-tags-input [(ngModel)]="user.sport_list" [once]="'true'" (onChange)="onChange($event)" [placeholder]="'+'" [hideRemove]="true"></ion-tags-input>
 
-    <ion-item no-lines>
+    <!-- <ion-item no-lines>
       <ion-toggle [(ngModel)]="user.water_sportsman" name='water_sportsman'></ion-toggle>
     </ion-item>
     <div  class="session-content session-sports" *ngIf="user.water_sportsman">
@@ -135,7 +138,7 @@
           </ion-item>
         </div>
       </ion-list>
-    </div>
+    </div> -->
 
     <h3>CONTATOS</h3>
 

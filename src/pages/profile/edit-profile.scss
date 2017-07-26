@@ -693,5 +693,12 @@ page-edit-profile {
         padding: 5px;
         border: solid 1px #ccc;
         border-radius: 3px;
+        margin-bottom: 20px;
+    }
+
+    ion-tags-input .ion-tags-input .iti-tag.iti-tag-ios {
+        border: solid 1px;
+        border-radius: 8px;
+        margin-bottom: 20px;
     }
 }

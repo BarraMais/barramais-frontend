@@ -53,8 +53,6 @@ export class EditProfilePage {
   userInterests: any[] = [];
   mainPage: any = MainPage;
 
-  tags = ['Ionic', 'Angular', 'TypeScript'];
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -79,7 +77,7 @@ export class EditProfilePage {
   }
 
   onChange(val){
-    console.log(this.tags)
+    console.log(this.user.sport_list)
   }
 
   save(user) {
