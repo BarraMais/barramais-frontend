@@ -278,11 +278,15 @@ export class User
     let d = new Date;
     let new_name = user_id + d.getTime();
     const url = this.host + "albums" + "/" + album.album_id + ".json";
-    const param = {
-      'title': album.title,
-      'image': album.cover_url,
-      'filename': new_name,
-      'id': album.album_id,
+    const param =
+    {
+      'album':
+      {
+        'title': album.title,
+        'img': album.cover_url,
+        'filename': new_name,
+        'id': album.album_id,
+      }
     };
     // if (coverPhotoChanged) {
     //     const d = new Date;

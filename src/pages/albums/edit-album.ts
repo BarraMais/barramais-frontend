@@ -241,7 +241,7 @@ export class EditAlbumPage
     modal.present();
   }
 
-  
+
   openMediaOptionsCover() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Carregar midia',
@@ -249,7 +249,7 @@ export class EditAlbumPage
       buttons: [ {
         text: 'Carregar da Galeria',
         handler: () => {
-          this.takePicture( this.camera.PictureSourceType.PHOTOLIBRARY );
+          this.takePictureCover( this.camera.PictureSourceType.PHOTOLIBRARY );
         }
       },
       {
@@ -287,11 +287,11 @@ export class EditAlbumPage
         };
 
         this.camera.getPicture(options).then(
-            image_url => {                
+            image_url => {
                 let includeToNewMedia = (image) => {
                     console.log("img_url ok");
-                    this.album.cover_url = 'data:image/jpeg;base64,' + image;    
-                    //this.navCtrl.push(this.profilePage, {user: this.current_user});          
+                    this.album.cover_url = 'data:image/jpeg;base64,' + image;
+                    //this.navCtrl.push(this.profilePage, {user: this.current_user});
                 };
 
                 includeToNewMedia(image_url);
