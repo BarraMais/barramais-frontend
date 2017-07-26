@@ -31,6 +31,7 @@ import { PhotoModalPage } from '../pages/photo-modal/photo-modal';
 import { GroupPagePage } from '../pages/groups/group-page';
 import { ElasticHeader } from '../components/elastic-header/elastic-header';
 import { ProfilePage } from '../pages/profile/profile';
+import { EditProfilePage } from '../pages/profile/edit-profile';
 import { FriendsPage } from '../pages/friends/friends';
 import { FriendshipRequestPage } from '../pages/friendship-request/friendship-request';
 import { LoginPage } from '../pages/login/login';
@@ -100,6 +101,7 @@ import { NotificationsPage } from "../pages/notifications/notifications";
 import { NotificationViewPage } from '../pages/notification-view/notification-view';
 import { Search } from '../providers/search';
 import { AboutPage } from '../pages/about/about';
+import {IonTagsInputModule} from "ionic-tags-input";
 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
@@ -189,11 +191,13 @@ export function getAuthHttp(http) {
     GroupUpdatePage,
     BmPostLikesPage,
     Mask,
-    AboutPage
+    AboutPage,
+    EditProfilePage
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    IonTagsInputModule,
     IonicModule.forRoot(MyApp, {
       backButtonText: '',
       platforms : {
@@ -279,7 +283,8 @@ export function getAuthHttp(http) {
     NotificationViewPage,
     GroupUpdatePage,
     BmPostLikesPage,
-    AboutPage
+    AboutPage,
+    EditProfilePage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
