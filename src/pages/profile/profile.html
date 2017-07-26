@@ -69,7 +69,7 @@
 
         <div class="profile-container" [hidden]="!profileInformation">
             <br/>
-            <button ion-button outline block color="barramais-primary" class="btn-1" *ngIf="user.id == current_user.id"  >EDITAR PERFIL</button>
+            <button ion-button outline block color="barramais-primary" class="btn-1" *ngIf="user.id == current_user.id" (click)="editProfile()" >EDITAR PERFIL</button>
 
             <div class="profile-description" >
                 <div class="section-title">

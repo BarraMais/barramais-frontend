@@ -62,6 +62,8 @@ export class UserModel {
   tourist_places: string;
   water_sportsman: boolean;
   fishing_type: number;
+  sport_list: Array<any>;
+  vessel_list: Array<any>;
 
   constructor(public params?:any) {
     params = params || {}
@@ -117,6 +119,8 @@ export class UserModel {
     this.tourist_places = params.tourist_places || "";
     this.water_sportsman = params.water_sportsman || false;
     this.fishing_type = params.fishing_type || 0;
+    this.sport_list = params.sport_list || [];
+    this.vessel_list = params.vessel_list || [];
 
     for (let i = 0; i < this.own_vessels.length; i++) {
       this.own_vessels_id.push(this.own_vessels[i].id);

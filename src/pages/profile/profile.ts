@@ -22,7 +22,7 @@ import { AlbumsPage } from '../albums/albums';
 import { CreateAlbumPage } from '../albums/create-album';
 import { ViewAlbumPage } from '../albums/view-album';
 import { EditAlbumPage } from '../albums/edit-album';
-
+import { EditProfilePage } from '../profile/edit-profile';
 
 declare var cordova: any;
 
@@ -137,6 +137,14 @@ export class ProfilePage {
     let modal = this.modalCtrl.create(PostModalPage, {'domain_config': domain});
     modal.onDidDismiss(newPost => {
       if(newPost) this.posts.unshift(newPost);
+    });
+    modal.present();
+  }
+
+  editProfile() {
+    let modal = this.modalCtrl.create(EditProfilePage, {'user': this.current_user.id});
+    modal.onDidDismiss(user => {
+      if(user) this.user = this.jwtHelper.decodeToken(user);
     });
     modal.present();
   }
