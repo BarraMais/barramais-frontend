@@ -12,6 +12,7 @@ import { AlertController } from 'ionic-angular';
 import { EventPagePage } from '../../pages/events/event-page';
 import { GroupPagePage } from '../../pages/groups/group-page';
 import { ProfilePage } from "../../pages/profile/profile";
+import { Facebook } from '@ionic-native/facebook'; //removido do import, não usado FacebookLoginResponse
 
 /*
   Generated class for the Users page.
@@ -42,7 +43,8 @@ export class AddUsersPage {
     params: NavParams,
     public conversationProvider: Conversations,
     public userProvider: User,
-    public searchProvider: Search
+    public searchProvider: Search,
+    public fb: Facebook
   ) {
     this.current_user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
     this.user_list();
@@ -194,8 +196,23 @@ export class AddUsersPage {
       default: { break; }
     }
   }
-  
+
   closePage(): void{
     this.navCtrl.pop();
   }
+
+  inviteFacebookFriends() {
+    let options = {
+      url: "https://fb.me/202248836944012",
+      picture: "https://placehold.it/350x350"
+    }
+    this.fb.appInvite(options).then(
+      (obj) => console.log(obj),
+      (error) => {
+        alert(error);
+        console.log(error)
+      }
+    );
+  }
+
 }
