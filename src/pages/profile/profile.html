@@ -45,7 +45,7 @@
             &nbsp;&nbsp; Mensagem
         </button>
 
-        <img src="{{user.avatar_url}}" id='user_avatar'>
+        <img src="{{user.avatar_url}}" id='user_avatar' (click)="presentActionSheet()">
         <ion-item class="item-name-field">
             <h2>{{user.first_name + " " + user.last_name}}</h2>
         </ion-item>

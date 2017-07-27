@@ -351,7 +351,7 @@ page-profile {
     //     right: 9px !important;
     //     background-color: initial;
     //     border: 1px solid #2b5a7d;
-    //     color: #2b5a7d;        
+    //     color: #2b5a7d;
     // }
     .perfil-actions {
         width: 9rem;
@@ -359,7 +359,7 @@ page-profile {
     }
 
     .selected-menu {
-        font-weight: 600;        
+        font-weight: 600;
     }
 
     .cover-camera {
@@ -394,13 +394,13 @@ page-profile {
         display: flex;
         align-items: center !important;
         justify-content: center !important;
-        
+
     }
     .photo-list > div > div * {
         color: #fff;
     }
 
-    #user_cover_photo {
-        height: 15.4rem !important;
-    }
+    // #user_cover_photo {
+    //     height: 15.4rem !important;
+    // }
 }

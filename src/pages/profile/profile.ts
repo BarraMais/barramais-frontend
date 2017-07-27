@@ -71,6 +71,7 @@ export class ProfilePage {
   embarcationInformation: boolean = false;
   nauticalInformation: boolean = false;
   isMyAlbum: boolean = false;
+  avatar: string;
 
 
 
@@ -554,4 +555,97 @@ export class ProfilePage {
     alert.present();
 
     }
+
+    public presentActionSheet() {
+      if(this.visitorActions) return null;
+      let actionSheet = this.actionSheetCtrl.create({
+        title: 'Selecione a origem da imagem',
+        buttons: [
+          {
+            text: 'Carregar da Galeria',
+            handler: () => {
+              this.takeAvatar(this.camera.PictureSourceType.PHOTOLIBRARY);
+            }
+          },
+          {
+            text: 'Camera',
+            handler: () => {
+              this.takeAvatar(this.camera.PictureSourceType.CAMERA);
+            }
+          },
+          {
+            text: 'Cancelar',
+            role: 'cancel'
+          }
+        ]
+      });
+      actionSheet.present();
+    }
+
+    takeAvatar(sourceType) {
+      var options = {
+        quality: 100,
+        sourceType: sourceType,
+        saveToPhotoAlbum: false,
+        correctOrientation: true,
+        allowEdit: true,
+        //mediaType: Camera.MediaType.ALLMEDIA,
+        destinationType: this.camera.DestinationType.DATA_URL
+      };
+
+      this.camera.getPicture(options).then(image => {
+        let prompt = this.alertCtrl.create({
+          title: 'Usar foto',
+          message: 'Deseja usar esta foto como foto de perfil?',
+          buttons: [
+            {
+              text: 'Não',
+              handler: data => {
+                console.log('Cancel clicked');
+              }
+            },
+            {
+              text: 'Sim',
+              handler: data => {
+                this.user.avatar = "data:image/jpeg;base64," + image;
+                this.save_avatar(this.user);
+              }
+            }
+          ]
+        });
+        prompt.present();
+      });
+    }
+
+    is_from_gallery(sourceType) {
+      sourceType === this.camera.PictureSourceType.PHOTOLIBRARY
+    }
+
+    is_android() {
+      this.platform.is('android')
+    }
+
+    save_avatar(user) {
+        let loader = this.loadingCtrl.create({
+          content: "Salvando avatar..."
+        });
+
+        loader.present();
+
+        this.userProvider.save_avatar(user)
+        .subscribe(token_params => {
+          localStorage.setItem("user", token_params.user);
+          this.user_token = token_params.user;
+          this.user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
+          this.events.publish("onUpdateUser", this.jwtHelper.decodeToken(token_params.user));
+          this.presentToast("Avatar salvo com sucesso!");
+        }, error => {
+          this.presentToast(error.json());
+          console.log(JSON.stringify(error.json()));
+        }, () => {
+          loader.dismiss();
+        }
+      );
+    }
+
 }
