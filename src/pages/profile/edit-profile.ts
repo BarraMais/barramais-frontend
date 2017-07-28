@@ -63,7 +63,8 @@ export class EditProfilePage {
     public platform: Platform,
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
-    public events: Events
+    public events: Events,
+    
 
   ) {
     this.user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
@@ -172,6 +173,7 @@ export class EditProfilePage {
         vessel_type.checked = true;
     }
   }
+    
 
 
   includeVesselTypeToOwnVessels(vessel_type) {

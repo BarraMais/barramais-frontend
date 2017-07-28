@@ -50,15 +50,26 @@ page-friendship-request {
         justify-content: center;
     }
     .actions-row * p {
-        font-size: 1.4rem;
+        font-size: 12px;
     }
     .friends-tab-bar .actions-row .col {
         background-color: #fff;
         color: #ccc;
         text-align: center;
-        border: 1px #ccc solid;
+        border: 1px #e6e6e6 solid;
+        border-bottom: 2.5px #e6e6e6 solid;
+        border-radius: 0px;
+    }
+    .friends-tab-bar>.actions-row>.col:first-child {
+        margin-right: -1px;
+    }
+    .friends-tab-bar>.actions-row>.col:last-child {
+        margin-left: -1px;
     }
     .f-strong-blue {
         color: #2B5A7D !important;
+    }
+    img {
+        border-radius: 50% !important;
     }
 }

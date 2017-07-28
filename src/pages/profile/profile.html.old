@@ -30,17 +30,12 @@
             ADICIONAR
          </button>
 
-        <!-- <button (click)='presentConfirmUnfriend(user)' icon-left class="perfil-actions" ion-button color="secondary" *ngIf="visitorActions && isFriend == true">
+        <button (click)='presentConfirmUnfriend(user)' icon-left class="perfil-actions" ion-button color="secondary" *ngIf="visitorActions && isFriend == true">
             <ion-icon name="md-checkmark"></ion-icon>
             Amigo
-        </button> -->
-        <button item-right ion-button icon-only class="user-popover perfil-actions" (click)="presentPopover($event)" *ngIf="visitorActions && isFriend == true">
-          <ion-icon name="md-checkmark"></ion-icon>
-          <span>AMIGO</span>
-          <ion-icon name="md-arrow-dropdown"></ion-icon>
         </button>
 
-        <button icon-left class="perfil-actions" ion-button style="width: 80px !important;" *ngIf="visitorActions && isFriend == 'waiting'">
+        <button icon-left class="perfil-actions" ion-button style="width: 9rem !important;" *ngIf="visitorActions && isFriend == 'waiting'">
             <ion-icon name="time"></ion-icon>
         </button>
 

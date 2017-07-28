@@ -1,6 +1,13 @@
 page-feeds {
     ion-textarea {
-        padding-top: 13px;
+        // padding-top: 13px;
+        display: flex;
+        align-content: center;
+        align-items: center;
+    }
+    textarea {
+        opacity: 1 !important;
+        height: 16px;
     }
     ion-card {
         width: calc(100% - 3px) !important;

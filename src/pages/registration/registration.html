@@ -14,7 +14,7 @@
 
 <ion-content padding>
     <form (ngSubmit)="save(user)">
-      <ion-item>
+      <!-- <ion-item>
         <ion-label floating>Nome</ion-label>
         <ion-input type="text" [(ngModel)]="user.first_name" name="first_name"></ion-input>
       </ion-item>
@@ -25,7 +25,22 @@
       <ion-item>
         <ion-label floating>Senha</ion-label>
         <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
-      </ion-item>
+      </ion-item> -->
+
+        <div class="input-container">
+            <ion-label>NOME</ion-label>
+            <ion-input  type="text" [(ngModel)]="user.first_name" name="first_name"></ion-input>
+        </div>  
+
+        <div class="input-container">
+            <ion-label>E-MAIL</ion-label>
+            <ion-input type="text" [(ngModel)]="user.email" name="email"></ion-input>
+        </div>  
+
+        <div class="input-container">
+            <ion-label>SENHA</ion-label>
+            <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+        </div>  
       <br/>
       <button ion-button type="submit" block color="barramais-primary">CONTINUAR</button>
     </form>

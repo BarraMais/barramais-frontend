@@ -175,6 +175,7 @@ export class MyApp {
       //this.initializeApp();
       this.platform.ready().then(() => {
         statusBar.styleDefault();
+        statusBar.hide();
         splashScreen.hide();
       });
       this.setUser();

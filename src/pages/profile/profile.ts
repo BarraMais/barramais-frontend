@@ -23,6 +23,8 @@ import { CreateAlbumPage } from '../albums/create-album';
 import { ViewAlbumPage } from '../albums/view-album';
 import { EditAlbumPage } from '../albums/edit-album';
 import { EditProfilePage } from '../profile/edit-profile';
+import { UserPopover } from '../user-popover/user-popover';
+import { PopoverController } from 'ionic-angular';
 
 declare var cordova: any;
 
@@ -88,7 +90,8 @@ export class ProfilePage {
     public platform: Platform,
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
-    private camera: Camera
+    private camera: Camera,
+    public popoverCtrl: PopoverController,
   ) {
         this.current_user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
         this.setUser(navParams.data.user);
@@ -117,6 +120,13 @@ export class ProfilePage {
   openPage(page) {
     this.navCtrl.push(page, {user: this.user});
   }
+
+    presentPopover(myEvent) {
+        let popover = this.popoverCtrl.create(UserPopover);
+        popover.present({
+          ev: myEvent
+        });
+    }
 
   openRoot(page){
     this.navCtrl.setRoot(page, {user: this.user});

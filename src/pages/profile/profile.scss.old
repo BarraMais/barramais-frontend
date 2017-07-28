@@ -354,24 +354,29 @@ page-profile {
     //     color: #2b5a7d;
     // }
     .perfil-actions {
-        width: 100px;
+        width: 9rem;
         font-size: 1.15rem;
     }
+
     .selected-menu {
         font-weight: 600;
     }
+
     .cover-camera {
         position: absolute;
         width: 2rem;
         right: 10px;
         top: 23px;
     }
+
     .photo-list {
         margin-top: 40px;
     }
-    .photo-list img {
+
+    .photo-list img{
         display: block;
     }
+
     .photo-list div {
         height: 4rem;
         background-color: #2B829F;
@@ -379,42 +384,23 @@ page-profile {
         justify-content: space-around;
         text-align: center;
     }
+
     .photo-list p {
         color: #2B829F;
         font-weight: 600;
     }
-    .photo-list>div>div {
+
+    .photo-list > div > div {
         display: flex;
         align-items: center !important;
         justify-content: center !important;
+
     }
-    .photo-list>div>div * {
+    .photo-list > div > div * {
         color: #fff;
     }
+
     // #user_cover_photo {
     //     height: 15.4rem !important;
     // }
-    .user-popover {
-        width: 104px;
-    }
-    .user-popover * span {
-        color: #fff;
-    }
-    .user-popover,
-    .activated {
-        background-color: #27809c !important;
-        height: 3rem !important;
-    }
-    .user-popover ion-icon:first-child {
-        padding-right: 5px;
-    }
-    .user-popover span {
-        // margin-right: 5px;
-        // margin-left: 5px;
-    }
-    .user-popover ion-icon:last-child {
-        padding: 6px 7px 2px 10px !important;
-        background-color: #23708A;
-        margin-left: 5px !important;
-    }
 }
