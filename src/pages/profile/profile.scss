@@ -354,7 +354,7 @@ page-profile {
     //     color: #2b5a7d;
     // }
     .perfil-actions {
-        width: 100px;
+        width: 104px;
         font-size: 1.15rem;
     }
     .selected-menu {
@@ -394,10 +394,11 @@ page-profile {
     // #user_cover_photo {
     //     height: 15.4rem !important;
     // }
-    .user-popover {
-        width: 104px;
-    }
     .user-popover * span {
+        font-size: 1.15rem;
+    }
+    .user-popover * span,
+    .user-popover ion-icon {
         color: #fff;
     }
     .user-popover,
@@ -407,10 +408,6 @@ page-profile {
     }
     .user-popover ion-icon:first-child {
         padding-right: 5px;
-    }
-    .user-popover span {
-        // margin-right: 5px;
-        // margin-left: 5px;
     }
     .user-popover ion-icon:last-child {
         padding: 6px 7px 2px 10px !important;

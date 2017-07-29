@@ -122,10 +122,16 @@ export class ProfilePage {
   }
 
     presentPopover(myEvent) {
-        let popover = this.popoverCtrl.create(UserPopover);
+        let popover = this.popoverCtrl.create(UserPopover, this.user);
         popover.present({
           ev: myEvent
         });
+
+        popover.onDidDismiss((popoverData) => {
+          if (popoverData == "unfriend") {
+            this.isFriend = false;
+          }
+        })
     }
 
   openRoot(page){

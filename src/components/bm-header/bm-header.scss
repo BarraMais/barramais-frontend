@@ -1,20 +1,19 @@
 bm-header {
-
     span img {
         margin-left: 5px;
     }
-
     .toolbar-title.toolbar-title-md,
     .toolbar-title.toolbar-title-ios {
         text-align: center;
     }
-
-    .toolbar-ios, .title {
-        padding-top:28px;
-    }
-
-    .header-ios {
-        height:calc(56px + 28px);
-        min-height:calc(56px + 28px);
+    .ios {
+        .toolbar-ios,
+        .title {
+            padding-top: 28px;
+        }
+        .header-ios {
+            height: calc(56px + 28px);
+            min-height: calc(56px + 28px);
+        }
     }
 }

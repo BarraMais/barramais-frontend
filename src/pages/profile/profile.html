@@ -46,8 +46,8 @@
 
         <button icon-left class="perfil-actions"  style="left: 9px !important;"   ion-button *ngIf="visitorActions && isFriend == true" (click)='createConversationWith(user)'>
             <!-- <ion-icon name="chatbubbles"></ion-icon> -->
-            <img style="height: 1.4rem" src="assets/images/icons/msg.png">
-            &nbsp;&nbsp; Mensagem
+            <img style="height: 15px" src="assets/images/icons/msg.png">
+            <span style="margin-left: 3px">MENSAGEM</span>
         </button>
 
         <img src="{{user.avatar_url}}" id='user_avatar' (click)="presentActionSheet()">
