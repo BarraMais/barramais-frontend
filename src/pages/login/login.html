@@ -6,14 +6,23 @@
 
 <ion-content isScrolling="false" padding>
   <form (ngSubmit)="login(user)">
-    <ion-item>
-      <ion-label floating>Email</ion-label>
+    <!-- <ion-item>
+      <ion-label >Email</ion-label>
       <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
-    </ion-item>
-    <ion-item>
+    </ion-item> 
+     <ion-item>
       <ion-label floating>Senha</ion-label>
       <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
-    </ion-item>
+    </ion-item> -->
+    <div class="input-container">
+        <ion-label>E-MAIL</ion-label>
+        <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
+    </div>   
+    <div class="input-container">
+        <ion-label>SENHA</ion-label>
+        <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+    </div>
+
     <br/>
     <button color="barramais-primary" class="form-buttons" ion-button type="submit" block>
       CONTINUAR

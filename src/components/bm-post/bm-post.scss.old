@@ -71,6 +71,9 @@ bm-post {
     .button.button-md.button-clear.button-clear-md.button-small.button-small-md {
         color: #8F8F8F;
     }
+    .col {
+        padding: 0 5px;
+    }
     .row-line {
         border-top: 1px solid #f3f3f3;
         margin: 0 5%;
@@ -85,7 +88,9 @@ bm-post {
         flex-wrap: nowrap;
     }
     .social-row .col {
-        // padding: 0 5px;
+        padding: 0;
+        max-width: 100%;
+        width: 100%;
     }
     .social-row .col button span div {
         font-size: 1.2rem;
@@ -100,13 +105,9 @@ bm-post {
     .ion-md-share-alt {
         color: #b5b5b5;
     }
-    .social-row .col button {
-        margin: 0px;
-        padding: 0px;
-    }
     @media screen and (max-height: 570px) {
         .social-row {
-            // width: 100% !important;
+            width: 100% !important;
         }
         .social-row .col button span div {
             font-size: 1rem;
