@@ -8,26 +8,30 @@ import { JwtHelper } from 'angular2-jwt';
 @Component({
 
   selector: 'page-user-popover',
-  template: `    
+  template: `
       <p (click)="unfriend(user)">EXCLUIR AMIGO</p>
       <p (click)="close()">BLOQUEAR</p>
       <p (click)="close()">NÃO VER PUBLICAÇÕES</p>
   `
 })
 export class UserPopover {
-    user_token: any = localStorage.getItem('user');
-    user: UserModel = new UserModel();
-    jwtHelper: JwtHelper = new JwtHelper();
-    selectedPopoverOption: string;
+    //user_token: any = localStorage.getItem('user');
+     user: UserModel = new UserModel();
+     jwtHelper: JwtHelper = new JwtHelper();
+     selectedPopoverOption: string;
+
 
 
   constructor(
-    public viewCtrl: ViewController, 
+    public viewCtrl: ViewController,
     private userProvider: User,
     public toastCtrl: ToastController,
     ) {
+    console.log("params");
+        console.log(this.viewCtrl.data);
         this.selectedPopoverOption = "";
-        this.user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
+        //this.user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
+        this.user = this.viewCtrl.data;
   }
 
   close() {
@@ -35,12 +39,13 @@ export class UserPopover {
   }
 
   unfriend(user) {
+    console.log(user);
     console.log("unfriend was called");
     this.selectedPopoverOption = "unfriend";
     this.userProvider.unfriend(user)
     .subscribe(
       (response) =>{
-        this.presentToast(response.status);        
+        this.presentToast(response.status);
         this.close();
       },
       (error) => {
