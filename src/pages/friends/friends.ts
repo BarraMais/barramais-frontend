@@ -57,16 +57,29 @@ export class FriendsPage {
 
   }
 
+    // presentPopover(myEvent, user) {
+    //   //console.log("user-");
+    //   //console.log(user);
+    //   //console.log("myEvent");
+    //   //console.log(myEvent);
+    //     let popover = this.popoverCtrl.create(UserPopover, user);
+    //     console.log(popover);
+    //     popover.present({
+    //       ev: myEvent
+    //     });
+    // }
+
     presentPopover(myEvent, user) {
-      //console.log("user-");
-      //console.log(user);
-      //console.log("myEvent");
-      //console.log(myEvent);
         let popover = this.popoverCtrl.create(UserPopover, user);
-        console.log(popover);
         popover.present({
           ev: myEvent
         });
+
+        popover.onDidDismiss((popoverData) => {
+          if (popoverData == "unfriend") {
+            this.loadFriends();
+          }
+        })
     }
 
   ionViewDidLoad() {
