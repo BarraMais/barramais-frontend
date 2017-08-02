@@ -54,14 +54,32 @@ export class FriendsPage {
     this.current_user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
     this.loadFriends();
 
-    
+
   }
 
-    presentPopover(myEvent) {
-        let popover = this.popoverCtrl.create(UserPopover);
+    // presentPopover(myEvent, user) {
+    //   //console.log("user-");
+    //   //console.log(user);
+    //   //console.log("myEvent");
+    //   //console.log(myEvent);
+    //     let popover = this.popoverCtrl.create(UserPopover, user);
+    //     console.log(popover);
+    //     popover.present({
+    //       ev: myEvent
+    //     });
+    // }
+
+    presentPopover(myEvent, user) {
+        let popover = this.popoverCtrl.create(UserPopover, user);
         popover.present({
           ev: myEvent
         });
+
+        popover.onDidDismiss((popoverData) => {
+          if (popoverData == "unfriend") {
+            this.loadFriends();
+          }
+        })
     }
 
   ionViewDidLoad() {
