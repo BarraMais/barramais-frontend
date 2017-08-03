@@ -12,6 +12,8 @@ import { Events } from 'ionic-angular';
 import { EventPagePage } from '../../pages/events/event-page';
 import { GroupPagePage } from '../../pages/groups/group-page';
 import { BmPostLikesPage } from '../../pages/bm-post-likes/bm-post-likes';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { ActionSheetController }  from 'ionic-angular';
 
 /*
   Generated class for the BmPost component.
@@ -41,7 +43,9 @@ export class BmPostComponent {
     public modalCtrl: ModalController,
     public postsProvider: Posts,
     public alertCtrl: AlertController,
-    public events: Events
+    public events: Events,
+    public actionSheetCtrl: ActionSheetController,
+    private socialSharing: SocialSharing
   ) {
     this.comment = {}
     this.current_user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
@@ -52,6 +56,97 @@ export class BmPostComponent {
     console.log('ionViewDidLoad FeedsPage');
     // this.check_posts(this.posts);
   }
+
+  public share() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Para onde quer compartilhar',
+      buttons: [
+        {
+          text: 'WhatsApp',
+          handler: () => {
+            this.whatsappShare();
+          }
+        },
+        {
+          text: 'Facebook',
+          handler: () => {
+            this.facebookShare();
+          }
+        },
+        {
+          text: 'Instagram',
+          handler: () => {
+            this.instagramShare();
+          }
+        },
+        {
+          text: 'Twitter',
+          handler: () => {
+            this.twitterShare();
+          }
+        },
+        {
+          text: 'Email',
+          handler: () => {
+            this.emailShare();
+          }
+        },
+        {
+          text: 'Cancelar',
+          role: 'cancel'
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
+  whatsappShare(){
+    this.socialSharing.shareViaWhatsApp("Message via WhatsApp", null /*Image*/,  "FOI" /* url */)
+      .then(()=>{
+        alert("Success");
+      },
+      ()=>{
+         alert("failed")
+      })
+  }
+
+  twitterShare(){
+  this.socialSharing.shareViaTwitter("Message via Twitter",null /*Image*/,"FOI")
+  .then(()=>{
+      alert("Success");
+    },
+    ()=>{
+       alert("failed")
+    })
+}
+
+facebookShare(){
+  this.socialSharing.shareViaFacebook("Message via Twitter",null /*Image*/,"FOI")
+  .then(()=>{
+      alert("Success");
+    },
+    ()=>{
+       alert("failed")
+    })
+}
+
+instagramShare(){
+  this.socialSharing.shareViaInstagram("Message via Twitter",null /*Image*/)
+  .then(()=>{
+      alert("Success");
+    },
+    ()=>{
+       alert("failed")
+    })
+}
+
+emailShare(){
+  this.socialSharing.shareViaEmail('Body', 'Subject', ['recipient@example.org']).then(() => {
+    alert("Success");
+  }).catch(() => {
+    alert("failed");
+  });
+}
 
   openModal() {
     let modal = this.modalCtrl.create(PostModalPage);
@@ -69,7 +164,7 @@ export class BmPostComponent {
     let modal = this.modalCtrl.create(CommentModalPage, {post: post});
     modal.present();
   }
-  
+
    toggleCommentBox(post) {
         post.show_comment_box = !post.show_comment_box;
   }

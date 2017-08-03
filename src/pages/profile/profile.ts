@@ -99,6 +99,7 @@ export class ProfilePage {
         if (this.current_user.id == this.user.id) {
           events.subscribe('onUpdateUser', (user) => { this.user = new UserModel(user) });
         }
+        console.log(this.user);
     }
 
     ionViewDidLoad() {

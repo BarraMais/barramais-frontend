@@ -102,6 +102,7 @@ import { NotificationViewPage } from '../pages/notification-view/notification-vi
 import { Search } from '../providers/search';
 import { AboutPage } from '../pages/about/about';
 import {IonTagsInputModule} from "ionic-tags-input";
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
@@ -305,6 +306,7 @@ export function getAuthHttp(http) {
     NativePageTransitions,
     Facebook,
     Search,
+    SocialSharing,
     {provide: AuthHttp, useFactory: getAuthHttp, deps: [Http]}
   ]
 })

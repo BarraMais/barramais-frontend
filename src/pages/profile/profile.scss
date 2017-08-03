@@ -131,7 +131,7 @@ page-profile {
         margin: -5px 0;
     }
     .actions-row {
-        border-bottom: solid 2px #fff;
+        border-bottom: solid 2px #efefef;
         margin-bottom: 15px
     }
     .information-button {
@@ -153,19 +153,25 @@ page-profile {
     .profile-description {
         background: #fff;
         margin: 10px;
-        border-radius: 2px;
+        border-radius: 4px;
     }
     .profile-description h2 {
         color: #666;
         text-align: center;
         font-size: 1em;
     }
+
+    .items{
+      border-radius: 0 !important;
+      border-bottom: solid 1px #efefef !important;
+      padding-bottom: 20px;
+    }
+
     .section-title {
         width: calc(100% - 30px);
-        margin: 15px 15px 0px 15px;
-        padding-top: 1px;
+        /* margin: 15px 15px 0px 15px; */
+        /* padding-top: 1px; */
         position: relative;
-        // border-bottom: solid 1px #f1f1f1;
     }
     .section-title img {
         max-height: 20px;
@@ -277,7 +283,6 @@ page-profile {
         margin: 0 10px;
     }
     .social {
-        width: 90%;
         margin-bottom: 5px;
         display: flex;
         flex-direction: row;
@@ -285,9 +290,25 @@ page-profile {
         justify-content: flex-start;
         align-items: center;
         align-content: center;
-        margin-left: 17%;
+        margin-left: 42px;
         color: #838181;
     }
+
+    .work {
+      font-weight: normal !important;
+    }
+
+    .work-on {
+      font-weight: bold !important;
+      color: #2f8eab;
+    }
+
+
+    .social p {
+      font-size: .875em;
+      margin: 2.5px 0;
+    }
+
     .social img {
         width: 7.5%;
         margin: 5px;
@@ -319,12 +340,17 @@ page-profile {
         display: flex;
         align-items: center;
         padding: 20px 0;
-        border: #efefef 1px solid;
     }
+
+    #pub-button {
+      border-left: solid 1px #efefef;
+      border-right: solid 1px #efefef;
+    }
+
     .btn-1 {
-        height: 2em;
-        width: 84%;
-        margin: 0 auto;
+        // height: 2em;
+        // width: 84%;
+        // margin: 0 auto;
     }
     .section-title h2 {
         color: #2b5a7d;
@@ -342,7 +368,7 @@ page-profile {
     }
     .profile-container {
         margin: 10px;
-        padding: 5px;
+        padding: 15px 20px;
         background-color: #fff;
     }
     // .perfil-actions.button.button-md.button-default.button-default-md.button-md-secondary,
@@ -367,7 +393,8 @@ page-profile {
         top: 23px;
     }
     .photo-list {
-        margin-top: 40px;
+        margin-top: 30px;
+        border-radius: 4px;
     }
     .photo-list img {
         display: block;
@@ -378,6 +405,7 @@ page-profile {
         display: flex;
         justify-content: space-around;
         text-align: center;
+        border-radius: 0 0 4px 4px;
     }
     .photo-list p {
         color: #2B829F;
@@ -413,5 +441,41 @@ page-profile {
         padding: 6px 7px 2px 10px !important;
         background-color: #23708A;
         margin-left: 5px !important;
+    }
+
+    ion-tags-input .ion-tags-input .iti-tag-color {
+        background-color: transparent;
+        color: #838181;
+        /* text-transform: uppercase; */
+    }
+
+    ion-tags-input .ion-tags-input .iti-tag.iti-tag-md {
+        border-radius: 7px;
+        border: solid 1px #838181;
+    }
+
+    ion-tags-input .ion-tags-input {
+        border-bottom: 1px solid #e5e5e5;
+        -webkit-transition: border-bottom-color 0.15s ease;
+        transition: border-bottom-color 0.15s ease;
+        padding: 5px;
+        border: solid 1px #ccc;
+        border-radius: 3px;
+        margin-bottom: 20px;
+    }
+
+    ion-tags-input .ion-tags-input .iti-tag.iti-tag-ios {
+        border: solid 1px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .photo-inner {
+        border-radius: 4px 4px 0 0 !important;
+        display: flex !important;
+        overflow: hidden;
+        height: 124px !important;
+        align-items: center;
+        justify-content: center !important;
     }
 }

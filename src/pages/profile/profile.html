@@ -61,7 +61,7 @@
                 <p class="icon-word" [ngClass]="{'selected-menu': profileInformation}">PERFIL</p>
               </ion-col>
 
-              <ion-col width-33 (click)="togglePublications()">
+              <ion-col id="pub-button" width-33 (click)="togglePublications()">
                 <p class="icon-word" [ngClass]="{'selected-menu': publications}">PUBLICAÇÕES</p>
               </ion-col>
 
@@ -73,10 +73,9 @@
         </div>
 
         <div class="profile-container" [hidden]="!profileInformation">
-            <br/>
             <button ion-button outline block color="barramais-primary" class="btn-1" *ngIf="user.id == current_user.id" (click)="editProfile()" >EDITAR PERFIL</button>
 
-            <div class="profile-description" >
+            <div class="profile-description items" >
                 <div class="section-title">
                   <ion-icon name="contact"></ion-icon>
                   <h2>INFORMAÇÕES PESSOAIS</h2>
@@ -84,132 +83,102 @@
 
                 <!-- <div class="profile-content"> -->
                   <div class="social" *ngIf="user.about!==''">
-                      {{user.about}}
-                  </div>
-
-                  <div class="social" *ngIf="user.academic_profile!==''">
-                    <ion-icon name="school"></ion-icon>
-                    {{user.academic_profile}}
-                  </div>
-                  <div class="social" *ngIf="user.profession!==''">
-                    <ion-icon name="briefcase"></ion-icon>
-                    {{user.profession}}
-                  </div>
-                  <div class="social" *ngIf="user.work!==''">
-                    <ion-icon name="briefcase"></ion-icon>
-                    {{user.work}}
+                    <p content-wrap>{{user.about}}</p>
                   </div>
                   <div class="social" *ngIf="user.relationship!==null">
-                    <ion-icon name="heart"></ion-icon>
-                    {{user.relationship_name}}
+                    <p content-wrap>{{user.relationship_name}}</p>
                   </div>
-                  <div class="social" *ngIf="user.sex=='F'">
-                    <ion-icon name="female"></ion-icon>
-                    Feminino
+                  <div class="social" *ngIf="user.academic_profile!==''">
+                    <p content-wrap>{{user.academic_profile}}</p>
                   </div>
-                  <div class="social" *ngIf="user.sex=='M'">
-                    <ion-icon name="male"></ion-icon>
-                    Masculino
-                  </div>
-                  <div class="social" *ngIf="user.naval_service_patent !== null">
-                    <!-- <img src="assets/images/{{user.naval_service_patent}}.png" /> -->
-                    {{user.naval_service_patent_name}}
+                  <div class="social" *ngIf="user.profession!==''">
+                    <p content-wrap>{{user.profession}} <b class="work" *ngIf="user.work!==''">na <b class="work-on">{{user.work}}</b></b></p>
                   </div>
                 <!-- </div> -->
             </div>
-
-            <div class="profile-description" [hidden]="!profileInformation" *ngIf="user.national_trips != ''">
+            <div class="profile-description items" *ngIf="user.naval_service_patent !== null">
+                <div class="section-title">
+                    <img src="assets/images/icon-integrante-marinha.png"/>
+                    <h2>Integrante da marinha</h2>
+                </div>
+                <div class="social" >
+                  <!-- <img src="assets/images/{{user.naval_service_patent}}.png" /> -->
+                  <p content-wrap>{{user.naval_service_patent_name}}</p>
+                </div>
+            </div>
+            <div class="profile-description items" *ngIf="user.nautical_license !== null">
+                <div class="section-title">
+                    <ion-icon name="ios-star"></ion-icon>
+                    <h2>HABILITAÇÃO NÁUTICA</h2>
+                </div>
+                <div class="social" >
+                  <p content-wrap>{{user.nautical_license_name}}</p>
+                </div>
+            </div>
+            <div class="profile-description items" *ngIf="user.national_trips != ''">
                 <div class="section-title">
                     <img src="assets/images/icon-viagem-nacional.png"/>
                     <h2>Viages nacionais</h2>
                 </div>
                 <div class="social" >
-                    {{user.national_trips}}
+                  <p content-wrap>{{user.national_trips}}</p>
                 </div>
             </div>
-
-            <div class="profile-description" [hidden]="!profileInformation" *ngIf="user.international_trips != ''">
+            <div class="profile-description items" *ngIf="user.international_trips != ''">
                 <div class="section-title">
                     <img src="assets/images/icon-viagem-internacional.png"/>
                     <h2>Viages internacionais</h2>
                 </div>
-
                 <div class="social" >
-                    {{user.international_trips}}
+                    <p content-wrap>{{user.international_trips}}</p>
                 </div>
             </div>
-
-            <div class="profile-description" [hidden]="!profileInformation">
-                <div class="section-title">
-                    <img src="assets/images/icon-integrante-marinha.png"/>
-                    <h2>Integrante da marinha</h2>
-                </div>
+            <div class="profile-description items" *ngIf="user.vessel_list.length > 0">
+              <div class="section-title">
+                <img src="assets/images/icon-embarcacao.png" />
+                <h2>Embarcações</h2>
+              </div>
+              <div class="social" >
+                <p content-wrap><ion-tags-input [(ngModel)]="user.vessel_list" [once]="'true'" [readonly]="'true'" (onChange)="onChange($event)" [placeholder]="'+'" [hideRemove]="true" ></ion-tags-input></p>
+              </div>
+            </div>
+            <div class="profile-description items" *ngIf="user.sport_list.length > 0">
+              <div class="section-title">
+                <img src="assets/images/icon-esporte.png" />
+                <h2>Esportes náuticos</h2>
+              </div>
+              <div class="social">
+                <p content-wrap><ion-tags-input [(ngModel)]="user.sport_list" [once]="'true'" [readonly]="'true'" (onChange)="onChange($event)" [placeholder]="'+'" [hideRemove]="true"></ion-tags-input></p>
+              </div>
             </div>
 
-            <div class="profile-description" [hidden]="!profileInformation" *ngIf="user.nautical_license !== null">
-                <div class="section-title">
-                    <ion-icon name="ios-star"></ion-icon>
-                    <h2>HABILITAÇÃO NÁUTICA</h2>
-                </div>
-
-                <div class="socials" [hidden]="!nauticalInformation">
-                    <div class="social" >
-                        {{user.nautical_license_name}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="profile-description" [hidden]="!profileInformation">
-                <div class="section-title">
-                    <img src="assets/images/icon-embarcacao.png" />
-                    <h2>Embarcações</h2>
-                </div>
-
-                <div class="sports">
-                  <div class="sport" *ngFor="let own_vessel of user.own_vessels">
-                    <img src="{{own_vessel.vessel_type_photo_url}}" />
-                    {{own_vessel.vessel_type_name}}
-                  </div>
-                </div>
-            </div>
-
-            <div class="profile-description" [hidden]="!profileInformation">
-                <div class="section-title">
-                    <img src="assets/images/icon-esporte.png" />
-                    <h2>Esportes náuticos</h2>
-                </div>
-
-                <div class="sports">
-                  <div class="sport" *ngFor="let nautical_sport of nautical_sports">
-                    <img src="{{nautical_sport.photo_url}}" />
-                    {{nautical_sport.name}}
-                  </div>
-                </div>
-            </div>
-
-            <div class="profile-description" [hidden]="!profileInformation">
-                <div class="section-title">
-                    <img src="assets/images/icon-contato.png" />
-                    <h2>Contatos</h2>
-                </div>
+            <div class="profile-description" *ngIf="user.alternative_email != '' || user.cellphone != ''" >
+              <div class="section-title">
+                <img src="assets/images/icon-contato.png" />
+                <h2>Contatos</h2>
+              </div>
+              <div class="social">
+                <p content-wrap>{{user.alternative_email}}<br><br>{{user.cellphone}}</p>
+              </div>
             </div>
         </div>
 
         <div class="profile-container" [hidden]="!publications">
-            <br/>
             <button ion-button outline block color="barramais-primary" class="btn-1" *ngIf="user.id == current_user.id" (click)="openModal()" >NOVA PUBLICAÇÃO </button>
             <bm-post  [posts]="posts"></bm-post>
         </div>
 
         <div class="profile-container" [hidden]="!show_album">
-            <br/>
+
             <button (click)="openPage(createAlbumPage)" ion-button outline block color="barramais-primary" class="btn-1" *ngIf="user.id == current_user.id"  >CRIAR NOVO ÁLBUM</button>
 
             <ion-list>
                 <!-- <ion-item *ngFor="let photo of album"> -->
                 <div *ngFor="let album of albums" class="photo-list" id="{{album.album_id}}">
                     <p>{{album.title}}</p>
-                    <img src="{{album.url}}"  />
+                    <div class="photo-inner">
+                      <img src="{{album.url}}"  />
+                    </div>
                     <div >
                        <div (click)="goToAlbum(viewAlbumPage, album)">
                             <span>VISUALIZAR</span>
