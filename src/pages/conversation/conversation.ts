@@ -11,6 +11,7 @@ import { ProfilePage } from "../../pages/profile/profile";
   Ionic pages and navigation.
 */
 @Component({
+  selector: 'page-conversation',
   templateUrl: 'conversation.html'
 })
 export class ConversationPage {
@@ -27,7 +28,7 @@ export class ConversationPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ConversationPage');    
+    console.log('ionViewDidLoad ConversationPage');
   }
 
   loadConversations() {

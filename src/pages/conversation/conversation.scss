@@ -1,5 +1,41 @@
 page-conversation {
 
+  ion-list {
+    border: solid 1px #ccc !important;
+    border-radius: 5px;
+    background: #fff !important;
+  }
+
+  .item-ios {
+      padding: 9px 15px;
+      border-bottom: solid 1px #ccc !important;
+      border-top: none !important;
+  }
+
+  .list-ios .item-block .item-inner {
+      border-bottom: none !important;
+  }
+
+  .list-md .item-block .item-inner {
+      border-bottom: none !important;
+  }
+
+  .item-ios h2, .item-md h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2b5a7d;
+  }
+
+  .item-ios p, .item-md p {
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  .note-ios, .note-md {
+    color: #333;
+    font-size: .875em;
+  }
+
 }
 
 .chat-avatar img {

@@ -33,14 +33,16 @@ export class FeedsPage {
     public loadingCtrl: LoadingController,
     private app: App
   ) {
-
-  }
-
-  ionViewDidLoad() {
     this.loadPosts();
     this.user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
     this.load_interests(this.user);
   }
+
+  // ionViewDidLoad() {
+  //   this.loadPosts();
+  //   this.user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
+  //   this.load_interests(this.user);
+  // }
 
   openModal() {
     let domain = {
@@ -78,6 +80,7 @@ export class FeedsPage {
             posts[index]['show_comment_box'] = false;
         }
         this.posts = posts;
+        console.log(posts);
         //loader.dismiss();
       },
       (error) => {

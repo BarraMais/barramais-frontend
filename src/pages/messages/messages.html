@@ -33,12 +33,12 @@
 <ion-footer>
   <ion-grid class='formgrid'>
     <ion-row>
-      <ion-col col-10>
-        <ion-textarea placeholder='Escreva aqui..' [(ngModel)]="message.body"></ion-textarea>
+      <ion-col col-8 class="send-fields">
+        <ion-textarea [(ngModel)]="message.body"></ion-textarea>
       </ion-col>
-      <ion-col col-2>
+      <ion-col col-4 class="send-fields">
         <button class="send-button" ion-button round small outline icon-only (click)="createMessage()">
-          <ion-icon name="send"></ion-icon>
+          ENVIAR
         </button>
       </ion-col>
     </ion-row>
