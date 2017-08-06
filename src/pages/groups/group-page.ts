@@ -69,6 +69,10 @@ export class GroupPagePage {
   send_request_to: boolean = false;
   is_member_of: boolean = false;
 
+  profileInformation: boolean = false;
+  publications: boolean = false;
+  show_album:boolean = false;
+
 
   constructor(
     public navCtrl: NavController,
@@ -350,6 +354,27 @@ export class GroupPagePage {
       }, error => {
         console.log("Não foi possível remover o grupo" + error.json());
       })
+  }
+
+  hideAll() {
+    this.profileInformation = false;
+    this.publications = false;
+    this.show_album = false;
+  }
+
+  showAlbums() {
+    this.hideAll();
+    this.show_album = !this.show_album;
+  }
+
+  showProfileInformation() {
+    this.hideAll();
+    this.profileInformation = true;
+  }
+
+  togglePublications() {
+    this.hideAll();
+    this.publications = !this.publications;
   }
 
 }
