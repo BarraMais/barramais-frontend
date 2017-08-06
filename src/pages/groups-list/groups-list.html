@@ -1,0 +1,29 @@
+<ion-header>
+  <bm-header [title]= "pageTitle"></bm-header>
+</ion-header>
+<ion-content padding >
+  <!-- <ion-refresher (ionRefresh)="doRefresh($event)" [pullMin]=90>
+   <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Atualizando...">
+   </ion-refresher-content>
+  </ion-refresher> -->
+
+  <div class="groups pendings">
+    <ion-list>
+      <ion-item *ngFor="let group of groups">
+          <ion-thumbnail item-start>
+            <img src="{{group.cover_photo_url}}" (click)="openPage(group)"/>
+          </ion-thumbnail>
+          <h2>{{group.name}}</h2>
+          <p>{{group.members.length}} seguidores</p>
+          <button ion-button item-end>
+            <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

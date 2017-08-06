@@ -90,6 +90,7 @@ import { AlbumsPage } from '../pages/albums/albums';
 import { CreateAlbumPage } from '../pages/albums/create-album';
 import { ViewAlbumPage } from '../pages/albums/view-album';
 import { EditAlbumPage } from '../pages/albums/edit-album';
+import { GroupsListPage } from '../pages/groups-list/groups-list';
 import { UsersPage } from '../pages/users/users';
 import { Posts } from '../providers/posts';
 import { Camera } from '@ionic-native/camera';
@@ -193,7 +194,8 @@ export function getAuthHttp(http) {
     BmPostLikesPage,
     Mask,
     AboutPage,
-    EditProfilePage
+    EditProfilePage,
+    GroupsListPage
   ],
   imports: [
     BrowserModule,
@@ -285,7 +287,8 @@ export function getAuthHttp(http) {
     GroupUpdatePage,
     BmPostLikesPage,
     AboutPage,
-    EditProfilePage
+    EditProfilePage,
+    GroupsListPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

@@ -1,15 +1,15 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Cadastre seu Grupo
-    </ion-title>
-    <ion-buttons start>
-      <button ion-button (click)="dismiss()">
-        <span ion-text color="primary" showWhen="ios">Cancel</span>
-        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
+  <ion-navbar primary BackButton>
+    <button menuToggle style="order: 1;">
+      <img alt="logo" height="26" src="assets/images/logoBarraMais.png">
+    </button>
+      <ion-title style="order: 2;"> Criar Página </ion-title>
+      <ion-buttons end>
+        <button (click) = "dismiss()" ion-button icon-only>
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
 <ion-content>
@@ -20,15 +20,20 @@
   </div>
   <div class="container">
     <ion-list>
+      <ion-label>NOME DA PÁGINA</ion-label>
       <ion-item>
-        <ion-label floating>Nome do Grupo</ion-label>
         <ion-input type="text" [(ngModel)]="group.name" name="name"></ion-input>
       </ion-item>
+      <ion-label>SOBRE</ion-label>
       <ion-item>
-        <ion-label floating>Descrição</ion-label>
         <ion-textarea [(ngModel)]="group.about" name="about"></ion-textarea>
       </ion-item>
     </ion-list>
-    <button class="form-buttons" ion-button type="button" block name="button" (click)="create(group)" *ngIf="group.id == null">Salvar</button>
+    <br><br>
+    <button class="form-buttons" ion-button type="button" block name="button" (click)="create(group)" *ngIf="group.id == null">CRIAR NOVA PÁGINA</button>
   </div>
+  <p>
+    Ao criar uma página, você automáticamenteestá de acordo com os <br>
+    <b><a (click)="openTermsAndPrivacy(termsPage)">Termos de Serviço</a></b> e <b><a (click)="openTermsAndPrivacy(privacyPage)">Política de Privacidade</a></b>
+  </p>
 </ion-content>

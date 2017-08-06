@@ -9,6 +9,8 @@ import { GroupPagePage } from '../groups/group-page';
 import { UserModel } from "../../models/user.model";
 import { GroupModel } from "../../models/group.model";
 import { JwtHelper } from 'angular2-jwt';
+import { GroupsListPage } from '../groups-list/groups-list';
+import { ToastController } from 'ionic-angular';
 
 /*
   Generated class for the Events page.
@@ -47,6 +49,7 @@ export class GroupsPage {
     public modalCtrl: ModalController,
     public groupProvider: Groups,
     public userProvider: User,
+    public toastCtrl: ToastController,
     public loadingCtrl: LoadingController)
     {
       this.current_user = new UserModel(this.jwtHelper.decodeToken(this.user_token));
@@ -59,7 +62,7 @@ export class GroupsPage {
 
   presentLoading() {
     let loader = this.loadingCtrl.create({
-      content: "Carregando Grupos...",
+      content: "Carregando Páginas...",
       duration: 1000
     });
     loader.present();
@@ -79,13 +82,13 @@ export class GroupsPage {
         this.myGroups_count = response.my_groups.length;
 
       }, error =>{
-        console.log("Erro ao exibir meus eventos: " + error.json());
+        console.log("Erro ao exibir minhas páginas: " + error.json());
       });
   }
 
   allGroups(){
     let loader = this.loadingCtrl.create({
-      content: "Carregando Grupos..."
+      content: "Carregando Páginas..."
     });
 
     loader.present();
@@ -95,7 +98,7 @@ export class GroupsPage {
         this.all_groups = response.all_groups;
         loader.dismiss();
       }, error =>{
-        console.log("Erro ao exibir todos os eventos: " + error.json());
+        console.log("Erro ao exibir todas as páginas: " + error.json());
       });
   }
 
@@ -106,7 +109,7 @@ export class GroupsPage {
 
         this.pendinGroups_count = response.pending_groups.length;
       }, error =>{
-        console.log("Erro ao exibir eventos pendentes: " + error.json());
+        console.log("Erro ao exibir páginas pendentes: " + error.json());
       });
   }
 
@@ -116,12 +119,16 @@ export class GroupsPage {
         this.confirmed_groups = response.confirmed_groups;
         this.confirmedGroups_count = response.confirmed_groups.length;
       }, error =>{
-        console.log("Erro ao exibir eventos confirmados: " + error.json());
+        console.log("Erro ao exibir páginas confirmadas: " + error.json());
       });
   }
 
   openPage(group){
     this.navCtrl.push(GroupPagePage, {group: group});
+  }
+
+  openAll(groups, pageTitle){
+    this.navCtrl.push(GroupsListPage, {groups: groups, pageTitle: pageTitle});
   }
 
   openModal(group) {
@@ -143,6 +150,25 @@ export class GroupsPage {
   doRefresh(refresher) {
     this.loadGroups(this.current_user);
     refresher.complete();
+  }
+
+  accept_group(group){
+    this.userProvider.accept_group(this.current_user, group).
+    subscribe(response =>{
+      this.navCtrl.setRoot(GroupsPage);
+      this.presentToast(response.sucess);
+    }, error =>{
+      this.presentToast(error.json());
+      console.log(error.json());
+    });
+  }
+
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 5000
+    });
+    toast.present();
   }
 
 }

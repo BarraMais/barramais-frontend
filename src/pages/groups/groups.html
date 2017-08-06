@@ -19,7 +19,7 @@
   </div> -->
 
   <div class="groups">
-    <p>Páginas que você curtiu <b>({{confirmedGroups_count}})</b></p>
+    <p>Páginas seguindo <b>({{confirmedGroups_count}})</b></p>
     <ion-slides paginationType="fraction" slidesPerView=2>
       <ion-slide *ngFor="let group of confirmed_groups">
           <div class="group">
@@ -29,7 +29,7 @@
           <div class="card-subtitle" (click)="openPage(group)">{{group.members.length}} seguidores</div>
       </ion-slide>
     </ion-slides>
-    <button ion-button outline block color="barramais-primary" class="btn-1" *ngIf="confirmedGroups_count > 0">VER TODAS</button>
+    <button ion-button outline block color="barramais-primary" class="btn-1" *ngIf="confirmedGroups_count > 0" (click)="openAll(confirmed_groups, 'Páginas seguindo')">VER TODAS</button>
   </div>
 
   <div class="groups">
@@ -55,10 +55,10 @@
           </ion-thumbnail>
           <h2>{{group.name}}</h2>
           <p>{{group.members.length}} seguidores</p>
-          <button ion-button outline item-end color="barramais-primary">SEGUIR</button>
+          <button ion-button outline item-end color="barramais-primary" (click)="accept_group(group)">SEGUIR</button>
       </ion-item>
     </ion-list>
-    <button ion-button outline block color="barramais-primary" class="btn-1" *ngIf="pendinGroups_count > 0">VER TODOS</button>
+    <button ion-button outline block color="barramais-primary" class="btn-1 see-all" *ngIf="pendinGroups_count > 0" (click)="openAll(pending_groups, 'Convites pendetes')">VER TODOS</button>
   </div>
 
 </ion-content>
