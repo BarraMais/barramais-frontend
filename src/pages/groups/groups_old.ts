@@ -36,10 +36,6 @@ export class GroupsPage {
   current_user: UserModel;
   jwtHelper: JwtHelper = new JwtHelper();
   user_token: any = localStorage.getItem('user');
-  myGroups_count: number = 0;
-  confirmedGroups_count: number = 0;
-  pendinGroups_count: number = 0;
-
 
   constructor(
     public navCtrl: NavController,
@@ -75,8 +71,8 @@ export class GroupsPage {
   myGroups(current_user){
     this.userProvider.myGroups(current_user)
       .subscribe(response =>{
+        // console.log(response.my_groups);
         this.my_groups = response.my_groups;
-        this.myGroups_count = response.my_groups.length;
 
       }, error =>{
         console.log("Erro ao exibir meus eventos: " + error.json());
@@ -102,19 +98,18 @@ export class GroupsPage {
   pendingGroups(current_user){
     this.userProvider.pendingGroups(current_user)
       .subscribe(response =>{
+        // console.log(response.pending_events);
         this.pending_groups = response.pending_groups;
-
-        this.pendinGroups_count = response.pending_groups.length;
       }, error =>{
-        console.log("Erro ao exibir eventos pendentes: " + error.json());
+        console.log("Erro ao exibir eventos confirmados: " + error.json());
       });
   }
 
   confirmedGroups(current_user){
     this.userProvider.confirmedGroups(current_user)
       .subscribe(response =>{
+        // console.log(response.confirmed_events);
         this.confirmed_groups = response.confirmed_groups;
-        this.confirmedGroups_count = response.confirmed_groups.length;
       }, error =>{
         console.log("Erro ao exibir eventos confirmados: " + error.json());
       });

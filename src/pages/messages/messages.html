@@ -17,10 +17,12 @@
     <ion-grid>
       <ion-row *ngFor="let msg of messages"
         [class.ownMessage]='msg.user.id != conversation.opposed.id'>
-        <ion-col col-12>
-          <span>
-            {{msg.user.name}}
-          </span>
+        <ion-col col-2 class="avatar">
+          <ion-avatar class='chat-avatar' item-left>
+            <img src="{{msg.user.avatar}}">
+          </ion-avatar>
+        </ion-col>
+        <ion-col col-8>
           <div class='message-body'>
             {{msg.body}}
           </div>

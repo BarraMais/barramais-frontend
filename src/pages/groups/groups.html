@@ -1,25 +1,7 @@
 <ion-header>
-  <ion-navbar>
-    <bm-header></bm-header>
-  </ion-navbar>
-  <ion-toolbar no-border-top>
-    <ion-segment [(ngModel)]="groups">
-      <ion-segment-button value="all-groups">
-        Todos
-      </ion-segment-button>
-      <ion-segment-button value="my-groups">
-        Próprios
-      </ion-segment-button>
-      <ion-segment-button value="confirmed-groups">
-        Membro
-      </ion-segment-button>
-      <ion-segment-button value="pending-groups">
-        Pendentes
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
+  <bm-header [title]= "'Páginas'"></bm-header>
 </ion-header>
-<ion-content>
+<ion-content padding >
   <ion-refresher (ionRefresh)="doRefresh($event)" [pullMin]=90>
    <ion-refresher-content
       pullingIcon="arrow-dropdown"
@@ -29,45 +11,54 @@
    </ion-refresher-content>
   </ion-refresher>
 
-  <div [ngSwitch]="groups">
+  <!-- <div class="groups">
+    <ion-card class="group" *ngFor="let group of all_groups">
+      <img src="{{group.cover_photo_url}}" (click)="openPage(group)"/>
+      <div class="card-title" (click)="openPage(group)">{{group.name}}</div>
+    </ion-card>
+  </div> -->
 
-    <ion-list *ngSwitchCase="'all-groups'">
-      <div class="groups">
-        <ion-card class="group" *ngFor="let group of all_groups">
-          <img src="{{group.cover_photo_url}}" (click)="openPage(group)"/>
+  <div class="groups">
+    <p>Páginas que você curtiu <b>({{confirmedGroups_count}})</b></p>
+    <ion-slides paginationType="fraction" slidesPerView=2>
+      <ion-slide *ngFor="let group of confirmed_groups">
+          <div class="group">
+            <img src="{{group.cover_photo_url}}" (click)="openPage(group)"/>
+          </div>
           <div class="card-title" (click)="openPage(group)">{{group.name}}</div>
-        </ion-card>
-      </div>
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'my-groups'">
-      <div class="groups">
-        <ion-card class="group" *ngFor="let group of my_groups">
-          <img src="{{group.cover_photo_url}}" (click)="openPage(group)"/>
-          <div class="card-title" (click)="openPage(group)">{{group.name}}</div>
-        </ion-card>
-      </div>
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'confirmed-groups'">
-      <div class="groups">
-        <ion-card class="group" *ngFor="let group of confirmed_groups">
-          <img src="{{group.cover_photo_url}}" (click)="openPage(group)"/>
-          <div class="card-title" (click)="openPage(group)">{{group.name}}</div>
-        </ion-card>
-      </div>
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'pending-groups'">
-      <div class="groups">
-        <ion-card class="group" *ngFor="let group of pending_groups">
-          <img src="{{group.cover_photo_url}}" (click)="openPage(group)"/>
-          <div class="card-title" (click)="openPage(group)">{{group.name}}</div>
-        </ion-card>
-      </div>
-    </ion-list>
+          <div class="card-subtitle" (click)="openPage(group)">{{group.members.length}} seguidores</div>
+      </ion-slide>
+    </ion-slides>
+    <button ion-button outline block color="barramais-primary" class="btn-1" *ngIf="confirmedGroups_count > 0">VER TODAS</button>
   </div>
-  <ion-fab right bottom>
-    <button ion-fab mini color="danger" (click)="openModal()"><ion-icon name="add"></ion-icon></button>
-  </ion-fab>
+
+  <div class="groups">
+    <p>Suas páginas <b>({{myGroups_count}})</b></p>
+    <ion-slides paginationType="fraction" slidesPerView=2>
+      <ion-slide *ngFor="let group of my_groups">
+          <div class="group">
+            <img src="{{group.cover_photo_url}}" (click)="openPage(group)"/>
+          </div>
+          <div class="card-title" (click)="openPage(group)">{{group.name}}</div>
+          <div class="card-subtitle" (click)="openPage(group)">{{group.members.length}} seguidores</div>
+      </ion-slide>
+    </ion-slides>
+    <button ion-button outline block color="barramais-primary" class="btn-1 btn-blue" (click)="openModal()">CRIAR UMA NOVA PÁGINA</button>
+  </div>
+
+  <div class="groups pendings">
+    <p>Convites pendetes <b>({{pendinGroups_count}})</b></p>
+    <ion-list>
+      <ion-item *ngFor="let group of pending_groups">
+          <ion-thumbnail item-start>
+            <img src="{{group.cover_photo_url}}" (click)="openPage(group)"/>
+          </ion-thumbnail>
+          <h2>{{group.name}}</h2>
+          <p>{{group.members.length}} seguidores</p>
+          <button ion-button outline item-end color="barramais-primary">SEGUIR</button>
+      </ion-item>
+    </ion-list>
+    <button ion-button outline block color="barramais-primary" class="btn-1" *ngIf="pendinGroups_count > 0">VER TODOS</button>
+  </div>
+
 </ion-content>

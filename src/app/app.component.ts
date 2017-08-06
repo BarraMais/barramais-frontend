@@ -64,6 +64,7 @@ import { HelpPage } from '../pages/help/help';
 import { Events } from 'ionic-angular';
 import { Camera } from 'ionic-native';
 import { AboutPage } from '../pages/about/about';
+import { GroupsPage } from '../pages/groups/groups';
 
 declare var cordova: any;
 
@@ -73,6 +74,7 @@ declare var cordova: any;
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+  groupsPage: any = GroupsPage;
   aboutPage: any = AboutPage;
   rootPage: any = HomePage;
   mainPage: any = MainPage;

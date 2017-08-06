@@ -1,8 +1,4 @@
-page-groups {
-
-  b {
-    color: #2f8eab;
-  }
+page-groups-old {
 
   ion-card {
     position: relative;
@@ -18,37 +14,23 @@ page-groups {
   }
 
   .card-title {
-    font-size: 0.8em;
-    color: #416b8b;
-    text-align: left;
-    margin-top: 10px;
+    position: absolute;
+    bottom: 15px;
+    font-size: 1.1em;
+    width: 100%;
     font-weight: bold;
+    color: #fff;
+    margin-left: 10px;
   }
+
   .card-subtitle {
-    font-size: 0.7em;
-    color: #959595;
-    text-align: left;
+    font-size: 1.0em;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    color: #fff;
+    margin-left: 10px;
   }
-
-  ion-item h2 {
-    font-size: 0.8em !important;
-    color: #416b8b !important;
-    font-weight: bold !important;
-  }
-  ion-item p {
-    font-size: 0.7em !important;
-    color: #959595 !important;
-  }
-
-  .btn-1 {
-    margin: 25px 0px 2px !important;
-  }
-
-  .btn-blue {
-    color: #fff !important;
-    background-color: #27809d !important;
-  }
-
 
   .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
     border-color: #f5f5f5;
@@ -151,33 +133,27 @@ page-groups {
   }
 
   .groups{
-    width: 100%;
-    background: #fff;
-    border: solid 1px #e9e9e9;
-    border-bottom: solid 2px #e9e9e9;
-    border-radius: 5px;
-    margin-bottom: 16px;
-    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
   }
 
-  .group {
-    margin-right: 10px;
-    background: #fff;
-    border: solid 1px #e9e9e9;
-    border-bottom: solid 3px #e9e9e9;
-    border-radius: 5px;
-  }
-
-  .pendings {
+  .group{
+    display: flex;
+    width: calc(50% - 4px);
+    order: 0;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    height: 89px;
+    margin: 2px;
+    overflow: hidden;
     padding: 0;
   }
-
-  .pendings ion-item {
-    border: none;
-    border-bottom: solid 1px #ccc;
-  }
-
-
 
 
 }

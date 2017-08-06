@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-navbar>
+    <bm-header></bm-header>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="groups">
+      <ion-segment-button value="all-groups">
+        Todos
+      </ion-segment-button>
+      <ion-segment-button value="my-groups">
+        Próprios
+      </ion-segment-button>
+      <ion-segment-button value="confirmed-groups">
+        Membro
+      </ion-segment-button>
+      <ion-segment-button value="pending-groups">
+        Pendentes
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)" [pullMin]=90>
+   <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Atualizando...">
+   </ion-refresher-content>
+  </ion-refresher>
+
+  <div [ngSwitch]="groups">
+
+    <ion-list *ngSwitchCase="'all-groups'">
+      <div class="groups">
+        <ion-card class="group" *ngFor="let group of all_groups">
+          <img src="{{group.cover_photo_url}}" (click)="openPage(group)"/>
+          <div class="card-title" (click)="openPage(group)">{{group.name}}</div>
+        </ion-card>
+      </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'my-groups'">
+      <div class="groups">
+        <ion-card class="group" *ngFor="let group of my_groups">
+          <img src="{{group.cover_photo_url}}" (click)="openPage(group)"/>
+          <div class="card-title" (click)="openPage(group)">{{group.name}}</div>
+        </ion-card>
+      </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'confirmed-groups'">
+      <div class="groups">
+        <ion-card class="group" *ngFor="let group of confirmed_groups">
+          <img src="{{group.cover_photo_url}}" (click)="openPage(group)"/>
+          <div class="card-title" (click)="openPage(group)">{{group.name}}</div>
+        </ion-card>
+      </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'pending-groups'">
+      <div class="groups">
+        <ion-card class="group" *ngFor="let group of pending_groups">
+          <img src="{{group.cover_photo_url}}" (click)="openPage(group)"/>
+          <div class="card-title" (click)="openPage(group)">{{group.name}}</div>
+        </ion-card>
+      </div>
+    </ion-list>
+  </div>
+  <ion-fab right bottom>
+    <button ion-fab mini color="danger" (click)="openModal()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

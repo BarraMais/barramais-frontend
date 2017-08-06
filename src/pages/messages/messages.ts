@@ -48,7 +48,11 @@ export class MessagesPage {
 
   loadMessages() {
     this.conversationsProvider.conversation_messages(this.conversation.id).subscribe(
-      (messages) => this.messages = messages,
+      (messages) => {
+        this.messages = messages
+        console.log("messages");
+        console.log(messages);
+      },
       (error) => console.log(error)
     );
   }
