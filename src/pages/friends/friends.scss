@@ -76,11 +76,11 @@ page-friends {
         min-height: 50px;
         margin-right: 0;
     }
-    img {
+    .item-friends img {
         border-radius: 50% !important;
     }
     .item-friends {
-        margin-top: 30px !important;
+        margin-top: 15px !important;
         border-top: 0px !important;
         border: 1px #e6e6e6 solid !important;
         border-bottom: 3px #e6e6e6 solid !important;
@@ -102,9 +102,7 @@ page-friends {
         top: 0 !important;
         color: #434343;
     }
-    // .label {
-    //     width: 100%;
-    // }
+
     .user-popover,
     .activated {
         background-color: #27809c !important;

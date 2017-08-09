@@ -1,5 +1,6 @@
 page-group-page {
   .background-image {
+      background: #2f8eab !important;
       // background-size: cover;
       // background-position: center;
       min-height: 10px;
@@ -28,8 +29,8 @@ page-group-page {
       top: 50px !important;
       right: 9px !important;
       background-color: initial;
-      border: 1px solid #2b5a7d;
-      color: #2b5a7d;
+      border: 1px solid #2f8eab;
+      color: #2f8eab;
   }
   .background-image .img-standard {
       max-width: 100%;
@@ -163,8 +164,6 @@ page-group-page {
 
   .items{
     border-radius: 0 !important;
-    border-bottom: solid 1px #efefef !important;
-    padding-bottom: 20px;
   }
 
   .section-title {
@@ -291,7 +290,6 @@ page-group-page {
       justify-content: flex-start;
       align-items: center;
       align-content: center;
-      margin-left: 42px;
       color: #838181;
   }
 
@@ -378,7 +376,7 @@ page-group-page {
   //     color: #2b5a7d;
   // }
   .perfil-actions {
-      width: 104px;
+      width: 70px;
       font-size: 1.15rem;
   }
   .selected-menu {
@@ -475,5 +473,23 @@ page-group-page {
       height: 124px !important;
       align-items: center;
       justify-content: center !important;
+  }
+
+  span img {
+      margin-left: 5px;
+  }
+  .toolbar-title.toolbar-title-md,
+  .toolbar-title.toolbar-title-ios {
+      text-align: center;
+  }
+  .ios {
+      .toolbar-ios,
+      .title {
+          padding-top: 28px;
+      }
+      .header-ios {
+          height: calc(56px + 28px);
+          min-height: calc(56px + 28px);
+      }
   }
 }

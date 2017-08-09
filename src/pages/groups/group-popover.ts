@@ -6,6 +6,7 @@ import { GroupModel } from "../../models/group.model";
 import { User } from '../../providers/user';
 import { Groups } from '../../providers/groups';
 import { GroupUpdatePage } from '../groups/group-update';
+import { GroupsPage } from '../groups/groups';
 import { ToastController } from 'ionic-angular';
 
 
@@ -18,6 +19,7 @@ import { ToastController } from 'ionic-angular';
       <button ion-item (click)="refuse_group()" *ngIf="i_was_invited_to">Recusar</button>
       <button ion-item (click)="refuse_group()" *ngIf="is_member_of">Sair</button>
       <button ion-item (click)="openEditModal(groupUpdate, group)" *ngIf="showAdminActions">Editar</button>
+      <button ion-item (click)="presentConfirmDelete(group)" *ngIf="showAdminActions">Excluir</button>
     </ion-list>
   `
 })
@@ -31,6 +33,7 @@ export class PopoverPage {
   user: UserModel = new UserModel();
   group: GroupModel = new GroupModel();
   invite: string = "";
+  groupsPage: any = GroupsPage;
   participateButton: boolean = false;
 
   constructor(
@@ -139,6 +142,39 @@ export class PopoverPage {
     if(this.is_member_of || this.i_was_invited_to || this.send_request_to){
       this.participateButton = true;
     }
+  }
+
+  presentConfirmDelete(group) {
+    let alert = this.alertCtrl.create({
+      title: 'Excluir Página',
+      message: 'Tem certeza que deseja excuir esta Página?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancelar');
+          }
+        },
+        {
+          text: 'Sim',
+          handler: () => {
+            this.delete(group);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  delete(group){
+    this.groupProvider.delete(group.id)
+      .subscribe(response => {
+        this.navCtrl.setRoot(this.groupsPage);
+        this.presentToast("A página foi removida com sucesso!");
+      }, error => {
+        console.log("Não foi possível remover a página" + error.json());
+      })
   }
 
 }

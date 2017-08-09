@@ -102,6 +102,7 @@ import { NotificationsPage } from "../pages/notifications/notifications";
 import { NotificationViewPage } from '../pages/notification-view/notification-view';
 import { Search } from '../providers/search';
 import { AboutPage } from '../pages/about/about';
+import { OnboardingPage } from '../pages/onboarding/onboarding';
 import {IonTagsInputModule} from "ionic-tags-input";
 import { SocialSharing } from '@ionic-native/social-sharing';
 
@@ -195,7 +196,8 @@ export function getAuthHttp(http) {
     Mask,
     AboutPage,
     EditProfilePage,
-    GroupsListPage
+    GroupsListPage,
+    OnboardingPage
   ],
   imports: [
     BrowserModule,
@@ -288,7 +290,8 @@ export function getAuthHttp(http) {
     BmPostLikesPage,
     AboutPage,
     EditProfilePage,
-    GroupsListPage
+    GroupsListPage,
+    OnboardingPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

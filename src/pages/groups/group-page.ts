@@ -92,6 +92,7 @@ export class GroupPagePage {
       this.loadMembers(this.group);
       this.loadPosts();
       this.checkMemberShip();
+      this.publications = true;
     }
 
   ionViewDidLoad() {

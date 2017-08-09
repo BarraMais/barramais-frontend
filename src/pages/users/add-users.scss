@@ -13,9 +13,7 @@ page-add-users {
     .item-wp .item-button {
         height: 3rem;
     }
-    // .item-inner {
-    //   border-bottom: 1px solid #dedede !important;
-    // }
+
     .label-md,
     .label-ios,
     .label-wp {
@@ -46,9 +44,12 @@ page-add-users {
         min-height: 50px;
     }
     .item-friends {
-        margin-top: 30px !important;
-        border: none !important;
-        box-shadow: 0px 3px 7px #d9d9d9 !important;
+        margin-top: 15px !important;
+        border-top: 0px !important;
+        border: 1px #e6e6e6 solid !important;
+        border-bottom: 3px #e6e6e6 solid !important;
+        // border: none !important;
+        // box-shadow: 0px 3px 7px #d9d9d9 !important;
     }
     .item-md ion-thumbnail[item-left] {
         margin-right: 0;
@@ -77,6 +78,11 @@ page-add-users {
     .or span {
         background: #fff !important;
     }
+
+    .item-friends img {
+        border-radius: 50% !important;
+    }
+
     .perfil-actions {
         // font-size: .7em;
         font-size: 1.9rem;

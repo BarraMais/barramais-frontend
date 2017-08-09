@@ -1,6 +1,17 @@
 <ion-header>
-  <ion-navbar>
-    <bm-header></bm-header>
+  <ion-navbar primary >
+    <button menuToggle style="order: 1;">
+      <ion-icon name="menu"></ion-icon>
+      <img alt="logo" height="26" src="assets/images/logoBarraMais.png">
+    </button>
+
+    <ion-title style="order: 2;"> {{ group.name }} </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only class="button-more" (click)="presentPopover($event)" *ngIf="!send_request_to || is_member_of">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -8,57 +19,45 @@
     <div class="background-image">
       <img class="img-standard" src="{{group.cover_photo_url}}" id='user_cover_photo' />
     </div>
-    <!-- <div class="background-image">
-      <button ion-button icon-only class="button-more" (click)="presentPopover($event)" *ngIf="!send_request_to || is_member_of">
-        <ion-icon name="more"></ion-icon>
-      </button>
-      <img src="{{group.cover_photo_url}}" alt="Perfil Header"/>
-    </div> -->
     <div class="main-content">
       <img src="{{group.cover_photo_url}}" id='user_avatar'>
       <ion-item class="item-name-field">
           <h2>{{group.name}}</h2>
           <p>{{l_confirmedMembers}} seguidores</p>
       </ion-item>
-      <!-- <button icon-left class="perfil-actions" color="danger" style="right: 84px !important;" ion-button *ngIf="showAdminActions" (click)="presentConfirmDelete(group)">
-        <ion-icon name="close"></ion-icon>
-        Excluir
+      <button class="perfil-actions" color="barramais-primary" ion-button *ngIf="!is_member_of">
+        SEGUIR
       </button>
-      <button icon-left class="perfil-actions" color="primary" ion-button (click)="openEditModal(groupUpdate, group)" *ngIf="showAdminActions">
-        <ion-icon name="create"></ion-icon>
-        Editar
-      </button> -->
       <!-- <ion-item>
         <h2 class="group-name">{{group.name}}</h2>
         Criada em {{group.createdAt | date:'MMMM d, y'}}
       </ion-item> -->
       <div class="profile-description">
           <ion-row class="actions-row">
-            <ion-col width-33 (click)="togglePublications()">
+            <ion-col width-50 (click)="togglePublications()">
               <p class="icon-word" [ngClass]="{'selected-menu': publications}">PUBLICAÇÕES</p>
             </ion-col>
 
-            <ion-col id="pub-button" width-33 (click)="showProfileInformation()">
+            <ion-col id="pub-button" width-50 (click)="showProfileInformation()">
               <p class="icon-word" [ngClass]="{'selected-menu': profileInformation}">SOBRE</p>
             </ion-col>
 
             <!-- <ion-col width-33 (click)="openPage(albumListPage)"> -->
-            <ion-col width-33 (click)="showAlbums()">
+            <!-- <ion-col width-33 (click)="showAlbums()">
               <p class="icon-word" [ngClass]="{'selected-menu': show_album}">FOTOS</p>
-            </ion-col>
+            </ion-col> -->
           </ion-row>
       </div>
 
-      <div class="profile-container" [hidden]="!publications">
-          <button ion-button outline block color="barramais-primary" class="btn-1" *ngIf="is_member_of" (click)="openPostModal()" >NOVA PUBLICAÇÃO </button>
+      <div [hidden]="!publications">
+          <button ion-button outline block color="barramais-primary" class="btn-1" *ngIf="is_member_of" (click)="openPostModal()" style="margin: 0 10px; width: calc(100% - 20px);">NOVA PUBLICAÇÃO </button>
           <bm-post  [posts]="posts"></bm-post>
       </div>
 
       <div class="profile-container" [hidden]="!profileInformation">
-          <div class="profile-description items" >
+          <div class="profile-description items" style="margin: 0;" >
               <div class="section-title">
-                <ion-icon name="contact"></ion-icon>
-                <h2>INFORMAÇÕES DA PÁGINA</h2>
+                <h2 style="margin-top:10px;">DESCRIÇÃO</h2>
               </div>
               <div class="social" *ngIf="user.about!==''">
                 <p content-wrap>{{group.about}}</p>
