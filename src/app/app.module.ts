@@ -105,6 +105,7 @@ import { AboutPage } from '../pages/about/about';
 import { OnboardingPage } from '../pages/onboarding/onboarding';
 import {IonTagsInputModule} from "ionic-tags-input";
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { PostPage } from '../pages/post/post';
 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
@@ -197,7 +198,8 @@ export function getAuthHttp(http) {
     AboutPage,
     EditProfilePage,
     GroupsListPage,
-    OnboardingPage
+    OnboardingPage,
+    PostPage
   ],
   imports: [
     BrowserModule,
@@ -291,7 +293,8 @@ export function getAuthHttp(http) {
     AboutPage,
     EditProfilePage,
     GroupsListPage,
-    OnboardingPage
+    OnboardingPage,
+    PostPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
